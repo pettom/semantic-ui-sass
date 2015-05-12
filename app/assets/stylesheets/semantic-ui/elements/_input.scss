@@ -303,18 +303,18 @@ $element : 'input';
   margin: 0;
   font-size: $medium;
 }
-@mixin .corner) {
+.ui.labeled.input > .label:not(.corner) {
   padding-top: $verticalPadding;
   padding-bottom: $verticalPadding;
 }
 
 /* Label on Left */
-@mixin [class*="corner labeled"]):not([class*="right labeled"]) > input {
+.ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
   border-left: none;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-@mixin [class*="corner labeled"]):not([class*="right labeled"]) > .label {
+.ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > .label {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -343,10 +343,10 @@ $element : 'input';
 }
 
 /* Spacing with corner label */
-@mixin .left) > input {
+.ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: $labeledIconInputMargin !important;
 }
-@mixin .left) > .icon {
+.ui[class*="corner labeled"].icon.input:not(.left) > .icon {
   margin-right: $labeledIconMargin;
 }
 
@@ -368,12 +368,12 @@ $element : 'input';
 }
 
 /* Button on Right */
-@mixin [class*="left action"]) > input {
+.ui.action.input:not([class*="left action"]) > input {
   border-right: none;
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
-@mixin [class*="left action"]) > @mixin [class*="left action"]) > .buttons > .button {
+.ui.action.input:not([class*="left action"]) > .ui.action.input:not([class*="left action"]) > .buttons > .button {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
