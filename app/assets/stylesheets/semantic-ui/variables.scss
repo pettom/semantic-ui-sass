@@ -1,146 +1,4 @@
 /*******************************
-             Reset
-*******************************//*******************************
-         Site Settings
-*******************************/
-
-/*-------------------
-       Fonts
---------------------*/
-
-$headerFont        : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@pageFont          : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-$fontSmoothing     : antialiased;
-
-@importGoogleFonts : true;
-$googleFontName    : 'Lato';
-$googleFontSizes   : '400,700,400italic,700italic';
-$googleSubset      : 'latin';
-
-$googleProtocol    : 'https://';
-$googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
-
-/*-------------------
-      Base Sizes
---------------------*/
-
-$emSize   : 14px;
-$fontSize : 14px;
-
-/*--------------
-  Page Heading
----------------*/
-
-$headerFontWeight : bold;
-$headerLineHeight : 1.33em;
-
-$h1               : 2rem;
-$h2               : 1.714rem;
-$h3               : 1.28rem;
-$h4               : 1.071rem;
-$h5               : 1rem;
-
-/*-------------------
-      Site Colors
---------------------*/
-
-/*---  Colors  ---*/
-$black            : #1B1C1D;
-$blue             : #3B83C0;
-$green            : #5BBD72;
-$grey             : #CCCCCC;
-$orange           : #E07B53;
-$pink             : #D9499A;
-$purple           : #564F8A;
-$red              : #D95C5C;
-$teal             : #00B5AD;
-$yellow           : #F2C61F;
-
-/*---  Light Colors  ---*/
-$lightBlack       : #333333;
-$lightBlue        : #54C8FF;
-$lightGreen       : #2ECC40;
-$lightOrange      : #FF851B;
-$lightPink        : #FF8EDF;
-$lightPurple      : #CDC6FF;
-$lightRed         : #FF695E;
-$lightTeal        : #6DFFFF;
-$lightYellow      : #FFE21F;
-
-/*---   Neutrals  ---*/
-$fullBlack        : #000000;
-$darkGrey         : #AAAAAA;
-$lightGrey        : #DCDDDE;
-$offWhite         : #FAFAFA;
-$darkWhite        : #F0F0F0;
-$white            : #FFFFFF;
-
-/*-------------------
-    Brand Colors
---------------------*/
-
-$primaryColor        : $blue;
-$secondaryColor      : $black;
-
-$lightPrimaryColor   : $lightBlue;
-$lightSecondaryColor : $lightBlack;
-
-/*-------------------
-        Sizes
---------------------*/
-
-/*
-  To have sizing resolve to a specified pixel values adjust
-  the numerator to the desired font size and the denominator
-  to the base em size
-*/
-
-$miniSize        : (10 / 14);
-$tinySize        : (12 / 14);
-$smallSize       : (13 / 14);
-$mediumSize      : (14 / 14);
-$largeSize       : (16 / 14);
-$bigSize         : (18 / 14);
-$hugeSize        : (20 / 14);
-$massiveSize     : (24 / 14);
-
-/*-------------------
-        Page
---------------------*/
-
-@pageBackground      : #F7F7F7;
-@pageOverflowX       : hidden;
-
-$lineHeight          : 1.33;
-$textColor           : rgba(0, 0, 0, 0.8);
-
-/*-------------------
-      Paragraph
---------------------*/
-
-$paragraphMargin     : 0em 0em 1em;
-$paragraphLineHeight : $lineHeight;
-
-/*-------------------
-       Links
---------------------*/
-
-$linkColor           : #009FDA;
-$linkUnderline       : none;
-$linkHoverColor      : lighten($linkColor, 5);
-
-/*-------------------
-  Highlighted Text
---------------------*/
-
-$highlightBackground      : #CCE2FF;
-$highlightColor           : $textColor;
-
-$inputHighlightBackground : rgba(100, 100, 100, 0.4);
-$inputHighlightColor      : $textColor;
-
-
-/*******************************
           Breadcrumb
 *******************************/
 
@@ -209,7 +67,7 @@ $labelTextTransform: none;
 $labelColor: $textColor;
 
 /* Input */
-$inputFont: @pageFont;
+$inputFont: $pageFont;
 $inputWidth: 100%;
 $inputFontSize: 1em;
 $inputVerticalPadding: 0.78571em;
@@ -507,7 +365,9 @@ $borderRadius: $defaultBorderRadius;
 
 $dividerSize: 1px;
 $dividerBackground: linear-gradient(
-  rgba(0, 0, 0, 0@mixin 0, 0, 0, 0@mixin 0, 0, 0, 0.05) 100%)
+  rgba(0, 0, 0, 0.05) 0%,
+  rgba(0, 0, 0, 0.1) 50%,
+  rgba(0, 0, 0, 0.05) 100%)
 ;
 
 $headerBackground: rgba(0, 0, 0, 0.04);
@@ -631,7 +491,7 @@ $activeHoverBackground: $hoverBackground;
 $subMenuActiveBackground: transparent;
 
 $loadingBackgroundColor: rgba(255, 255, 255, 0.8);
-$loadingImage: "@{imagePath}/loader-large.gif";
+$loadingImage: "${imagePath}/loader-large.gif";
 $loadingPosition: 50% 50%;
 
 
@@ -643,7 +503,9 @@ $loadingPosition: 50% 50%;
 $verticalBackground: #FFFFFF;
 $verticalItemBackground: none;
 $verticalDividerBackground: linear-gradient(to right,
-  rgba(0, 0, 0, 0@mixin 0, 0, 0, 0@mixin 0, 0, 0, 0.03) 100%)
+  rgba(0, 0, 0, 0.03) 0%,
+  rgba(0, 0, 0, 0.1) 1.5em,
+  rgba(0, 0, 0, 0.03) 100%)
 ;
 
 
@@ -663,7 +525,7 @@ $secondaryHorizontalPadding: 0.8em;
 $secondaryLinkOpacity: 0.8;
 
 $secondaryHeaderBackground: none transparent;
-$secondaryHeaderBorder: 0@mixin 0, 0, 0, 0.1);
+$secondaryHeaderBorder: 0.1em solid rgba(0, 0, 0, 0.1);
 
 $secondaryActiveBackground: $transparentBlack;
 $secondaryInvertedActiveBackground: $transparentWhite;
@@ -767,10 +629,14 @@ $secondaryInvertedHoverColor: $invertedSelectedTextColor;
 
 /* Inverted Menu Divider */
 $invertedDividerBackground: linear-gradient(
-  rgba(255, 255, 255, 0@mixin 255, 255, 255, 0@mixin 255, 255, 255, 0.03) 100%)
+  rgba(255, 255, 255, 0.03) 0%,
+  rgba(255, 255, 255, 0.1) 50%,
+  rgba(255, 255, 255, 0.03) 100%)
 ;
 $invertedVerticalDividerBackground: linear-gradient(to right,
-  rgba(255, 255, 255, 0@mixin 255, 255, 255, 0@mixin 255, 255, 255, 0.03) 100%)
+  rgba(255, 255, 255, 0.03) 0%,
+  rgba(255, 255, 255, 0.1) 50%,
+  rgba(255, 255, 255, 0.03) 100%)
 ;
 
 /* Fixed */
@@ -1125,7 +991,7 @@ $horizontalPadding: 1.5em;
 /* Text */
 $textTransform: none;
 $tapColor: transparent;
-$fontFamily: @pageFont;
+$fontFamily: $pageFont;
 $fontWeight: bold;
 $textColor: rgba(0, 0, 0, 0.6);
 $textShadow: none;
@@ -1201,7 +1067,8 @@ $focusBackgroundColor: '';
 $focusBackgroundImage: '';
 $focusBoxShadow:
   $borderBoxShadow,
-  0px 0px 1px rgba(81, 167, 232, 0@mixin 81, 167, 232, 0.8)
+  0px 0px 1px rgba(81, 167, 232, 0.8) inset,
+  0px 0px 3px 2px rgba(81, 167, 232, 0.8)
 ;
 $focusColor: $hoveredTextColor;
 $iconFocusOpacity: 0.85;
@@ -1459,7 +1326,7 @@ $medium: 1rem;/*******************************
        Element
 --------------------*/
 
-$spritePath: "@{imagePath}/flags.png";
+$spritePath: "${imagePath}/flags.png";
 $width: 16px;
 $height: 11px;
 $verticalAlign: baseline;
@@ -1631,12 +1498,12 @@ $loadingDuration: 2s;
 
 $circularSize: 2em;
 $circularPadding: 0.5em 0.5em;
-$circularShadow: 0em 0em 0em 0@mixin 0, 0, 0, 0.1) inset;
+$circularShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
 
 $borderedSize: 2em;
 $borderedVerticalPadding: (($borderedSize - $height) / 2);
 $borderedHorizontalPadding: (($borderedSize - $width) / 2);
-$borderedShadow: 0em 0em 0em 0@mixin 0, 0, 0, 0.1) inset;
+$borderedShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
 
 $small: 0.875em;
 $medium: 1em;
@@ -1645,13 +1512,13 @@ $big: 2em;
 $huge: 4em;
 $massive: 8em;
 
-$fallbackSRC: url("@{fontPath}/@{fontName}.eot");
+$fallbackSRC: url("${fontPath}/${fontName}.eot");
 $src:
-  url("@{fontPath}/@{fontName}@mixin 'embedded-opentype'),
-  url("@{fontPath}/@{fontName}@mixin 'woff'),
-  url("@{fontPath}/@{fontName}@mixin 'woff'),
-  url("@{fontPath}/@{fontName}@mixin 'truetype'),
-  url("@{fontPath}/@{fontName}@mixin 'svg')
+  url("${fontPath}/${fontName}.eot?#iefix") format('embedded-opentype'),
+  url("${fontPath}/${fontName}.woff2") format('woff'),
+  url("${fontPath}/${fontName}.woff") format('woff'),
+  url("${fontPath}/${fontName}.ttf") format('truetype'),
+  url("${fontPath}/${fontName}.svg#icons") format('svg')
 ;/*******************************
             Image
 *******************************/
@@ -1702,7 +1569,7 @@ $massiveWidth: 960px;
       Element
 --------------------*/
 
-$inputFont: @pageFont;
+$inputFont: $pageFont;
 $verticalPadding: 0.78571em;
 $horizontalPadding: 1em;
 
@@ -2318,7 +2185,7 @@ $borderRadius: $defaultBorderRadius;
 --------------------*/
 
 /* Page Grid Segment */
-@pageGridMargin: (2 * $verticalPadding);
+$pageGridMargin: (2 * $verticalPadding);
 
 
 /*******************************
@@ -2385,10 +2252,10 @@ $secondaryColor: $textColor;
 $tertiaryBackground:  #EBEBEB;
 $tertiaryColor: $lightTextColor;
 
-$secondaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0@mixin 255, 255, 255, 0.3) 100%);
+$secondaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
 $secondaryInvertedColor: $offWhite;
 
-$tertiaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0@mixin 255, 255, 255, 0.5) 100%);
+$tertiaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
 $tertiaryInvertedColor: $darkWhite;
 /*******************************
              Step
@@ -2488,6 +2355,147 @@ $activeHoverColor: $textColor;
 /* Disabled */
 $disabledBackground: $white;
 $disabledColor: $disabledTextColor;
+/*******************************
+             Reset
+*******************************//*******************************
+         Site Settings
+*******************************/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+$headerFont        : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$pageFont          : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$fontSmoothing     : antialiased;
+
+$importGoogleFonts : true;
+$googleFontName    : 'Lato';
+$googleFontSizes   : '400,700,400italic,700italic';
+$googleSubset      : 'latin';
+
+$googleProtocol    : 'https://';
+$googleFontRequest : '${googleFontName}:${googleFontSizes}&subset=${googleSubset}';
+
+/*-------------------
+      Base Sizes
+--------------------*/
+
+$emSize   : 14px;
+$fontSize : 14px;
+
+/*--------------
+  Page Heading
+---------------*/
+
+$headerFontWeight : bold;
+$headerLineHeight : 1.33em;
+
+$h1               : 2rem;
+$h2               : 1.714rem;
+$h3               : 1.28rem;
+$h4               : 1.071rem;
+$h5               : 1rem;
+
+/*-------------------
+      Site Colors
+--------------------*/
+
+/*---  Colors  ---*/
+$black            : #1B1C1D;
+$blue             : #3B83C0;
+$green            : #5BBD72;
+$grey             : #CCCCCC;
+$orange           : #E07B53;
+$pink             : #D9499A;
+$purple           : #564F8A;
+$red              : #D95C5C;
+$teal             : #00B5AD;
+$yellow           : #F2C61F;
+
+/*---  Light Colors  ---*/
+$lightBlack       : #333333;
+$lightBlue        : #54C8FF;
+$lightGreen       : #2ECC40;
+$lightOrange      : #FF851B;
+$lightPink        : #FF8EDF;
+$lightPurple      : #CDC6FF;
+$lightRed         : #FF695E;
+$lightTeal        : #6DFFFF;
+$lightYellow      : #FFE21F;
+
+/*---   Neutrals  ---*/
+$fullBlack        : #000000;
+$darkGrey         : #AAAAAA;
+$lightGrey        : #DCDDDE;
+$offWhite         : #FAFAFA;
+$darkWhite        : #F0F0F0;
+$white            : #FFFFFF;
+
+/*-------------------
+    Brand Colors
+--------------------*/
+
+$primaryColor        : $blue;
+$secondaryColor      : $black;
+
+$lightPrimaryColor   : $lightBlue;
+$lightSecondaryColor : $lightBlack;
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*
+  To have sizing resolve to a specified pixel values adjust
+  the numerator to the desired font size and the denominator
+  to the base em size
+*/
+
+$miniSize        : (10 / 14);
+$tinySize        : (12 / 14);
+$smallSize       : (13 / 14);
+$mediumSize      : (14 / 14);
+$largeSize       : (16 / 14);
+$bigSize         : (18 / 14);
+$hugeSize        : (20 / 14);
+$massiveSize     : (24 / 14);
+
+/*-------------------
+        Page
+--------------------*/
+
+$pageBackground      : #F7F7F7;
+$pageOverflowX       : hidden;
+
+$lineHeight          : 1.33;
+$textColor           : rgba(0, 0, 0, 0.8);
+
+/*-------------------
+      Paragraph
+--------------------*/
+
+$paragraphMargin     : 0em 0em 1em;
+$paragraphLineHeight : $lineHeight;
+
+/*-------------------
+       Links
+--------------------*/
+
+$linkColor           : #009FDA;
+$linkUnderline       : none;
+$linkHoverColor      : lighten($linkColor, 5);
+
+/*-------------------
+  Highlighted Text
+--------------------*/
+
+$highlightBackground      : #CCE2FF;
+$highlightColor           : $textColor;
+
+$inputHighlightBackground : rgba(100, 100, 100, 0.4);
+$inputHighlightColor      : $textColor;
+
 /*-------------------
        Loader
 --------------------*/
@@ -2532,7 +2540,7 @@ $strongTransparentWhite : rgba(255, 255, 255, 0.07);
        Accents
 --------------------*/
 
-/* 4px @ default em */
+/* 4px $ default em */
 $relativeBorderRadius: 0.2857em;
 $absoluteBorderRadius: 0.2857rem;
 $defaultBorderRadius: $absoluteBorderRadius;
@@ -2738,7 +2746,7 @@ $headerBottomMargin : 1rem;
 $headerMargin       : $headerTopMargin 0em $headerBottomMargin;
 
 /* Minimum Mobile Width */
-@pageMinWidth       : 320px;
+$pageMinWidth       : 320px;
 
 /* Positive / Negative Dupes */
 $successColor           : $positiveColor;
@@ -3246,7 +3254,7 @@ $visibleOpacity: 1;
 
 /* Page Dimmer*/
 $transformStyle: '';
-@pageDimmerPosition: fixed;
+$pageDimmerPosition: fixed;
 
 
 /*-------------------
@@ -4157,7 +4165,7 @@ $categoryResultTransition: $categoryTransition;
 
 $categoryNameWidth: 100px;
 $categoryNameBackground: $darkWhite;
-$categoryNameFont: @pageFont;
+$categoryNameFont: $pageFont;
 $categoryNameFontSize: 1em;
 $categoryNameFloat: left;
 $categoryNamePadding: 0.4em 1em;
@@ -4590,7 +4598,7 @@ $commentReplyDistance: $replyDistance;
 --------------------*/
 
 /* Threaded */
-$threadedCommentMargin: -1@mixin $avatarWidth / 2);
+$threadedCommentMargin: -1.5em 0 -1em  ($avatarWidth / 2);
 $threadedCommentPadding: 3em 0em 2em 2.25em;
 $threadedCommentBoxShadow: -1px 0px 0px $borderColor;
 
@@ -4940,7 +4948,7 @@ $elementMaxWidth: 175px;
 --------------------*/
 
 /* Value */
-$valueFont: @pageFont;
+$valueFont: $pageFont;
 $valueFontWeight: normal;
 $valueLineHeight: 1em;
 $valueColor: $black;
