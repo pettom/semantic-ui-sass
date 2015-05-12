@@ -13,26 +13,23 @@
             Theme
 *******************************/
 
-@type    : 'element';
-@element : 'divider';
-
-@import (multiple) '../../theme.config';
-
+$type    : 'element';
+$element : 'divider';
 
 /*******************************
             Divider
 *******************************/
 
 .ui.divider {
-  margin: @margin;
+  margin: $margin;
 
   line-height: 1;
   height: 0em;
 
-  font-weight: @fontWeight;
-  text-transform: @textTransform;
-  letter-spacing: @letterSpacing;
-  color: @color;
+  font-weight: $fontWeight;
+  text-transform: $textTransform;
+  letter-spacing: $letterSpacing;
+  color: $color;
 
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -42,9 +39,9 @@
       Basic
 ---------------*/
 
-.ui.divider:not(.vertical):not(.horizontal) {
-  border-top: @shadowWidth solid @shadowColor;
-  border-bottom: @highlightWidth solid @highlightColor;
+@mixin @mixin .horizontal) {
+  border-top: $shadowWidth solid $shadowColor;
+  border-bottom: $highlightWidth solid $highlightColor;
 }
 
 /*--------------
@@ -64,7 +61,7 @@
   position: relative;
 
   height: auto;
-  margin: @horizontalMargin;
+  margin: $horizontalMargin;
   overflow: hidden;
   line-height: 1;
   text-align: center;
@@ -81,15 +78,15 @@
   top: 50%;
   height: 0px;
 
-  border-top: @shadowWidth solid @shadowColor;
-  border-bottom: @highlightWidth solid @highlightColor;
+  border-top: $shadowWidth solid $shadowColor;
+  border-bottom: $highlightWidth solid $highlightColor;
 }
 
 .ui.horizontal.divider:before {
-  margin-left: @horizontalRulerOffset;
+  margin-left: $horizontalRulerOffset;
 }
 .ui.horizontal.divider:after {
-  margin-left: @horizontalDividerMargin;
+  margin-left: $horizontalDividerMargin;
 }
 
 /*--------------
@@ -119,11 +116,11 @@
   content: '';
   z-index: 3;
 
-  border-left: @shadowWidth solid @shadowColor;
-  border-right: @highlightWidth solid @highlightColor;
+  border-left: $shadowWidth solid $shadowColor;
+  border-right: $highlightWidth solid $highlightColor;
 
   width: 0%;
-  height: @verticalDividerHeight;
+  height: $verticalDividerHeight;
 }
 
 .ui.vertical.divider:before {
@@ -135,11 +132,11 @@
 }
 
 /* Inside grid */
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+@media only screen and (max-width : ($tabletBreakpoint - 1px)) {
   .ui.stackable.grid .ui.vertical.divider,
   .ui.grid .stackable.row .ui.vertical.divider {
     position: relative;
-    margin: @margin;
+    margin: $margin;
     left: 50%;
     height: auto;
     overflow: hidden;
@@ -161,17 +158,15 @@
     top: 50%;
     height: 0px;
 
-    border-top: @shadowWidth solid @shadowColor;
-    border-bottom: @highlightWidth solid @highlightColor;
+    border-top: $shadowWidth solid $shadowColor;
+    border-bottom: $highlightWidth solid $highlightColor;
   }
 
-  .ui.stackable.grid .ui.vertical.divider:before,
-  .ui.grid .stackable.row .ui.vertical.divider:before {
-    margin-left: -(50% + @horizontalDividerMargin);
+  @mixin 50% + $horizontalDividerMargin);
   }
   .ui.stackable.grid .ui.vertical.divider:after,
   .ui.grid .stackable.row .ui.vertical.divider:after {
-    margin-left: @horizontalDividerMargin;
+    margin-left: $horizontalDividerMargin;
   }
 }
 
@@ -180,8 +175,8 @@
 ---------------*/
 
 .ui.divider > .icon {
-  margin: @dividerIconMargin;
-  font-size: @dividerIconSize;
+  margin: $dividerIconMargin;
+  font-size: $dividerIconSize;
   height: 1em;
   vertical-align: middle;
 }
@@ -205,16 +200,16 @@
 .ui.divider.inverted,
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
-  color: @invertedTextColor;
+  color: $invertedTextColor;
 }
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: @invertedShadowColor !important;
-  border-bottom-color: @invertedHighlightColor !important;
+  border-top-color: $invertedShadowColor !important;
+  border-bottom-color: $invertedHighlightColor !important;
 
-  border-left-color: @invertedShadowColor !important;
-  border-right-color: @invertedHighlightColor !important;
+  border-left-color: $invertedShadowColor !important;
+  border-right-color: $invertedHighlightColor !important;
 }
 
 /*--------------
@@ -238,8 +233,8 @@
 ---------------*/
 
 .ui.section.divider {
-  margin-top: @sectionMargin;
-  margin-bottom: @sectionMargin;
+  margin-top: $sectionMargin;
+  margin-bottom: $sectionMargin;
 }
 
 /*--------------
@@ -247,8 +242,8 @@
 ---------------*/
 
 .ui.divider {
-  font-size: @medium;
+  font-size: $medium;
 }
 
 
-.loadUIOverrides();
+@mixin );

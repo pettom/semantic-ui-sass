@@ -18,10 +18,10 @@
    Load Theme
 ---------------*/
 
-@type    : 'element';
-@element : 'step';
+$type    : 'element';
+$element : 'step';
 
-@import (multiple) '../../theme.config';
+
 
 /*******************************
            Singular
@@ -32,12 +32,12 @@
   display: table-cell;
   vertical-align: middle;
 
-  margin: @verticalMargin @horizontalMargin;
-  padding: @verticalPadding @horizontalPadding @verticalPadding @leftPadding;
-  background: @background;
-  color: @textColor;
-  box-shadow: @boxShadow;
-  border-radius: @borderRadius;
+  margin: $verticalMargin $horizontalMargin;
+  padding: $verticalPadding $horizontalPadding $verticalPadding $leftPadding;
+  background: $background;
+  color: $textColor;
+  box-shadow: $boxShadow;
+  border-radius: $borderRadius;
 }
 
 
@@ -45,20 +45,20 @@
   position: absolute;
   z-index: 2;
   content: '';
-  top: @arrowTopOffset;
-  right: @arrowRightOffset;
+  top: $arrowTopOffset;
+  right: $arrowRightOffset;
   border: medium none;
-  background-color: @arrowBackgroundColor;
-  width: @arrowSize;
-  height: @arrowSize;
-  border-bottom: 1px solid @arrowBorderColor;
-  border-right: 1px solid @arrowBorderColor;
+  background-color: $arrowBackgroundColor;
+  width: $arrowSize;
+  height: $arrowSize;
+  border-bottom: 1px solid $arrowBorderColor;
+  border-right: 1px solid $arrowBorderColor;
   transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
 
 .ui.steps .step,
 .ui.steps .step:after {
-  transition: @transition;
+  transition: $transition;
 }
 
 /*******************************
@@ -68,25 +68,25 @@
 .ui.steps {
   display: table;
   table-layout: fixed;
-  background: @stepsBackground;
-  box-shadow: @stepsBoxShadow;
+  background: $stepsBackground;
+  box-shadow: $stepsBoxShadow;
 
-  line-height: @lineHeight;
+  line-height: $lineHeight;
   box-sizing: border-box;
-  border-radius: @stepsBorderRadius;
+  border-radius: $stepsBorderRadius;
 }
 
 .ui.steps .step:first-child {
-  padding-left: @horizontalPadding;
-  border-radius: @stepsBorderRadius 0em 0em @stepsBorderRadius;
+  padding-left: $horizontalPadding;
+  border-radius: $stepsBorderRadius 0em 0em $stepsBorderRadius;
 }
 .ui.steps .step:last-child {
-  border-radius: 0em @stepsBorderRadius @stepsBorderRadius 0em;
+  border-radius: 0em $stepsBorderRadius $stepsBorderRadius 0em;
 }
 .ui.steps .step:only-child {
-  -webkit-border-radius: @stepsBorderRadius;
-  -moz-border-radius: @stepsBorderRadius;
-  border-radius: @stepsBorderRadius;
+  -webkit-border-radius: $stepsBorderRadius;
+  -moz-border-radius: $stepsBorderRadius;
+  border-radius: $stepsBorderRadius;
 }
 
 .ui.steps .step:last-child {
@@ -103,31 +103,31 @@
 
 /* Title */
 .ui.steps .step .title {
-  font-family: @titleFontFamily;
-  font-size: @titleFontSize;
-  font-weight: @titleFontWeight;
+  font-family: $titleFontFamily;
+  font-size: $titleFontSize;
+  font-weight: $titleFontWeight;
 }
 
 /* Description */
 .ui.steps .step .description {
-  font-weight: @descriptionFontWeight;
-  font-size: @descriptionFontSize;
-  color: @descriptionColor;
+  font-weight: $descriptionFontWeight;
+  font-size: $descriptionFontSize;
+  color: $descriptionColor;
 }
 .ui.steps .step .title ~ .description {
-  margin-top: @descriptionDistance;
+  margin-top: $descriptionDistance;
 }
 
 /* Icon */
 .ui.steps .step > .icon,
 .ui.steps .step > .icon ~ .content {
   display: table-cell;
-  vertical-align: @iconVerticalAlign;
+  vertical-align: $iconVerticalAlign;
 }
 .ui.steps .step > .icon {
-  font-size: @iconSize;
+  font-size: $iconSize;
   margin: 0em;
-  padding-right: @iconDistance;
+  padding-right: $iconDistance;
 }
 
 /* Link */
@@ -152,15 +152,15 @@
   position: static;
   text-align: center;
   content: counters(ordered, ".");
-  vertical-align: @iconVerticalAlign;
-  padding-right: @iconDistance;
-  font-size: @iconSize;
+  vertical-align: $iconVerticalAlign;
+  padding-right: $iconDistance;
+  font-size: $iconSize;
   counter-increment: ordered;
 }
 
 .ui.ordered.steps .step > * {
   display: table-cell;
-  vertical-align: @iconVerticalAlign;
+  vertical-align: $iconVerticalAlign;
 }
 
 
@@ -174,15 +174,15 @@
 }
 .ui.vertical.steps .step {
   display: block;
-  border-radius: @borderRadius;
-  padding: @verticalPadding @horizontalPadding;
+  border-radius: $borderRadius;
+  padding: $verticalPadding $horizontalPadding;
 }
 .ui.vertical.steps .step:first-child {
-  padding: @verticalPadding @horizontalPadding;
-  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  padding: $verticalPadding $horizontalPadding;
+  border-radius: $stepsBorderRadius $stepsBorderRadius 0em 0em;
 }
 .ui.vertical.steps .step:last-child {
-  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  border-radius: 0em 0em $stepsBorderRadius $stepsBorderRadius;
 }
 
 /* Arrow */
@@ -201,22 +201,22 @@
 ----------------*/
 
 /* Mobile (Default) */
-@media only screen and (max-width: (@largestMobileScreen)) {
+@media only screen and (max-width: ($largestMobileScreen)) {
 
 .ui.steps {
   overflow: visible;
 }
 .ui.steps .step {
   display: block;
-  border-radius: @borderRadius;
-  padding: @verticalPadding @horizontalPadding;
+  border-radius: $borderRadius;
+  padding: $verticalPadding $horizontalPadding;
 }
 .ui.steps .step:first-child {
-  padding: @verticalPadding @horizontalPadding;
-  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  padding: $verticalPadding $horizontalPadding;
+  border-radius: $stepsBorderRadius $stepsBorderRadius 0em 0em;
 }
 .ui.steps .step:last-child {
-  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  border-radius: 0em 0em $stepsBorderRadius $stepsBorderRadius;
 }
 
 /* Arrow */
@@ -235,8 +235,8 @@
 .ui.steps .link.step:hover,
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
-  background: @hoverBackground;
-  color: @hoverColor;
+  background: $hoverBackground;
+  color: $hoverColor;
 }
 
 /* Link Down */
@@ -244,24 +244,24 @@
 .ui.steps .link.step:active,
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
-  background: @downBackground;
-  color: @downColor;
+  background: $downBackground;
+  color: $downColor;
 }
 
 /* Active */
 .ui.steps .step.active {
   cursor: auto;
-  background: @activeBackground;
+  background: $activeBackground;
 }
 .ui.steps .step.active:after {
-  background: @activeBackground;
+  background: $activeBackground;
 }
 .ui.steps .step.active .title {
-  color: @activeColor;
+  color: $activeColor;
 }
 .ui.ordered.steps .step.active:before,
 .ui.steps .active.step .icon {
-  color: @activeIconColor;
+  color: $activeIconColor;
 }
 
 /* Active Hover */
@@ -270,29 +270,29 @@
 .ui.steps a.active.step:hover::after,
 .ui.steps a.active.step:hover {
   cursor: pointer;
-  background: @activeHoverBackground;
-  color: @activeHoverColor;
+  background: $activeHoverBackground;
+  color: $activeHoverColor;
 }
 
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: @completedColor;
+  color: $completedColor;
 }
 
 /* Disabled */
 .ui.steps .disabled.step {
   cursor: auto;
-  background: @disabledBackground;
+  background: $disabledBackground;
   pointer-events: none;
 }
 .ui.steps .disabled.step,
 .ui.steps .disabled.step .title,
 .ui.steps .disabled.step .description {
-  color: @disabledColor;
+  color: $disabledColor;
 }
 .ui.steps .disabled.step:after {
-  background: @disabledBackground;
+  background: $disabledBackground;
 }
 
 
@@ -307,22 +307,22 @@
 
 
 /* Tablet Or Below */
-@media only screen and (min-width: @computerBreakpoint) {
+@media only screen and (min-width: $computerBreakpoint) {
 
 .ui[class*="tablet stackable"].steps {
   overflow: visible;
 }
 .ui[class*="tablet stackable"].steps .step {
   display: block;
-  border-radius: @borderRadius;
-  padding: @verticalPadding @horizontalPadding;
+  border-radius: $borderRadius;
+  padding: $verticalPadding $horizontalPadding;
 }
 .ui[class*="tablet stackable"].steps .step:first-child {
-  padding: @verticalPadding @horizontalPadding;
-  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  padding: $verticalPadding $horizontalPadding;
+  border-radius: $stepsBorderRadius $stepsBorderRadius 0em 0em;
 }
 .ui[class*="tablet stackable"].steps .step:last-child {
-  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  border-radius: 0em 0em $stepsBorderRadius $stepsBorderRadius;
 }
 /* Arrow */
 .ui[class*="tablet stackable"].steps .step:after {
@@ -347,26 +347,26 @@
 
 /* Top */
 .attached.ui.steps {
-  margin: @attachedTopMargin;
-  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  margin: $attachedTopMargin;
+  border-radius: $stepsBorderRadius $stepsBorderRadius 0em 0em;
 }
 .attached.ui.steps .step:first-child {
-  border-radius: @stepsBorderRadius 0em 0em 0em;
+  border-radius: $stepsBorderRadius 0em 0em 0em;
 }
 .attached.ui.steps .step:last-child {
-  border-radius: 0em @stepsBorderRadius 0em 0em;
+  border-radius: 0em $stepsBorderRadius 0em 0em;
 }
 
 /* Bottom */
 .bottom.attached.ui.steps {
-  margin: @attachedBottomMargin;
-  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  margin: $attachedBottomMargin;
+  border-radius: 0em 0em $stepsBorderRadius $stepsBorderRadius;
 }
 .bottom.attached.ui.steps .step:first-child {
-  border-radius: 0em 0em 0em @stepsBorderRadius;
+  border-radius: 0em 0em 0em $stepsBorderRadius;
 }
 .bottom.attached.ui.steps .step:last-child {
-  border-radius: 0em 0em @stepsBorderRadius 0em;
+  border-radius: 0em 0em $stepsBorderRadius 0em;
 }
 
 /*-------------------
@@ -415,15 +415,14 @@
 
 .ui.small.step,
 .ui.small.steps .step {
-  font-size: @small;
+  font-size: $small;
 }
 .ui.step,
 .ui.steps .step {
-  font-size: @medium;
+  font-size: $medium;
 }
 .ui.large.step,
 .ui.large.steps .step {
-  font-size: @large;
+  font-size: $large;
 }
 
-.loadUIOverrides();
