@@ -1,0 +1,5008 @@
+/*******************************
+          Breadcrumb
+*******************************/
+
+/*-------------------
+     Breadcrumb
+--------------------*/
+
+$verticalMargin: 1em;
+$display: inline-block;
+$verticalAlign: middle;
+
+$dividerSpacing: 0.2rem;
+$dividerOpacity: 0.5;
+$dividerColor: $lightTextColor;
+
+$dividerSize: 0.9em;
+$dividerVerticalAlign: baseline;
+
+$iconDividerSize: $relativeTiny;
+$iconDividerVerticalAlign: baseline;
+
+$sectionMargin: 0em;
+$sectionPadding: 0em;
+
+/* Coupling */
+$segmentPadding: 0.5em 1em;
+
+/*-------------------
+       States
+--------------------*/
+
+$activeFontWeight: bold;
+
+/* Sizes */
+$mini: 0.65em;
+$tiny: 0.7em;
+$small: 0.75em;
+$medium: 1em;
+$big: 1.05em;
+$large: 1.1em;
+$huge: 1.3em;
+$massive: 1.5em;/*******************************
+             Form
+*******************************/
+
+/*-------------------
+       Elements
+--------------------*/
+
+/* Form */
+$gutterWidth: 1em;
+$rowDistance: 1em;
+
+/* Text */
+$paragraphMargin: $rowDistance 0em;
+
+/* Field */
+$fieldMargin: 0em 0em $rowDistance;
+
+/* Form Label */
+$labelDistance: 0.2857rem;
+$labelMargin: 0em 0em $labelDistance 0em;
+$labelFontSize: 0.9285em;
+$labelFontWeight: bold;
+$labelTextTransform: none;
+$labelColor: $textColor;
+
+/* Input */
+$inputFont: @pageFont;
+$inputWidth: 100%;
+$inputFontSize: 1em;
+$inputVerticalPadding: 0.78571em;
+$inputHorizontalPadding: 1em;
+$inputLineHeight: 1.2142em;
+$inputPadding: ($inputVerticalPadding + ((1em - $inputLineHeight) / 2)) $inputHorizontalPadding;
+$inputBackground: #FFFFFF;
+$inputBorder: 1px solid $borderColor;
+$inputBorderRadius: $absoluteBorderRadius;
+$inputColor: $textColor;
+$inputTransition:
+  background-color 0.2s ease,
+  color 0.2s ease,
+  box-shadow 0.2s ease,
+  border-color 0.2s ease
+;
+$inputBoxShadow: 0em 0em 0em 0em transparent inset;
+
+/* Select */
+$selectBackground: $white;
+$selectBorderRadius: $inputBorderRadius;
+$selectBorder: $inputBorder;
+$selectPadding: 0.62em $inputHorizontalPadding;
+$selectBoxShadow: $inputBoxShadow;
+$selectTransition: $inputTransition;
+$selectColor: $inputColor;
+
+/* Text Area */
+$textAreaPadding: $inputVerticalPadding $inputHorizontalPadding;
+$textAreaHeight: 12em;
+$textAreaResize: vertical;
+$textAreaLineHeight: 1.2857;
+$textAreaMinHeight: 8em;
+$textAreaMaxHeight: 24em;
+$textAreaBackground: $inputBackground;
+$textAreaBorder: $inputBorder;
+$textAreaFontSize: $inputFontSize;
+$textAreaTransition: $inputTransition;
+
+/* Checkbox */
+$checkboxVerticalAlign: top;
+$checkboxLabelFontSize: 1em;
+$checkboxLabelTextTransform: $labelTextTransform;
+
+/* Divider */
+$dividerMargin: $rowDistance 0em;
+
+/* Inline Validation Prompt */
+$inlineValidationMargin: -0.5em 0em -0.5em $rowDistance;
+$inlineValidationArrowOffset: -0.3em;
+
+/*-------------------
+        States
+--------------------*/
+
+/* Disabled */
+
+/* Focus */
+$inputFocusPointerSize: 1px;
+
+/* Input Focus */
+$inputFocusBackground: $inputBackground;
+$inputFocusBorderColor: $selectedBorderColor;
+$inputFocusColor: rgba(0, 0, 0, 0.85);
+$inputFocusBoxShadow: $inputFocusPointerSize 0em 0em 0em $selectedBorderColor inset;
+$inputFocusBorderRadius: 0em $inputBorderRadius $inputBorderRadius 0em;
+
+/* Text Area Focus */
+$textAreaFocusBackground: $inputFocusBackground;
+$textAreaFocusBorderColor: $inputFocusBorderColor;
+$textAreaFocusColor: $inputFocusColor;
+$textAreaFocusBoxShadow: $inputFocusBoxShadow;
+$textAreaFocusBorderRadius: $inputFocusBorderRadius;
+
+/* Error */
+$formErrorColor: $negativeColor;
+$formErrorBorder: $negativeBorderColor;
+$formErrorBackground: $negativeBackgroundColor;
+
+/* Input Error */
+$inputErrorPointerSize: 2px;
+$inputErrorBorderRadius: 0em $inputBorderRadius $inputBorderRadius 0em;
+$inputErrorBoxShadow: $inputErrorPointerSize 0em 0em 0em $formErrorColor inset;
+
+/* Dropdown Error */
+$dropdownErrorHoverBackground: #FBE7E7;
+$dropdownErrorActiveBackground: #FDCFCF;
+
+/* Focused Error */
+$inputErrorFocusBackground: $negativeBackgroundColor;
+$inputErrorFocusColor: $negativeColorHover;
+$inputErrorFocusBorder: $negativeBorderColor;
+$inputErrorFocusBoxShadow: $inputErrorPointerSize 0em 0em 0em $negativeColorHover inset;
+
+/* Placeholder */
+$inputPlaceholderColor: lighten($inputColor, 55);
+$inputPlaceholderFocusColor: lighten($inputColor, 35);
+$inputErrorPlaceholderColor: lighten($formErrorColor, 10);
+$inputErrorPlaceholderFocusColor: lighten($formErrorColor, 5);
+
+
+/* Loading Dimmer */
+$loaderDimmerColor: rgba(255, 255, 255, 0.8);
+$loaderDimmerZIndex: 100;
+
+/* Loading Spinner */
+$loaderSize: 3em;
+$loaderOffset: -($loaderSize / 2);
+$loaderMargin: $loaderOffset 0em 0em $loaderOffset;
+$loaderLineZIndex: 101;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Required */
+$requiredContent: '*';
+$requiredColor: $negativeColor;
+$requiredVerticalOffset: -0.2em;
+$requiredDistance: 0.2em;
+$requiredMargin: $requiredVerticalOffset 0em 0em $requiredDistance;
+
+/* Inverted */
+$invertedLabelColor: $invertedTextColor;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Grouped Fields */
+$groupedMargin: $fieldMargin;
+$groupedFieldMargin: 0.5em 0em;
+
+$groupedLabelDistance: $labelDistance;
+$groupedLabelColor: $labelColor;
+$groupedLabelMargin: $labelMargin;
+$groupedLabelFontSize: $labelFontSize;
+$groupedLabelFontWeight: $labelFontWeight;
+$groupedLabelTextTransform: $labelTextTransform;
+
+
+/* Inline */
+$inlineLabelFontSize: $labelFontSize;
+$inlineLabelVerticalAlign: middle;
+$inlineGroupedFieldLabelDistance: 0.5rem;
+$inlineCheckboxLabelDistance: 1.75em;
+
+$inlineLabelMargin: 0em 1em 0em 0em;
+$inlineLabelDistance: $labelDistance;
+$inlineLabelColor: $labelColor;
+$inlineLabelFontSize: $labelFontSize;
+$inlineLabelFontWeight: $labelFontWeight;
+$inlineLabelTextTransform: $labelTextTransform;
+
+/* Sizes */
+$small: 0.875em;
+$medium: auto;
+$large: 1.125em;
+$huge: 1.2em;
+
+/*-------------------
+       Groups
+--------------------*/
+
+$inlineFieldsMargin: 0em 1em 0em 0em;/*******************************
+             Grid
+*******************************/
+
+/* Inherited From Site */
+
+// $mobileBreakpoint
+// $tabletBreakpoint
+// $computerBreakpoint
+// $largeMonitorBreakpoint
+// $widescreenMonitorBreakpoint
+
+/*******************************
+            Grid
+*******************************/
+
+$minWidth: 320px;
+
+$gutterWidth: 2rem;
+$rowSpacing: 2rem;
+
+$tableWidth: ~"calc(100% + "$gutterWidth~")";
+$columnMaxImageWidth: 100%;
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+     Page
+---------------*/
+
+/* Column Gutters */
+$mobileWidth: auto;
+$mobileMargin: 0em;
+$mobileGutter: 0em;
+
+$tabletWidth: auto;
+$tabletMargin: 0em;
+$tabletGutter: 4em;
+
+$computerWidth: auto;
+$computerMargin: 0em;
+$computerGutter: 8%;
+
+$largeMonitorWidth: auto;
+$largeMonitorMargin: 0em;
+$largeMonitorGutter: 15%;
+
+$widescreenMonitorWidth: auto;
+$widescreenMargin: 0em;
+$widescreenMonitorGutter: 23%;
+
+
+/*--------------
+     Relaxed
+---------------*/
+
+$relaxedGutterWidth: 3rem;
+$veryRelaxedGutterWidth: 5rem;
+
+/*--------------
+     Divided
+---------------*/
+
+$dividedBorder: -1px 0px 0px 0px $borderColor;
+$verticallyDividedBorder: 0px -1px 0px 0px $borderColor;
+
+$dividedInvertedBorder: -1px 0px 0px 0px $whiteBorderColor;
+$verticallyDividedInvertedBorder: 0px -1px 0px 0px $whiteBorderColor;
+
+/*--------------
+    Celled
+---------------*/
+
+$celledMargin: 1em 0em;
+$celledWidth: 1px;
+$celledBorderColor: $solidBorderColor;
+
+$celledPadding: 0.75em;
+$celledRelaxedPadding: 1em;
+$celledVeryRelaxedPadding: 2em;
+
+/*--------------
+    Stackable
+---------------*/
+
+$stackableRowSpacing: $rowSpacing;
+$stackableGutter: $gutterWidth;
+$stackableMobileBorder: 1px solid $borderColor;
+$stackableInvertedMobileBorder: 1px solid $whiteBorderColor;
+
+/*******************************
+             Menu
+*******************************/
+
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+// $textColor
+// $borderColor
+// $invertedUnselectedTextColor
+
+/*-------------------
+      Collection
+--------------------*/
+
+$margin: 1rem 0rem;
+$verticalPadding: 0.78571em;
+$horizontalPadding: 0.95em;
+
+$background: #FFFFFF;
+$itemBackground: none;
+
+$fontWeight: normal;
+$boxShadow:
+  0px 0px 0px 1px $borderColor,
+  $subtleShadow
+;
+
+$borderSize: 0em;
+
+$transition:
+  opacity 0.2s ease,
+  background 0.2s ease,
+  box-shadow 0.2s ease
+;
+$borderRadius: $defaultBorderRadius;
+
+$dividerSize: 1px;
+$dividerBackground: linear-gradient(
+  rgba(0, 0, 0, 0@mixin 0, 0, 0, 0@mixin 0, 0, 0, 0.05) 100%)
+;
+
+$headerBackground: rgba(0, 0, 0, 0.04);
+$headerWeight: bold;
+
+$textLineHeight: 1.3;
+
+$transition:
+  opacity 0.2s ease,
+  background 0.2s ease,
+  box-shadow 0.2s ease
+;
+
+$menuTextColor: $textColor;
+
+/* Sub Menu */
+$subMenuMargin: 0.5em;
+$subMenuFontSize: 0.875rem;
+$subMenuTextColor: rgba(0, 0, 0, 0.5);
+
+$subMenuHorizontalPadding: 0.5rem;
+$subMenuVerticalPadding: 1.5rem;
+
+/*--------------
+    Elements
+---------------*/
+
+/* Icon */
+$iconFloat: none;
+$iconMargin: 0em 0.25em 0em 0em;
+$iconOpacity: 0.75;
+
+$dropdownIconFloat: right;
+$dropdownIconDistance: 1em;
+
+$verticalIconFloat: right;
+$verticalIconMargin: 0em 0em 0em 0.5em;
+
+/* Header */
+$headerBackground: rgba(0, 0, 0, 0.04);
+$headerWeight: bold;
+$headerTextTransform: normal;
+
+/*--------------
+    Couplings
+---------------*/
+
+/* Button */
+$buttonOffset: -0.05em;
+$buttonVerticalPadding: 0.55em;
+$buttonSize: 0.875em;
+
+/* Input */
+$inputSize: 1em;
+$inputVerticalMargin: -0.6em;
+$inputOffset: 0em;
+$inputVerticalPadding: 0.4em;
+
+$smallInputOffset: 0em;
+$smallInputVerticalPadding: 0.4em;
+
+$largeInputOffset: -0.125em;
+$largeInputVerticalPadding: 0.6em;
+
+/* Label */
+$labelOffset: -0.15em;
+$labelBackground: rgba(0, 0, 0, 0.35);
+$labelTextColor: #FFFFFF;
+
+$labelTextMargin: 0.5em;
+$labelVerticalPadding: 0.3em;
+$labelHorizontalPadding: 0.8em;
+
+$labelAndIconFloat: none;
+$labelAndIconMargin: 0em 0.5em 0em 0em;
+
+/* Dropdown */
+$dropdownBackground: #FFFFFF;
+$dropdownMenuOffset: 0px;
+$dropdownPointingDistance: 0px;
+
+$dropdownTextColor: $textColor;
+$dropdownBackgroundHover: $transparentBlack;
+$dropdownTextColorHover: $darkTextColor;
+$dropdownIconMargin: 0em 0em 0em 1em;
+
+$dropdownBoxShadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+$dropdownVerticalBoxShadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
+
+/* Pointing Arrow */
+$arrowSize: 0.6em;
+$arrowBorderSize: 1px;
+$arrowBorder: $arrowBorderSize solid $solidBorderColor;
+$arrowTransition: background $transitionDuration $transitionEasing;
+$arrowZIndex: 11;
+
+$arrowHoverColor: #FAFAFA;
+$arrowActiveColor: #F7F7F7;
+
+$arrowVerticalHoverColor: $arrowHoverColor;
+$arrowVerticalActiveColor: $arrowActiveColor;
+$arrowVerticalSubMenuColor: $white;
+
+/*--------------
+     States
+---------------*/
+
+$hoverBackground: $subtleTransparentBlack;
+$hoverColor: $textColor;
+
+$pressedBackground: $subtleTransparentBlack;
+$pressedColor: $pressedTextColor;
+
+$activeBackground: $subtleTransparentBlack;
+$activeColor: $darkTextColor;
+$activeBorderSize: 2px;
+$activeFontWeight: normal;
+$activeIconOpacity: 1;
+
+$activeHoverBackground: $hoverBackground;
+$subMenuActiveBackground: transparent;
+
+$loadingBackgroundColor: rgba(255, 255, 255, 0.8);
+$loadingImage: "@{imagePath}/loader-large.gif";
+$loadingPosition: 50% 50%;
+
+
+/*--------------
+     Types
+---------------*/
+
+/* Vertical */
+$verticalBackground: #FFFFFF;
+$verticalItemBackground: none;
+$verticalDividerBackground: linear-gradient(to right,
+  rgba(0, 0, 0, 0@mixin 0, 0, 0, 0@mixin 0, 0, 0, 0.03) 100%)
+;
+
+
+/* Secondary */
+$secondaryBackground: none;
+$secondaryItemBackground: none;
+
+$secondaryTransition: color 0.2s ease;
+
+$secondaryBorderRadius: $defaultBorderRadius;
+
+$secondaryMargin: 0.25em;
+$secondaryVerticalMargin: 0.3em;
+$secondaryVerticalPadding: 0.5em;
+$secondaryHorizontalPadding: 0.8em;
+
+$secondaryLinkOpacity: 0.8;
+
+$secondaryHeaderBackground: none transparent;
+$secondaryHeaderBorder: 0@mixin 0, 0, 0, 0.1);
+
+$secondaryActiveBackground: $transparentBlack;
+$secondaryInvertedActiveBackground: $transparentWhite;
+
+
+/* Pointing */
+$secondaryPointingBorderWidth: 3px;
+$secondaryPointingVerticalPadding: 0.6em;
+$secondaryPointingHorizontalPadding: 0.95em;
+
+$secondaryPointingBorderColor: rgba(0, 0, 0, 0.2);
+$secondaryPointingHoverTextColor: $textColor;
+
+$secondaryPointingActiveBorderColor: rgba(0, 0, 0, 0.4);
+$secondaryPointingActiveTextColor: $selectedTextColor;
+
+$secondaryPointingHeaderColor: $darkTextColor;
+
+/* Tiered */
+$tieredActiveItemBackground: #FCFCFC;
+$tieredActiveMenuBackground: #FCFCFC;
+
+$tieredSubMenuTextTransform: normal;
+$tieredSubMenuFontWeight: normal;
+
+$tieredSubMenuColor: $lightTextColor;
+
+$tieredSubMenuHoverBackground: none transparent;
+$tieredSubMenuHoverColor: $hoveredTextColor;
+
+$tieredSubMenuActiveBackground: none transparent;
+$tieredSubMenuActiveColor: $selectedTextColor;
+
+$tieredInvertedSubMenuBackground: rgba(0, 0, 0, 0.2);
+
+/* Icon */
+$iconMenuTextAlign: center;
+$iconMenuItemColor: rgba(0, 0, 0, 0.6);
+
+/* Tabular */
+$tabularBorderColor: $solidBorderColor;
+$tabularBackgroundColor: #FFFFFF;
+$tabularBorderWidth: 1px;
+$tabularHorizontalPadding: 1.4em;
+$tabularMenuTextColor: $menuTextColor;
+
+$tabularFluidOffset: 1px;
+$tabularFluidWidth: ~"calc(100% + "($tabularFluidOffset * 2)~")";
+
+$tabularActiveColor: $selectedTextColor;
+$tabularActiveBoxShadow: none;
+
+$tabularMenuActiveBackground: #FFFFFF;
+$tabularActiveWeight: bold;
+$tabularBorderRadius: 5px;
+
+/* Pagination */
+$paginationMinWidth: 3em;
+$paginationActiveBackground: rgba(0, 0, 0, 0.03);
+
+/* Labeled Icon */
+$labeledIconSize: 1.5em;
+$labeledIconMinWidth: 6em;
+$labeledIconTextMargin: 0.5em;
+
+/* Text */
+$textMenuTransition: opacity 0.2s ease;
+
+/*--------------
+   Variations
+---------------*/
+
+/* Inverted */
+$invertedBackground: $black;
+$invertedBoxShadow: none;
+$invertedHeaderBackground: rgba(0, 0, 0, 0.3);
+
+/* Inverted Sub Menu */
+$invertedSubMenuBackground: transparent;
+$invertedSubMenuColor: $invertedUnselectedTextColor;
+
+/* Inverted Hover */
+$invertedHoverBackground: rgba(255, 255, 255, 0.1);
+$invertedHoverColor: $white;
+$invertedSubMenuHoverBackground: transparent;
+$invertedSubMenuHoverColor: $white;
+
+/* Pressed */
+$invertedMenuPressedBackground: rgba(255, 255, 255, 0.15);
+$invertedMenuPressedColor: $white;
+
+/* Inverted Active */
+$invertedActiveBackground: rgba(255, 255, 255, 0.2);
+$invertedActiveColor: $white;
+$invertedSubMenuActiveBackground: transparent;
+$invertedSubMenuActiveColor: $white;
+
+/* Inverted Secondary */
+$secondaryInvertedColor: $invertedLightTextColor;
+$secondaryInvertedHoverColor: $invertedSelectedTextColor;
+
+/* Inverted Menu Divider */
+$invertedDividerBackground: linear-gradient(
+  rgba(255, 255, 255, 0@mixin 255, 255, 255, 0@mixin 255, 255, 255, 0.03) 100%)
+;
+$invertedVerticalDividerBackground: linear-gradient(to right,
+  rgba(255, 255, 255, 0@mixin 255, 255, 255, 0@mixin 255, 255, 255, 0.03) 100%)
+;
+
+/* Fixed */
+$fixedGridMargin: 2.75rem;
+
+/* Attached */
+$attachedBoxShadow: 0px 0px 0px 1px #DDDDDD;
+
+/* Sizes */
+$small: 0.875rem;
+$smallSubMenu: 0.875rem;
+$smallWidth: 13rem;
+
+$medium: 1rem;
+$mediumWidth: 15rem;
+
+$large: 1.125rem;
+$largeSubMenu: 0.875rem;
+$largeDropdown: 1rem;
+$largeWidth: 18rem;/*******************************
+            Message
+*******************************/
+
+// $textColor
+
+/*-------------------
+       Elements
+--------------------*/
+
+$verticalMargin: 1em;
+
+$verticalPadding: 1em;
+$horizontalPadding: 1.5em;
+
+$background: #EFEFEF;
+$lineHeight: 1.3;
+$lineHeightOffset: (($lineHeight - 1em) / 2);
+
+$borderRadius: $defaultBorderRadius;
+$borderWidth: 1px;
+$borderShadow: 0px 0px 0px $borderWidth $borderColor inset;
+$shadowShadow: 0px 0px 0px 0px transparent;
+$boxShadow:
+  $borderShadow,
+  $shadowShadow
+;
+
+$transition:
+  opacity 0.2s ease,
+  color 0.2s ease,
+  background 0.2s ease,
+  box-shadow 0.2s ease
+;
+
+/* Header */
+$headerFontSize: 1.1em;
+$headerFontWeight: bold;
+$headerDisplay: block;
+$headerDistance: 0.5rem;
+$headerParagraphDistance: 0.25em;
+
+/* Paragraph */
+$messageTextOpacity: 0.85;
+$messageParagraphMargin: 0.75em;
+
+/* List */
+$listOpacity: 0.85;
+$listStylePosition: inside;
+$listMargin: 0.5em;
+$listItemIndent: 1em;
+$listItemMargin: 0.3em;
+
+/* Icon */
+$iconDistance: 0.6em;
+
+/* Close Icon */
+$closeTopDistance: (1em + $lineHeightOffset);
+$closeRightDistance: 0.5em;
+$closeOpacity: 0.7;
+
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Icon Message */
+$iconSize: 3em;
+$iconOpacity: 0.8;
+$iconContentDistance: 1.5rem;
+$iconVerticalAlign: middle;
+$circularIconContentDistance: 2em;
+
+/* Attached */
+$attachedXOffset: -1px;
+$attachedYOffset: -1px;
+$attachedBoxShadow: 0em 0em 0em $borderWidth rgba(0, 0, 0, 0.1) inset;
+$attachedBottomBoxShadow:
+  $attachedBoxShadow,
+  $subtleShadow
+;
+
+/* Floating */
+$floatingShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+$floatingBoxShadow:
+  $floatingShadow,
+  $borderShadow
+;
+/*******************************
+             Table
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$margin: 1em 0em;
+$borderCollapse: separate;
+$borderSpacing: 0px;
+$transition:
+  background $transitionDuration $transitionEasing,
+  border-color $transitionDuration $transitionEasing,
+  color $transitionDuration $transitionEasing
+;
+$borderRadius: 0.25rem;
+$background: #FFFFFF;
+$color: $textColor;
+$borderWidth: 1px;
+$borderColor: #D0D0D0;
+$border: $borderWidth solid $borderColor;
+$boxShadow: none;
+$textAlign: left;
+
+/*-------------------
+       Types
+--------------------*/
+
+/* Definition */
+$definitionPageBackground: $white;
+
+$definitionHeaderBackground: transparent;
+$definitionHeaderColor: $unselectedTextColor;
+$definitionHeaderFontWeight: normal;
+
+$definitionFooterBackground: $definitionHeaderBackground;
+$definitionFooterColor: $definitionHeaderColor;
+$definitionFooterFontWeight: $definitionHeaderFontWeight;
+
+$definitionColumnBackground: $subtleTransparentBlack;
+$definitionColumnColor: $selectedTextColor;
+$definitionColumnFontWeight: bold;
+
+
+/*--------------
+     Parts
+---------------*/
+
+/* Table Row */
+$rowBorder: 1px solid $solidBorderColor;
+
+/* Table Cell */
+$cellVerticalPadding: 0.7em;
+$cellHorizontalPadding: 0.8em;
+$cellVerticalAlign: middle;
+$cellTextAlign: $textAlign;
+$cellBorder: 1px solid $solidBorderColor;
+
+/* Table Header */
+$headerBorder: 1px solid $solidBorderColor;
+$headerDivider: none;
+$headerBackground: $darkWhite;
+$headerAlign: $textAlign;
+$headerVerticalAlign: middle;
+$headerColor: $textColor;
+$headerVerticalPadding: $cellVerticalPadding;
+$headerHorizontalPadding: $cellHorizontalPadding;
+$headerFontStyle: none;
+$headerFontWeight: bold;
+$headerTextTransform: none;
+$headerBoxShadow: none;
+
+/* Table Footer */
+$footerBoxShadow: none;
+$footerBorder: 1px solid $solidBorderColor;
+$footerDivider: none;
+$footerBackground: $white;
+$footerAlign: $textAlign;
+$footerVerticalAlign: middle;
+$footerColor: $textColor;
+$footerVerticalPadding: $cellVerticalPadding;
+$footerHorizontalPadding: $cellHorizontalPadding;
+$footerFontStyle: normal;
+$footerFontWeight: normal;
+$footerTextTransform: none;
+
+/* Responsive Size */
+$responsiveHeaderDisplay: block;
+$responsiveFooterDisplay: block;
+$responsiveRowVerticalPadding: 1em;
+$responsiveRowBoxShadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+$responsiveCellVerticalPadding: 0.25em;
+$responsiveCellHorizontalPadding: 0.75em;
+$responsiveCellBoxShadow: none !important;
+$responsiveStatusColor: transparent;
+
+/*--------------
+    Couplings
+---------------*/
+
+$iconVerticalAlign: baseline;
+
+
+/*--------------
+     States
+---------------*/
+
+$stateMarkerWidth: 0px;
+
+/* Positive */
+$positiveColor: $positiveTextColor;
+$positiveBoxShadow: $stateMarkerWidth 0px 0px $positiveBorderColor inset;
+$positiveBackgroundHover: darken($positiveBackgroundColor, 3);
+$positiveColorHover: darken($positiveColor, 3);
+
+/* Negative */
+$negativeColor: #CD2929;
+$negativeBoxShadow: $stateMarkerWidth 0px 0px $negativeBorderColor inset;
+$negativeBackgroundHover: darken($negativeBackgroundColor, 3);
+$negativeColorHover: darken($negativeColor, 3);
+
+/* Error */
+$errorColor: #CD2929;
+$errorBoxShadow: $stateMarkerWidth 0px 0px $errorBorderColor inset;
+$errorBackgroundHover: darken($errorBackgroundColor, 3);
+$errorColorHover: darken($errorColor, 3);
+
+/* Warning */
+$warningColor: #7D6C00;
+$warningBoxShadow: $stateMarkerWidth 0px 0px $warningBorderColor inset;
+$warningBackgroundHover: darken($warningBackgroundColor, 3);
+$warningColorHover: darken($warningColor, 3);
+
+/* Active */
+$activeColor: rgba(50, 50, 50, 0.9);
+$activeBackgroundColor: #E0E0E0;
+$activeBoxShadow: $stateMarkerWidth 0px 0px $activeColor inset;
+$activeBackgroundHover: #EFEFEF;
+$activeColorHover: rgba(50, 50, 50, 1);
+
+/*--------------
+     Types
+---------------*/
+
+/* Attached */
+$attachedHorizontalOffset: -1px;
+$attachedBoxShadow: none;
+$attachedTableWidth: ~"calc(100% + "$attachedHorizontalOffset * -2~")";
+
+/* Striped */
+$stripedBackground: rgba(0, 0, 50, 0.03);
+$invertedStripedBackground: rgba(255, 255, 255, 0.06);
+
+/* Sortable */
+$sortableBackground: '';
+$sortableColor: $textColor;
+
+$sortableBorder: 1px solid $borderColor;
+$sortableIconWidth: 1em;
+$sortableIconDistance: 0.5em;
+$sortableIconOpacity: 0.8;
+$sortableIconFont: 'Icons';
+$sortableIconAscending: '\f0d7';
+$sortableIconDescending: '\f0d8';
+$sortableDisabledColor: $disabledTextColor;
+
+$sortableHoverBackground: $transparentBlack;
+$sortableHoverColor: $hoveredTextColor;
+
+$sortableActiveBackground: $transparentBlack;
+$sortableActiveColor: $selectedTextColor;
+
+$sortableActiveHoverBackground: $transparentBlack;
+$sortableActiveHoverColor: $selectedTextColor;
+
+$sortableInvertedBorderColor: transparent;
+$sortableInvertedHoverBackground: $transparentWhite $subtleGradient;
+$sortableInvertedHoverColor: $invertedHoveredTextColor;
+$sortableInvertedActiveBackground: $strongTransparentWhite $subtleGradient;
+$sortableInvertedActiveColor: $invertedSelectedTextColor;
+
+/* Colors */
+$coloredBorderSize: 0.2em;
+$coloredBorderRadius: 0em 0em $borderRadius $borderRadius;
+
+/* Inverted */
+$invertedBackground: #333333;
+$invertedBorder: none;
+$invertedCellBorderColor: rgba(0, 0, 0, 0.2);
+$invertedCellColor: $invertedTextColor;
+$invertedHeaderBackground: rgba(0, 0, 0, 0.15);
+$invertedHeaderColor: rgba(255, 255, 255, 0.9);
+
+$invertedDefinitionColumnBackground: $subtleTransparentWhite;
+$invertedDefinitionColumnColor: $invertedSelectedTextColor;
+$invertedDefinitionColumnFontWeight: bold;
+
+/* Basic */
+$basicTableBackground: transparent;
+$basicTableBorder: 1px solid $borderColor;
+$basicBoxShadow: none;
+
+$basicTableHeaderBackground: transparent;
+$basicTableCellBackground: transparent;
+$basicTableHeaderDivider: none;
+$basicTableCellBorder: 1px solid rgba(0, 0, 0, 0.1);
+$basicTableCellVerticalPadding: $cellVerticalPadding;
+$basicTableCellHorizontalPadding: $cellHorizontalPadding;
+$basicTableStripedBackground: $transparentBlack;
+
+/* Padded */
+$paddedVerticalPadding: 1em;
+$paddedHorizontalPadding: 1em;
+$veryPaddedVerticalPadding: 1.5em;
+$veryPaddedHorizontalPadding: 1.5em;
+
+/* Compact */
+$compactVerticalPadding: 0.5em;
+$compactHorizontalPadding: 0.7em;
+$veryCompactVerticalPadding: 0.4em;
+$veryCompactHorizontalPadding: 0.6em;
+
+
+/* Sizes */
+$small: 0.9em;
+$medium: 1em;
+$large: 1.1em;/*******************************
+            Button
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$verticalMargin: 0em;
+$horizontalMargin: 0.25em;
+
+/* Style */
+$backgroundColor: #E0E0E0;
+$backgroundImage: none;
+$verticalPadding: 0.78571em;
+$horizontalPadding: 1.5em;
+
+/* Text */
+$textTransform: none;
+$tapColor: transparent;
+$fontFamily: @pageFont;
+$fontWeight: bold;
+$textColor: rgba(0, 0, 0, 0.6);
+$textShadow: none;
+$invertedTextShadow: none;
+$borderRadius: $defaultBorderRadius;
+$verticalAlign: baseline;
+
+/* Internal Shadow */
+$shadowDistance: 0em;
+$shadowOffset: ($shadowDistance / 2);
+$shadowBoxShadow: 0px -$shadowDistance 0px 0px $borderColor inset;
+
+/* Box Shadow */
+$borderBoxShadowColor: transparent;
+$borderBoxShadowWidth: 1px;
+$borderBoxShadow: 0px 0px 0px $borderBoxShadowWidth $borderBoxShadowColor inset;
+$boxShadow:
+  $borderBoxShadow,
+  $shadowBoxShadow
+;
+
+/* Icon */
+$iconOpacity: 0.8;
+$iconDistance: 0.4em;
+$iconColor: '';
+$iconTransition: opacity $transitionDuration $transitionEasing;
+$iconVerticalAlign: baseline;
+
+$iconMargin: 0em $iconDistance 0em -($iconDistance / 2);
+$rightIconMargin: 0em -($iconDistance / 2) 0em $iconDistance;
+
+/* Loader */
+$loaderSize: 1.2857em;
+$loaderOffset: -($loaderSize / 2);
+$loaderMargin: $loaderOffset 0em 0em $loaderOffset;
+$invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
+
+$transition:
+  opacity 0.1s $transitionEasing,
+  background-color 0.1s $transitionEasing,
+  color 0.1s $transitionEasing,
+  box-shadow 0.1s $transitionEasing,
+  background 0.1s $transitionEasing
+;
+/*
+$willChange: box-shadow, transform, opacity, color, background;
+*/
+$willChange: '';
+
+/*-------------------
+        Group
+--------------------*/
+
+$groupBoxShadow: none;
+$groupButtonBoxShadow: $boxShadow;
+$verticalBoxShadow: none;
+$groupButtonOffset: 0px 0px 0px 0px;
+$verticalGroupOffset: 0px 0px 0px 0px;
+
+/*-------------------
+        States
+--------------------*/
+
+/* Hovered */
+$hoverBackgroundColor: #E8E8E8;
+$hoverBackgroundImage: none;
+$hoverBoxShadow: '';
+$hoverColor: $hoveredTextColor;
+$iconHoverOpacity: 0.85;
+
+/* Focused */
+$focusBackgroundColor: '';
+$focusBackgroundImage: '';
+$focusBoxShadow:
+  $borderBoxShadow,
+  0px 0px 1px rgba(81, 167, 232, 0@mixin 81, 167, 232, 0.8)
+;
+$focusColor: $hoveredTextColor;
+$iconFocusOpacity: 0.85;
+
+/* Pressed Down */
+$downBackgroundColor: #CCCCCC;
+$downBackgroundImage: '';
+$downPressedShadow: 0px 1px 4px 0px $borderColor inset !important;
+$downBoxShadow:
+  $borderBoxShadow,
+  $downPressedShadow
+;
+$downColor: $pressedTextColor;
+
+/* Active */
+$activeBackgroundColor: #D0D0D0;
+$activeBackgroundImage: none;
+$activeColor: $selectedTextColor;
+$activeBoxShadow: $borderBoxShadow;
+
+/* Active + Hovered */
+$activeHoverBackgroundColor: $activeBackgroundColor;
+$activeHoverBackgroundImage: none;
+$activeHoverColor: $activeColor;
+$activeHoverBoxShadow: $activeBoxShadow;
+
+/* Loading */
+$loadingOpacity: 1;
+$loadingPointerEvents: none;
+$loadingTransition:
+  all 0s linear,
+  opacity $transitionDuration $defaultEasing
+;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Or */
+$orText: 'or';
+
+$orGap: 0.3em;
+$orHeight: ($verticalPadding * 2) + 1em;
+
+$orCircleDistanceToEdge: ($verticalPadding);
+$orCircleSize: $orHeight - $orCircleDistanceToEdge;
+$orLineHeight: ($orCircleSize);
+$orBoxShadow: $borderBoxShadow;
+
+$orVerticalOffset: -($orCircleSize / 2);
+$orHorizontalOffset: -($orCircleSize / 2);
+
+$orBackgroundColor: $white;
+$orTextShadow: $invertedTextShadow;
+$orTextStyle: normal;
+$orTextWeight: bold;
+$orTextColor: $lightTextColor;
+
+
+$orSpacerHeight: $verticalPadding;
+$orSpacerColor: transparent;
+
+/* Icon */
+$iconButtonOpacity: 0.9;
+
+/* Labeled Icon */
+$labeledIconWidth: 1em + ($verticalPadding * 2);
+$labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
+$labeledIconPadding: ($horizontalPadding + $labeledIconWidth);
+$labeledIconBorder: transparent;
+$labeledIconColor: '';
+
+$labeledIconLeftShadow: -1px 0px 0px 0px $labeledIconBorder inset;
+$labeledIconRightShadow: 1px 0px 0px 0px $labeledIconBorder inset;
+
+/* Inverted */
+$invertedBorderSize: 2px;
+$invertedTextColor: $white;
+$invertedTextHoverColor: $hoverColor;
+$invertedGroupButtonOffset: 0px 0px 0px -($invertedBorderSize);
+$invertedVerticalGroupButtonOffset: 0px 0px -($invertedBorderSize) 0px;
+
+/* Basic */
+$basicBorderRadius: $borderRadius;
+$basicBorderSize: 1px;
+$basicTextColor: $textColor;
+$basicColoredBorderSize: 2px;
+
+$basicBackground: transparent;
+$basicFontWeight: normal;
+$basicBoxShadow: 0px 0px 0px $basicBorderSize $borderColor inset;
+$iconOffset: 0.05em;
+$basicLoadingColor: $offWhite;
+$basicTextTransform: none;
+
+/* Basic Hover */
+$basicHoverBackground: #FAFAFA;
+$basicHoverTextColor: $hoveredTextColor;
+$basicHoverBoxShadow:
+  0px 0px 0px $basicBorderSize $borderColor inset,
+  0px 0px 0px 0px $borderColor inset
+;
+/* Basic Down */
+$basicDownBackground: #F8F8F8;
+$basicDownTextColor: $pressedTextColor;
+$basicDownBoxShadow:
+  0px 0px 0px $basicBorderSize rgba(0, 0, 0, 0.15) inset,
+  0px 1px 4px 0px $borderColor inset
+;
+/* Basic Active */
+$basicActiveBackground: $transparentBlack;
+$basicActiveBoxShadow: '';
+$basicActiveTextColor: $selectedTextColor;
+
+/* Basic Inverted */
+$basicInvertedBackground: transparent;
+$basicInvertedHoverBackground: transparent;
+$basicInvertedDownBackground: $transparentWhite;
+$basicInvertedActiveBackground: $transparentWhite;
+
+$basicInvertedBoxShadow: 0px 0px 0px $invertedBorderSize rgba(255, 255, 255, 0.5) inset;
+$basicInvertedHoverBoxShadow: 0px 0px 0px $invertedBorderSize rgba(255, 255, 255, 1) inset;
+$basicInvertedDownBoxShadow: 0px 0px 0px $invertedBorderSize rgba(255, 255, 255, 0.9) inset;
+$basicInvertedActiveBoxShadow: 0px 0px 0px $invertedBorderSize rgba(255, 255, 255, 0.7) inset;
+
+$basicInvertedColor: $darkWhite;
+$basicInvertedHoverColor: $darkWhiteHover;
+$basicInvertedDownColor: $darkWhiteActive;
+$basicInvertedActiveColor: $invertedTextColor;
+
+
+/* Basic Group */
+$basicGroupBorder: $basicBorderSize solid $borderColor;
+$basicGroupBoxShadow: 0px 0px 0px $basicBorderSize $borderColor;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Colors */
+$coloredBackgroundImage: none;
+$coloredBoxShadow: $shadowBoxShadow;
+
+/* Inverted by default for solids */
+$blueTextColor: $invertedTextColor;
+$blueTextShadow: $invertedTextShadow;
+$greenTextColor: $invertedTextColor;
+$greenTextShadow: $invertedTextShadow;
+$greyTextColor: $invertedTextColor;
+$greyTextShadow: $invertedTextShadow;
+$orangeTextColor: $invertedTextColor;
+$orangeTextShadow: $invertedTextShadow;
+$pinkTextColor: $invertedTextColor;
+$pinkTextShadow: $invertedTextShadow;
+$purpleTextColor: $invertedTextColor;
+$purpleTextShadow: $invertedTextShadow;
+$redTextColor: $invertedTextColor;
+$redTextShadow: $invertedTextShadow;
+$tealTextColor: $invertedTextColor;
+$tealTextShadow: $invertedTextShadow;
+$yellowTextColor: $invertedTextColor;
+$yellowTextShadow: $invertedTextShadow;
+
+$blackTextColor: $invertedTextColor;
+$blackTextShadow: $invertedTextShadow;
+
+
+/* Ordinality */
+$primaryBackgroundImage: $coloredBackgroundImage;
+$primaryTextColor: $invertedTextColor;
+$primaryTextShadow: $invertedTextShadow;
+$primaryBoxShadow: $coloredBoxShadow;
+
+$secondaryBackgroundImage: $coloredBackgroundImage;
+$secondaryTextColor: $invertedTextColor;
+$secondaryTextShadow: $invertedTextShadow;
+$secondaryBoxShadow: $coloredBoxShadow;
+
+/* Compact */
+$compactVerticalPadding: ($verticalPadding * 0.75);
+$compactHorizontalPadding: ($horizontalPadding * 0.75);
+
+/* Attached */
+$attachedOffset: -1px;
+$attachedBoxShadow: 0px 0px 0px 1px $borderColor;
+$attachedHorizontalPadding: 0.75em;
+
+/* Floated */
+$floatedMargin: 0.25em;
+
+/* Animated */
+$animatedVerticalAlign: middle;
+$animationDuration: 0.3s;
+$animationEasing: ease;
+$fadeScaleHigh: 1.5;
+$fadeScaleLow: 0.75;
+/*******************************
+            Divider
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$margin: 1rem 0rem;
+
+$highlightWidth: 1px;
+$highlightColor: rgba(255, 255, 255, 0.2);
+
+$shadowWidth: 1px;
+$shadowColor: rgba(0, 0, 0, 0.1);
+
+/* Text */
+$letterSpacing: 0.05em;
+$fontWeight: bold;
+$color: $darkTextColor;
+$textTransform: uppercase;
+
+/*-------------------
+       Coupling
+--------------------*/
+
+/* Icon */
+$dividerIconSize: 1rem;
+$dividerIconMargin: 0rem;
+
+
+/*******************************
+         Variations
+*******************************/
+
+/* Horizontal / Vertical */
+$horizontalMargin: '';
+$horizontalDividerMargin: 1em;
+$horizontalRulerOffset: ~"calc(-50% - "($horizontalDividerMargin)~")";
+
+$verticalDividerMargin: 1rem;
+$verticalDividerHeight: ~"calc(100% - "($verticalDividerMargin)~")";
+
+/* Inverted */
+$invertedTextColor: $white;
+$invertedHighlightColor: rgba(255, 255, 255, 0.15);
+$invertedShadowColor: rgba(0, 0, 0, 0.15);
+
+/* Section */
+$sectionMargin: 2rem;
+
+
+/* Sizes */
+$medium: 1rem;/*******************************
+            Flag
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$spritePath: "@{imagePath}/flags.png";
+$width: 16px;
+$height: 11px;
+$verticalAlign: baseline;
+$margin: 0.5em;/*******************************
+            Header
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$textTransform: none;
+$fontFamily: $headerFont;
+$fontWeight: $headerFontWeight;
+$lineHeight: $headerLineHeight;
+$lineHeightOffset: $headerLineHeightOffset;
+
+$topMargin: $headerTopMargin;
+$bottomMargin: $headerBottomMargin;
+$margin: $topMargin 0em $bottomMargin;
+
+$firstMargin: -$lineHeightOffset;
+$lastMargin: 0em;
+$horizontalPadding: 0em;
+$verticalPadding: 0em;
+
+/* Sub Header */
+$subHeaderLineHeight: 1.2em;
+$subHeaderColor: rgba(0, 0, 0, 0.5);
+
+/* Icon */
+$iconOpacity: 1;
+$iconSize: 1.5em;
+$iconOffset: $lineHeightOffset;
+$iconMargin: 0.75rem;
+$iconAlignment: middle;
+
+/* Image */
+$imageWidth: 2.5em;
+$imageHeight: auto;
+$imageOffset: $lineHeightOffset;
+$imageMargin: $iconMargin;
+$imageAlignment: middle;
+
+/* Label */
+$labelSize: '';
+$labelDistance: 0.5rem;
+$labelVerticalAlign: middle;
+
+/* Content */
+$contentAlignment: top;
+$contentIconAlignment: middle;
+$contentImageAlignment: middle;
+
+/* Paragraph after Header */
+$nextParagraphDistance: 0em;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Sizing */
+$huge   : unit($h1, em);
+$large  : unit($h2, em);
+$medium : unit($h3, em);
+$small  : unit($h4, em);
+$tiny   : unit($h5, em);
+
+/* Sub Header */
+$h1SubHeaderFontSize: 1.4285rem;
+$h2SubHeaderFontSize: 1.1428rem;
+$h3SubHeaderFontSize: 1.1428rem;
+$h4SubHeaderFontSize: 1rem;
+$h5SubHeaderFontSize: 0.9285rem;
+
+$hugeSubHeaderFontSize  : $h1SubHeaderFontSize;
+$largeSubHeaderFontSize : $h2SubHeaderFontSize;
+$subHeaderFontSize      : $h3SubHeaderFontSize;
+$smallSubHeaderFontSize : $h4SubHeaderFontSize;
+$tinySubHeaderFontSize  : $h5SubHeaderFontSize;
+
+/* Icon Header */
+$iconHeaderSize: 3em;
+$iconHeaderOpacity: 1;
+$iconHeaderMargin: 0.25rem;
+$circularHeaderIconSize: 2em;
+$squareHeaderIconSize: 2em;
+
+/* No Line Height Offset */
+$iconHeaderTopMargin: 2rem;
+$iconHeaderBottomMargin: $bottomMargin;
+$iconHeaderFirstMargin: 0em;
+
+/* Divided */
+$dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
+$dividedColoredBorderWidth: 2px;
+
+$dividedBorderPadding: 0.25rem;
+$dividedSubHeaderPadding: 0.25rem;
+$dividedIconPadding: 0em;
+
+/* Block */
+$blockBackground: $darkWhite;
+$blockBoxShadow: none;
+$blockBorder: 1px solid $solidBorderColor;
+$blockHorizontalPadding: 1rem;
+$blockVerticalPadding: 0.75rem;
+$blockBorderRadius: 0.3125rem;
+
+$tinyBlock: $tiny;
+$smallBlock: $small;
+$mediumBlock: $medium;
+$largeBlock: $large;
+$hugeBlock: $huge;
+
+/* Divided */
+$blackDividedBorderColor: $black;
+$blueDividedBorderColor: $blue;
+$greenDividedBorderColor: $green;
+$orangeDividedBorderColor: $orange;
+$pinkDividedBorderColor: $pink;
+$purpleDividedBorderColor: $purple;
+$redDividedBorderColor: $red;
+$tealDividedBorderColor: $teal;
+$yellowDividedBorderColor: $yellow;
+
+/* Attached */
+$attachedOffset: -1px;
+$attachedBoxShadow: none;
+$attachedBorder: 1px solid $solidBorderColor;
+$attachedVerticalPadding: $blockVerticalPadding;
+$attachedHorizontalPadding: $blockHorizontalPadding;
+$attachedBackground: $white;
+$attachedBorderRadius: $blockBorderRadius;
+
+$tinyAttached: 0.8571em;
+$smallAttached: 0.9285em;
+$mediumAttached: 1em;
+$largeAttached: 1.0714em;
+$hugeAttached: 1.1428em;
+
+/* Inverted */
+$invertedColor: $white;
+$invertedSubHeaderColor: rgba(255, 255, 255, 0.85);
+$invertedDividedBorderColor: $whiteBorderColor;
+$invertedBlockBackground: $lightBlack $subtleGradient;
+$invertedAttachedBackground: $invertedBlockBackground;
+
+/* Floated */
+$floatedMargin: 0.5em;
+/*******************************
+             Icon
+*******************************/
+
+/*-------------------
+   Icon Variables
+--------------------*/
+
+$fontName: 'icons';
+
+$opacity: 1;
+$width: 1.23em;
+$height: 0.9em;
+$distanceFromText: 0.25rem;
+
+$linkOpacity: 0.8;
+$linkDuration: 0.3s;
+$loadingDuration: 2s;
+
+$circularSize: 2em;
+$circularPadding: 0.5em 0.5em;
+$circularShadow: 0em 0em 0em 0@mixin 0, 0, 0, 0.1) inset;
+
+$borderedSize: 2em;
+$borderedVerticalPadding: (($borderedSize - $height) / 2);
+$borderedHorizontalPadding: (($borderedSize - $width) / 2);
+$borderedShadow: 0em 0em 0em 0@mixin 0, 0, 0, 0.1) inset;
+
+$small: 0.875em;
+$medium: 1em;
+$large: 1.5em;
+$big: 2em;
+$huge: 4em;
+$massive: 8em;
+
+$fallbackSRC: url("@{fontPath}/@{fontName}.eot");
+$src:
+  url("@{fontPath}/@{fontName}@mixin 'embedded-opentype'),
+  url("@{fontPath}/@{fontName}@mixin 'woff'),
+  url("@{fontPath}/@{fontName}@mixin 'woff'),
+  url("@{fontPath}/@{fontName}@mixin 'truetype'),
+  url("@{fontPath}/@{fontName}@mixin 'svg')
+;/*******************************
+            Image
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$placeholderColor: transparent;
+$roundedBorderRadius: 0.3125em;
+
+$imageHorizontalMargin: 0.25rem;
+$imageVerticalMargin: 0.5rem;
+$imageBorder: 1px solid rgba(0, 0, 0, 0.1);
+
+/*-------------------
+       Types
+--------------------*/
+
+
+/* Avatar */
+$avatarSize: 2.5em;
+$avatarMargin: 0.25em;
+
+
+/*-------------------
+       Variations
+--------------------*/
+
+/* Floated */
+$floatedHorizontalMargin: 1em;
+$floatedVerticalMargin: 1em;
+
+/* Size */
+$miniWidth: 20px;
+$tinyWidth: 80px;
+$smallWidth: 150px;
+$mediumWidth: 300px;
+$largeWidth: 450px;
+$bigWidth: 600px;
+$hugeWidth: 800px;
+$massiveWidth: 960px;
+/*******************************
+            Input
+*******************************/
+
+/*-------------------
+      Element
+--------------------*/
+
+$inputFont: @pageFont;
+$verticalPadding: 0.78571em;
+$horizontalPadding: 1em;
+
+$lineHeight: 1.2142em;
+$lineHeightOffset: (($lineHeight - 1em) / 2);
+
+$padding: ($verticalPadding - $lineHeightOffset) $horizontalPadding;
+
+$textAlign: left;
+$background: #FFFFFF;
+$borderWidth: 1px;
+$border: $borderWidth solid rgba(0, 0, 0, 0.15);
+$boxShadow: none;
+
+$borderRadius: $defaultBorderRadius;
+$transition:
+  background-color $transitionDuration $transitionEasing,
+  box-shadow $transitionDuration $transitionEasing,
+  border-color $transitionDuration $transitionEasing
+;
+
+$inputColor: $textColor;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Icon Input */
+$glyphWidth: 1.25em;
+
+$iconWidth: ($verticalPadding * 2) + $glyphWidth;
+$iconOpacity: 0.5;
+$iconFocusOpacity: 1;
+$iconOffset: -0.5em;
+
+$iconDistance: 0em;
+$iconMargin: $iconWidth + $iconDistance;
+$iconTransition: opacity 0.3s $defaultEasing;
+
+$transparentIconWidth: $glyphWidth;
+$transparentIconMargin: 2em;
+
+/* Circular Icon Input */
+$circularIconVerticalOffset: 0.35em;
+$circularIconHorizontalOffset: 0.5em;
+
+/* Labeled Input */
+$labelCornerTop: $borderWidth;
+$labelCornerRight: $borderWidth;
+$labelCornerSize: 0.75em;
+$labelSize: 1em;
+
+$labeledMargin: 2.5em;
+$labeledIconInputMargin: 3.25em;
+$labeledIconMargin: 1.25em;
+
+/*-------------------
+        States
+--------------------*/
+
+/* Placeholder */
+$placeholderColor: $unselectedTextColor;
+$placeholderFocusColor: $textColor;
+
+$placeholderErrorColor: rgba(255, 80, 80, 0.4);
+$placeholderErrorFocusColor: rgba(255, 80, 80, 0.7);
+
+/* Down */
+$downBorderColor: rgba(0, 0, 0, 0.3);
+$downBackground: #FAFAFA;
+$downColor: $textColor;
+$downBoxShadow: none;
+
+/* Focus */
+$focusBorderColor: $selectedBorderColor;
+$focusBackground: $background;
+$focusColor: $hoveredTextColor;
+$focusBoxShadow: none;
+
+/* Error */
+$errorBackground: $negativeBackgroundColor;
+$errorBorder: $negativeBorderColor;
+$errorColor: $negativeColor;
+$errorBoxShadow: none;
+
+/* Loader */
+$loaderSize: 1.2857em;
+$loaderOffset: -($loaderSize / 2);
+$loaderMargin: $loaderOffset 0em 0em $loaderOffset;
+$invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Inverted */
+$transparentInvertedPlaceholderColor: $invertedUnselectedTextColor;
+$transparentInvertedColor: $white;
+
+
+/* Sizing */
+$mini: 0.8125rem;
+$small: 0.875rem;
+$medium: 1rem;
+$large: 1.125rem;
+$big: 1.25rem;
+$huge: 1.375rem;
+$massive: 1.5rem;
+
+/*******************************
+             Label
+*******************************/
+
+
+/*-------------------
+       Element
+--------------------*/
+
+
+$verticalAlign: baseline;
+$verticalMargin: 0em;
+$horizontalMargin: 0.125em;
+$backgroundColor: #E8E8E8;
+$backgroundImage: none;
+$labelTextColor: rgba(0, 0, 0, 0.6);
+$verticalPadding: 0.6em;
+$horizontalPadding: 0.8em;
+$borderRadius: $absoluteBorderRadius;
+$textTransform: none;
+$fontWeight: bold;
+
+$labelTransitionDuration: $transitionDuration;
+$labelTransitionEasing: $transitionEasing;
+$transition: background $labelTransitionDuration $labelTransitionEasing;
+
+/* Group */
+$groupVerticalMargin: 0.75em;
+$groupHorizontalMargin: 0.5em;
+
+/*-------------------
+        Parts
+--------------------*/
+
+$linkOpacity: 0.8;
+$linkTransition: $labelTransitionDuration opacity $labelTransitionEasing;
+
+$iconDistance: 0.75em;
+
+$detailFontWeight: bold;
+$detailOpacity: 0.8;
+$detailIconDistance: 0.25em;
+$detailMargin: 1em;
+
+$deleteMargin: 0.5em;
+$deleteTransition: background $labelTransitionDuration $labelTransitionEasing;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Image Label */
+$imageLabelBackground: $backgroundColor;
+$imageLabelBorderRadius: $circularRadius;
+$imageLabelVerticalPadding: $verticalPadding;
+$imageLabelHorizontalPadding: $horizontalPadding;
+$imageLabelTextDistance: 0.5em;
+$imageLabelDetailDistance: $imageLabelTextDistance;
+$imageLabelBorderRadius: $borderRadius;
+$imageLabelBoxShadow: none;
+$imageLabelDetailBackground: $strongTransparentBlack;
+
+/* Computed Values */
+$imageLabelImageHeight: (1em + $verticalPadding * 2);
+$imageLabelPadding: $imageLabelVerticalPadding $imageLabelHorizontalPadding $imageLabelVerticalPadding $imageLabelTextDistance;
+$imageLabelImageMargin: -$verticalPadding $imageLabelTextDistance -$verticalPadding -$imageLabelTextDistance;
+$imageLabelDetailPadding: $imageLabelVerticalPadding $imageLabelHorizontalPadding;
+$imageLabelDetailMargin: -$imageLabelVerticalPadding -$imageLabelHorizontalPadding -$imageLabelVerticalPadding $imageLabelDetailDistance;
+
+/*-------------------
+        States
+--------------------*/
+
+$labelHoverBackgroundColor: #E0E0E0;
+$labelHoverBackgroundImage: none;
+$labelHoverTextColor: $hoveredTextColor;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Tag */
+$tagCircleColor: #FFFFFF;
+$tagCircleSize: 0.5em;
+$tagHorizontalPadding: 1.5em;
+$tagCircleBoxShadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+$tagTriangleRightOffset: 100%;
+$tagTriangleTopOffset: 50%;
+$tagTriangleSize: 1.56em;
+$tagTransition: background $labelTransitionDuration $labelTransitionEasing;
+
+/* Ribbon */
+$ribbonImageTopDistance: 1rem;
+$ribbonTriangleSize: 1.2em;
+$ribbonShadowColor: rgba(0, 0, 0, 0.15);
+
+$ribbonMargin: 1rem;
+$ribbonOffset: ~"calc("-$ribbonMargin~" - "$ribbonTriangleSize~")";
+$ribbonDistance: ~"calc("$ribbonMargin~" + "$ribbonTriangleSize~")";
+$rightRibbonOffset:  ~"calc(100% + "$ribbonMargin~" + "$ribbonTriangleSize~")";
+
+$ribbonImageMargin: -0.05rem; /* Rounding Offset on Triangle */
+$ribbonImageOffset: ~"calc("-$ribbonImageMargin~" - "$ribbonTriangleSize~")";
+$ribbonImageDistance: ~"calc("$ribbonImageMargin~" + "$ribbonTriangleSize~")";
+$rightRibbonImageOffset:  ~"calc(100% + "$ribbonImageMargin~" + "$ribbonTriangleSize~")";
+
+$blackRibbonShadow: darken($black, 10);
+$blueRibbonShadow: darken($blue, 10);
+$greenRibbonShadow: darken($green, 10);
+$orangeRibbonShadow: darken($orange, 10);
+$pinkRibbonShadow: darken($pink, 10);
+$purpleRibbonShadow: darken($purple, 10);
+$redRibbonShadow: darken($red, 10);
+$tealRibbonShadow: darken($teal, 10);
+$yellowRibbonShadow: darken($yellow, 10);
+
+/* Attached */
+$attachedSegmentPadding: 2rem;
+$attachedVerticalPadding: 0.75em;
+$attachedHorizontalPadding: 1em;
+
+/* Corner */
+$cornerSizeRatio: 1;
+$cornerTransition: color $labelTransitionDuration $labelTransitionEasing;
+$cornerTriangleSize: 3.25em;
+$cornerTriangleTransition: border-color $labelTransitionDuration $labelTransitionEasing;
+$cornerTriangleZIndex: 1;
+
+$cornerIconSize: 1em;
+$cornerIconTopOffset: 0.4em;
+$cornerIconLeftOffset: 0.75em;
+
+/* Corner Text */
+$cornerTextWidth: 3em;
+$cornerTextWeight: bold;
+$cornerTextSize: 1em;
+
+/* Horizontal */
+$horizontalLabelMinWidth: 3em;
+$horizontalLabelMargin: 0.5em;
+$horizontalLabelVerticalPadding: 0.4em;
+
+/* Circular Padding */
+$circularPadding: 0.5em;
+$circularMinSize: 2em;
+$emptyCircleSize: 0.5em;
+
+/* Pointing */
+$pointingVerticalDistance: 1em;
+$pointingTriangleSize: 0.6em;
+$pointingHorizontalDistance: $pointingTriangleSize;
+
+$pointingTriangleOffset: ($pointingTriangleSize / 2);
+$pointingTriangleTransition: background $labelTransitionDuration $labelTransitionEasing;
+$pointingTriangleZIndex: 2;
+
+/* Floating */
+$floatingTopOffset: -1em;
+$floatingLeftOffset: -1.5em;
+$floatingZIndex: 100;
+
+/*-------------------
+        Group
+--------------------*/
+
+/* Sizing */
+$mini    : 0.6428rem;
+$tiny    : 0.7142rem;
+$small   : 0.7857rem;
+$medium  : 0.8571rem;
+$large   : 1rem;
+$big     : 1.1428rem;
+$huge    : 1.2857rem;
+$massive : 1.4285rem;
+/*******************************
+             List
+*******************************/
+
+/*-------------------
+         View
+--------------------*/
+
+/* List */
+$listStyleType: none;
+$listStylePosition: outside;
+$margin: 1em 0em;
+$verticalPadding: 0em;
+$horizontalPadding: 0em;
+
+/* Sub List */
+$childListPadding: 0.75em 0em 0.25em 0.5em;
+$childListIndent: 1em;
+
+/* List Item */
+$itemVerticalPadding: 0.3em;
+$itemHorizontalPadding: 0em;
+$itemLineHeight: 1.2;
+
+/*-------------------
+      Elements
+--------------------*/
+
+/* Icon */
+$iconDistance: 0.3em;
+$iconOffset: (($itemLineHeight - 1rem) / 2);
+$iconTransition: color 0.2s ease;
+$iconVerticalAlign: top;
+$iconContentVerticalAlign: middle;
+
+/* Image */
+$imageDistance: 0.5em;
+$imageAlign: middle;
+
+/* Content */
+$contentDistance: 0.5em;
+$contentLineHeight: 1.2em;
+$contentLineHeightOffset: ($contentLineHeight - 1em) / 2;
+$contentVerticalAlign: middle;
+
+/* Link */
+$itemLinkColor: $textColor;
+$itemLinkHoverColor: $linkHoverColor;
+
+/* Linked Icon */
+$itemLinkIconColor: $lightTextColor;
+$itemLinkIconHoverColor: $textColor;
+$invertedIconLinkColor: $invertedLightTextColor;
+
+/* Header */
+$itemHeaderFontFamily: $headerFont;
+$itemHeaderFontWeight: bold;
+$itemHeaderColor: $textColor;
+
+/* Description */
+$itemDescriptionColor: $textColor;
+
+/*-------------------
+        States
+--------------------*/
+
+$disabledColor: $disabledTextColor;
+$invertedDisabledColor: $invertedDisabledTextColor;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Float */
+$floatDistance: 1em;
+$leftFloatMargin: 0em $floatDistance 0em 0em;
+$rightFloatMargin: 0em 0em 0em $floatDistance;
+
+/* Horizontal */
+$horizontalSpacing: 1em;
+$horizontalIconDistance: 0.25em;
+
+/* Inverted */
+$invertedListIconColor: $invertedLightTextColor;
+$invertedHeaderColor: $invertedTextColor;
+$invertedDescriptionColor: $invertedLightTextColor;
+$invertedItemLinkColor: $invertedTextColor;
+$invertedItemLinkHoverColor: $linkHoverColor;
+
+/* Link List */
+$linkListItemColor: $unselectedTextColor;
+$linkListItemHoverColor: $hoveredTextColor;
+$linkListItemDownColor: $pressedTextColor;
+$linkListItemActiveColor: $selectedTextColor;
+$linkListTransition:
+  0.2s color $defaultEasing
+;
+
+/* Inverted Link List */
+$invertedLinkListItemColor: $invertedUnselectedTextColor;
+$invertedLinkListItemHoverColor: $invertedHoveredTextColor;
+$invertedLinkListItemDownColor: $invertedPressedTextColor;
+$invertedLinkListItemActiveColor: $invertedSelectedTextColor;
+
+/* Selection List */
+$selectionListItemMargin: 0em;
+$selectionListItemBorderRadius: 0.5em;
+$selectionListItemVerticalPadding: 0.5em;
+$selectionListItemHorizontalPadding: 0.5em;
+$selectionListTransition:
+  0.2s color $defaultEasing,
+  0.2s padding-left $defaultEasing,
+  0.2s background-color $defaultEasing
+;
+
+/* Selection List States */
+$selectionListBackground: transparent;
+$selectionListColor: $unselectedTextColor;
+$selectionListHoverBackground: $subtleTransparentBlack;
+$selectionListHoverColor: $hoveredTextColor;
+$selectionListDownBackground: $transparentBlack;
+$selectionListDownColor: $pressedTextColor;
+$selectionListActiveBackground: $transparentBlack;
+$selectionListActiveColor: $selectedTextColor;
+
+/* Inverted Selection List */
+$invertedSelectionListBackground: transparent;
+$invertedSelectionListColor: $invertedUnselectedTextColor;
+$invertedSelectionListHoverBackground: $subtleTransparentWhite;
+$invertedSelectionListHoverColor: $invertedHoveredTextColor;
+$invertedSelectionListDownBackground: $transparentWhite;
+$invertedSelectionListDownColor: $invertedPressedTextColor;
+$invertedSelectionListActiveBackground: $transparentWhite;
+$invertedSelectionListActiveColor: $invertedSelectedTextColor;
+
+/* Animated List */
+$animatedListTransition:
+  0.2s color ease,
+  0.2s padding-left ease,
+  0.2s background-color ease
+;
+$animatedListIndent: 1em;
+
+/* Bulleted */
+$bulletDistance: 1rem;
+$bulletOffset: -1rem;
+
+$bulletOpacity: 1;
+$bulletCharacter: '•';
+$bulletColor: $textColor;
+$bulletVerticalAlign: top;
+$bulletChildDistance: $bulletDistance;
+
+/* Horizontal Bullets */
+$horizontalBulletSpacing: 1.5rem;
+
+/* Ordered List */
+$orderedCountName: ordered;
+$orderedCountContent: counters(ordered, ".") " ";
+$orderedCountColor: $textColor;
+$orderedCountDistance: 1.25rem;
+$orderedCountOpacity: 0.8;
+$orderedCountTextAlign: right;
+$orderedCountVerticalAlign: middle;
+
+$orderedChildCountDistance: 1em;
+$orderedChildCountOffset: -2em;
+
+/* Horizontal Ordereded */
+$horizontalOrderedCountDistance: 0.5em;
+
+/* Divided */
+$dividedBorderWidth: 1px;
+$dividedBorder: $dividedBorderWidth solid $borderColor;
+$dividedInvertedBorderColor: $whiteBorderColor;
+$dividedChildListBorder: none;
+$dividedChildItemBorder: none;
+
+/* Divided Horizontal */
+$horizontalDividedSpacing: ($horizontalSpacing / 2);
+$horizontalDividedLineHeight: 0.6;
+
+/* Divided */
+$celledBorderWidth: 1px;
+$celledBorder: $celledBorderWidth solid $borderColor;
+$celledInvertedBorder: $dividedBorderWidth solid $whiteBorderColor;
+$celledHorizontalPadding: 0.5em;
+$celledChildListBorder: none;
+$celledChildItemBorder: none;
+
+/* Divided Horizontal */
+$horizontalCelledSpacing: ($horizontalSpacing / 2);
+$horizontalCelledLineHeight: 0.6;
+
+/* Relaxed */
+$relaxedVerticalPadding: 0.5rem;
+$relaxedHeaderMargin: 0.25rem;
+$relaxedHorizontalPadding: 1.25rem;
+
+/* Very Relaxed */
+$veryRelaxedVerticalPadding: 1rem;
+$veryRelaxedHeaderMargin: 0.5rem;
+$veryRelaxedHorizontalPadding: 2rem;
+
+/*******************************
+             Loader
+*******************************/
+
+/* Some global loader styles defined in site.variables */
+// $loaderSpeed
+// $loaderLineWidth
+// $loaderFillColor
+// $loaderLineColor
+// $invertedLoaderFillColor
+// $invertedLoaderLineColor
+
+/*-------------------
+      Standard
+--------------------*/
+
+$loaderTopOffset: 50%;
+$loaderLeftOffset: 50%;
+
+$shapeBorderColor: $loaderLineColor transparent transparent;
+$invertedShapeBorderColor: $invertedLoaderLineColor transparent transparent;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Text */
+$textDistance: 0.7em;
+$loaderTextColor: $textColor;
+$invertedLoaderTextColor: $invertedTextColor;
+
+/*-------------------
+        States
+--------------------*/
+
+$indeterminateDirection: reverse;
+$indeterminateSpeed: (2 * $loaderSpeed);
+
+/*-------------------
+      Variations
+--------------------*/
+
+$inlineVerticalAlign: middle;
+$inlineMargin: 0em;
+
+/* Exact Sizes (Avoids Rounding Errors) */
+$mini: 1.2857em;
+$small: 1.7142em;
+$medium: 2.2585em;
+$large: 4.5714em;
+
+$miniOffset: 0em 0em 0em -($mini / 2);
+$smallOffset: 0em 0em 0em -($small / 2);
+$mediumOffset: 0em 0em 0em -($medium / 2);
+$largeOffset: 0em 0em 0em -($large / 2);
+
+
+$miniFontSize: 0.7857em;
+$smallFontSize: 0.9285em;
+$mediumFontSize: 1em;
+$largeFontSize: 1.1428em;/*******************************
+            Rail
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$contentSizing: content-box;
+$width: 300px;
+$height: 100%;
+$distance: 4rem;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Close */
+$closeDistance: 2em;
+$veryCloseDistance: 1em;
+
+/* Divided */
+$dividedBorder: 1px solid $borderColor;
+$dividedDistance: 5rem;
+
+$medium: 1em;/*******************************
+            Reveal
+*******************************/
+
+$transitionDelay: 0.15s;
+$transitionDuration: 0.8s;
+$transitionEasing: cubic-bezier(0.175, 0.885, 0.320, 1);
+$transition: all $transitionDuration $transitionEasing $transitionDelay;
+
+$bottomZIndex: 2;
+$topZIndex: 3;
+$activeZIndex: 4;
+
+$rotateDegrees: 110deg;
+
+/*******************************
+            Segment
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$background: $white;
+$borderWidth: 1px;
+$border: none;
+
+$borderShadow: 0px 0px 0px $borderWidth $borderColor;
+$boxShadow:
+  $borderShadow,
+  $subtleShadow
+;
+$verticalPadding: 1em;
+$horizontalPadding: 1em;
+
+$margin: 1rem;
+$borderRadius: $defaultBorderRadius;
+
+/*-------------------
+       Coupling
+--------------------*/
+
+/* Page Grid Segment */
+@pageGridMargin: (2 * $verticalPadding);
+
+
+/*******************************
+            States
+*******************************/
+
+/* Loading Dimmer */
+$loaderDimmerColor: rgba(255, 255, 255, 0.8);
+$loaderDimmerZIndex: 100;
+
+/* Loading Spinner */
+$loaderSize: 3em;
+$loaderOffset: -($loaderSize / 2);
+$loaderMargin: $loaderOffset 0em 0em $loaderOffset;
+$loaderLineZIndex: 101;
+
+
+/*******************************
+            Variations
+*******************************/
+
+/* Piled */
+$piledZIndex: auto;
+$piledMargin: 3em;
+$piledBoxShadow: 0px 0px 1px 1px $borderColor;
+$piledDegrees: 1.2deg;
+
+/* Circular */
+$circularPadding: 2em;
+
+/* Stacked */
+$stackedHeight: 6px;
+$stackedPageBackground: $subtleTransparentBlack;
+$stackedPadding: $verticalPadding + (0.4em);
+$tallStackedPadding: $verticalPadding + (0.8em);
+
+/* Raised */
+$raisedShadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+$raisedBoxShadow:
+  $borderShadow,
+  $raisedShadow
+;
+
+/* Attached */
+$attachedTopOffset: 0px;
+$attachedBottomOffset: 0px;
+$attachedHorizontalOffset: -1px;
+$attachedWidth: ~"calc(100% + "-$attachedHorizontalOffset * 2~")";
+$attachedBoxShadow: none;
+$attachedBorder: 1px solid $solidBorderColor;
+$attachedBottomBoxShadow:
+  $attachedBoxShadow,
+  $subtleShadow
+;
+
+/* Colors */
+$coloredBorderSize: 2px;
+$coloredBorderRadius: $borderRadius;
+
+/* Ordinality */
+$secondaryBackground: #FAF9FA;
+$secondaryColor: $textColor;
+
+$tertiaryBackground:  #EBEBEB;
+$tertiaryColor: $lightTextColor;
+
+$secondaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0@mixin 255, 255, 255, 0.3) 100%);
+$secondaryInvertedColor: $offWhite;
+
+$tertiaryInvertedBackground: linear-gradient(rgba(255, 255, 255, 0@mixin 255, 255, 255, 0.5) 100%);
+$tertiaryInvertedColor: $darkWhite;
+/*******************************
+             Step
+*******************************/
+
+/*-------------------
+      Element
+--------------------*/
+
+$verticalMargin: 0em;
+$horizontalMargin: 0em;
+
+$arrowSize: 1.5em;
+$verticalPadding: 0.9285em;
+$horizontalPadding: 1.5em;
+$leftPadding: $horizontalPadding + ($arrowSize / 2);
+
+$transition:
+  background-color $transitionDuration $transitionEasing,
+  opacity $transitionDuration $transitionEasing,
+  color $transitionDuration $transitionEasing,
+  box-shadow $transitionDuration $transitionEasing
+;
+$borderRadius: $defaultBorderRadius;
+$lineHeight: 1.142rem;
+
+$backgroundColor: #FFFFFF;
+$background: $backgroundColor;
+$borderRadius: 0em;
+$boxShadow: 0px 0px 0px 1px $solidBorderColor;
+
+/* Icon */
+$iconDistance: 0.6em;
+$iconSize: 2em;
+$iconVerticalAlign: middle;
+
+/* Title */
+$titleFontFamily: $headerFont;
+$titleFontWeight: bold;
+$titleFontSize: 1.0714em;
+$titleColor: $darkTextColor;
+
+/* Description */
+$descriptionDistance: 0.1em;
+$descriptionFontSize: 0.9285em;
+$descriptionFontWeight: normal;
+$descriptionColor: $textColor;
+
+
+/* Arrow */
+$arrowBackgroundColor: $backgroundColor;
+$arrowTopOffset: 50%;
+$arrowRightOffset: 0em;
+$arrowBorderColor: $borderColor;
+
+
+/*-------------------
+       Group
+--------------------*/
+
+$stepsBorderRadius: $defaultBorderRadius;
+$stepsBackground: '';
+$stepsBoxShadow: '';
+
+/*-------------------
+      Variations
+--------------------*/
+
+$attachedTopMargin: 0em;
+$attachedBottomMargin: -1px 0em 0em;
+
+/*-------------------
+       States
+--------------------*/
+
+/* Completed */
+$completedColor: $positiveColor;
+
+/* Hover */
+$hoverBackground: #FAFAFA;
+$hoverColor: $hoveredTextColor;
+
+/* Down */
+$downBackground: #F0F0F0;
+$downColor: $pressedTextColor;
+
+/* Active */
+$activeBackground: #F0F0F0;
+$activeColor: $linkColor;
+$activeIconColor: $darkTextColor;
+
+/* Active + Hover */
+$activeHoverBackground: #ECECEC;
+$activeHoverColor: $textColor;
+
+
+/* Disabled */
+$disabledBackground: $white;
+$disabledColor: $disabledTextColor;
+/*******************************
+             Reset
+*******************************//*******************************
+         Site Settings
+*******************************/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+$headerFont        : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$fontSmoothing     : antialiased;
+
+@importGoogleFonts : true;
+$googleFontName    : 'Lato';
+$googleFontSizes   : '400,700,400italic,700italic';
+$googleSubset      : 'latin';
+
+$googleProtocol    : 'https://';
+$googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
+
+/*-------------------
+      Base Sizes
+--------------------*/
+
+$emSize   : 14px;
+$fontSize : 14px;
+
+/*--------------
+  Page Heading
+---------------*/
+
+$headerFontWeight : bold;
+$headerLineHeight : 1.33em;
+
+$h1               : 2rem;
+$h2               : 1.714rem;
+$h3               : 1.28rem;
+$h4               : 1.071rem;
+$h5               : 1rem;
+
+/*-------------------
+      Site Colors
+--------------------*/
+
+/*---  Colors  ---*/
+$black            : #1B1C1D;
+$blue             : #3B83C0;
+$green            : #5BBD72;
+$grey             : #CCCCCC;
+$orange           : #E07B53;
+$pink             : #D9499A;
+$purple           : #564F8A;
+$red              : #D95C5C;
+$teal             : #00B5AD;
+$yellow           : #F2C61F;
+
+/*---  Light Colors  ---*/
+$lightBlack       : #333333;
+$lightBlue        : #54C8FF;
+$lightGreen       : #2ECC40;
+$lightOrange      : #FF851B;
+$lightPink        : #FF8EDF;
+$lightPurple      : #CDC6FF;
+$lightRed         : #FF695E;
+$lightTeal        : #6DFFFF;
+$lightYellow      : #FFE21F;
+
+/*---   Neutrals  ---*/
+$fullBlack        : #000000;
+$darkGrey         : #AAAAAA;
+$lightGrey        : #DCDDDE;
+$offWhite         : #FAFAFA;
+$darkWhite        : #F0F0F0;
+$white            : #FFFFFF;
+
+/*-------------------
+    Brand Colors
+--------------------*/
+
+$primaryColor        : $blue;
+$secondaryColor      : $black;
+
+$lightPrimaryColor   : $lightBlue;
+$lightSecondaryColor : $lightBlack;
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*
+  To have sizing resolve to a specified pixel values adjust
+  the numerator to the desired font size and the denominator
+  to the base em size
+*/
+
+$miniSize        : (10 / 14);
+$tinySize        : (12 / 14);
+$smallSize       : (13 / 14);
+$mediumSize      : (14 / 14);
+$largeSize       : (16 / 14);
+$bigSize         : (18 / 14);
+$hugeSize        : (20 / 14);
+$massiveSize     : (24 / 14);
+
+/*-------------------
+        Page
+--------------------*/
+
+@pageBackground      : #F7F7F7;
+@pageOverflowX       : hidden;
+
+$lineHeight          : 1.33;
+$textColor           : rgba(0, 0, 0, 0.8);
+
+/*-------------------
+      Paragraph
+--------------------*/
+
+$paragraphMargin     : 0em 0em 1em;
+$paragraphLineHeight : $lineHeight;
+
+/*-------------------
+       Links
+--------------------*/
+
+$linkColor           : #009FDA;
+$linkUnderline       : none;
+$linkHoverColor      : lighten($linkColor, 5);
+
+/*-------------------
+  Highlighted Text
+--------------------*/
+
+$highlightBackground      : #CCE2FF;
+$highlightColor           : $textColor;
+
+$inputHighlightBackground : rgba(100, 100, 100, 0.4);
+$inputHighlightColor      : $textColor;
+
+/*-------------------
+       Loader
+--------------------*/
+
+$loaderSpeed: 0.6s;
+$loaderLineWidth: 0.2em;
+$loaderFillColor: rgba(0, 0, 0, 0.1);
+$loaderLineColor: $darkGrey;
+
+$invertedLoaderFillColor: rgba(255, 255, 255, 0.15);
+$invertedLoaderLineColor: $white;
+
+/*-------------------
+        Grid
+--------------------*/
+
+$columnCount: 16;
+
+/*-------------------
+     Breakpoints
+--------------------*/
+
+$mobileBreakpoint            : 320px;
+$tabletBreakpoint            : 768px;
+$computerBreakpoint          : 992px;
+$largeMonitorBreakpoint      : 1400px;
+$widescreenMonitorBreakpoint : 1920px;
+
+/*-------------------
+     Alpha Colors
+--------------------*/
+
+$subtleTransparentBlack : rgba(0, 0, 0, 0.03);
+$transparentBlack       : rgba(0, 0, 0, 0.05);
+$strongTransparentBlack : rgba(0, 0, 0, 0.10);
+
+$subtleTransparentWhite : rgba(255, 255, 255, 0.02);
+$transparentWhite       : rgba(255, 255, 255, 0.05);
+$strongTransparentWhite : rgba(255, 255, 255, 0.07);
+
+/*-------------------
+       Accents
+--------------------*/
+
+/* 4px @ default em */
+$relativeBorderRadius: 0.2857em;
+$absoluteBorderRadius: 0.2857rem;
+$defaultBorderRadius: $absoluteBorderRadius;
+
+/* Differentiating Neutrals */
+$subtleGradient: linear-gradient(transparent, $transparentBlack);
+
+/* Differentiating Layers */
+$subtleShadow: 0px 1px 2px 0 $transparentBlack;
+
+
+/*******************************
+           Power-User
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/* For source only. Modified in gulp for dist */
+$imagePath : '../../themes/default/assets/images';
+$fontPath  : '../../themes/default/assets/fonts';
+
+/*-------------------
+       Em Sizes
+--------------------*/
+
+/* Exact pixel values expressed in em */
+$mini            : unit( round($miniSize * $emSize) / $emSize, rem);
+$tiny            : unit( round($tinySize * $emSize) / $emSize, rem);
+$small           : unit( round($smallSize * $emSize) / $emSize, rem);
+$medium          : unit( round($mediumSize * $emSize) / $emSize, rem);
+$large           : unit( round($largeSize * $emSize) / $emSize, rem);
+$big             : unit( round($bigSize * $emSize) / $emSize, rem);
+$huge            : unit( round($hugeSize * $emSize) / $emSize, rem);
+$massive         : unit( round($massiveSize * $emSize) / $emSize, rem);
+
+$relativeMini    : unit( round($miniSize * $emSize) / $emSize, em);
+$relativeTiny    : unit( round($tinySize * $emSize) / $emSize, em);
+$relativeSmall   : unit( round($smallSize * $emSize) / $emSize, em);
+$relativeMedium  : unit( round($mediumSize * $emSize) / $emSize, em);
+$relativeLarge   : unit( round($largeSize * $emSize) / $emSize, em);
+$relativeBig     : unit( round($bigSize * $emSize) / $emSize, em);
+$relativeHuge    : unit( round($hugeSize * $emSize) / $emSize, em);
+$relativeMassive : unit( round($massiveSize * $emSize) / $emSize, em);
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Maximum Glyph Width of Icon */
+$iconWidth : 1.18em;
+
+/*-------------------
+       Easing
+--------------------*/
+
+$defaultEasing: ease;
+
+/*-------------------
+     All Colors
+--------------------*/
+
+/*--- Colored Backgrounds ---*/
+$blueBackground   : #DFF0FF;
+$greenBackground  : #EBFFED;
+$orangeBackground : #FFEDDE;
+$pinkBackground   : #FFE3FB;
+$purpleBackground : #EAE7FF;
+$redBackground    : #FFE8E6;
+$tealBackground   : #E9FFFF;
+$yellowBackground : #FFF8DB;
+
+/*--- Colored Text ---*/
+$blueTextColor    : $blue;
+$orangeTextColor  : $orange;
+$pinkTextColor    : $pink;
+$purpleTextColor  : $purple;
+$redTextColor     : $red;
+$greenTextColor   : #1EBC30; // Green is difficult to read
+$tealTextColor    : #10A3A3; // Teal text is difficult to read
+$yellowTextColor  : #B58105; // Yellow text is difficult to read
+
+/*--- Colored Headers ---*/
+$blueHeaderColor   : darken($blueTextColor, 5);
+$greenHeaderColor  : darken($greenTextColor, 5);
+$orangeHeaderColor : darken($orangeTextColor, 5);
+$pinkHeaderColor   : darken($pinkTextColor, 5);
+$purpleHeaderColor : darken($purpleTextColor, 5);
+$redHeaderColor    : darken($redTextColor, 5);
+$tealHeaderColor   : darken($tealTextColor, 5);
+$yellowHeaderColor : darken($yellowTextColor, 5);
+
+
+/*-------------------
+    Emotive Colors
+--------------------*/
+
+/* Positive */
+$positiveColor           : $green;
+$positiveBackgroundColor : #EEFFE7;
+$positiveBorderColor     : #B7CAA7;
+$positiveHeaderColor     : #356E36;
+$positiveTextColor       : #3C763D;
+
+/* Negative */
+$negativeColor           : $red;
+$negativeBackgroundColor : #FFF0F0;
+$negativeBorderColor     : #DBB1B1;
+$negativeHeaderColor     : #912D2B;
+$negativeTextColor       : #A94442;
+
+/* Info */
+$infoColor              : #31CCEC;
+$infoBackgroundColor    : #E9FAFF;
+$infoBorderColor        : #AAD6DF;
+$infoHeaderColor        : #297187;
+$infoTextColor          : #337B92;
+
+/* Warning */
+$warningColor           : #F2C037;
+$warningBorderColor     : #D9CAAB;
+$warningBackgroundColor : #FFFBE6;
+$warningHeaderColor     : #825C01;
+$warningTextColor       : #876A38;
+
+
+/*-------------------
+     Neutral Text
+--------------------*/
+
+$darkTextColor               : rgba(0, 0, 0, 0.85);
+$lightTextColor              : rgba(0, 0, 0, 0.4);
+
+$unselectedTextColor         : rgba(0, 0, 0, 0.4);
+$hoveredTextColor            : rgba(0, 0, 0, 0.8);
+$pressedTextColor            : rgba(0, 0, 0, 0.8);
+$selectedTextColor           : rgba(0, 0, 0, 0.8);
+$disabledTextColor           : rgba(0, 0, 0, 0.2);
+
+$invertedTextColor           : rgba(255, 255, 255, 1);
+$invertedLightTextColor      : rgba(255, 255, 255, 0.8);
+$invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
+$invertedHoveredTextColor    : rgba(255, 255, 255, 1);
+$invertedPressedTextColor    : rgba(255, 255, 255, 1);
+$invertedSelectedTextColor   : rgba(255, 255, 255, 1);
+$invertedDisabledTextColor   : rgba(255, 255, 255, 0.2);
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+$facebookColor   : #3B579D;
+$twitterColor    : #4092CC;
+$googlePlusColor : #D34836;
+$linkedInColor   : #1F88BE;
+$youtubeColor    : #CC181E;
+$instagramColor  : #49769C;
+$pinterestColor  : #00ACED;
+$vkColor         : #4D7198;
+
+/*-------------------
+      Borders
+--------------------*/
+
+$circularRadius                : 500rem;
+
+$borderColor                   : rgba(39, 41, 43, 0.15);
+$selectedBorderColor           : rgba(39, 41, 43, 0.3);
+$disabledBorderColor           : rgba(39, 41, 43, 0.5);
+
+$solidBorderColor              : #D4D4D5;
+$solidSelectedBorderColor      : #BEBEBF;
+
+$whiteBorderColor              : rgba(255, 255, 255, 0.2);
+$selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
+
+$solidWhiteBorderColor         : #555555;
+$selectedSolidWhiteBorderColor : #999999;
+
+
+/*-------------------
+     Transitions
+--------------------*/
+
+$transitionDuration : 0.2s;
+$transitionEasing   : ease;
+
+/*-------------------
+    Derived Values
+--------------------*/
+
+/* Rendered Scrollbar Width */
+$scrollbarWidth: 15px;
+
+/* Used to match floats with text */
+$lineHeightOffset       : (($lineHeight - 1em) / 2);
+$headerLineHeightOffset : ($headerLineHeight - 1em) / 2;
+
+/* Header Spacing */
+$headerTopMargin    : ~"calc(2rem - "$headerLineHeightOffset~")";
+$headerBottomMargin : 1rem;
+$headerMargin       : $headerTopMargin 0em $headerBottomMargin;
+
+/* Minimum Mobile Width */
+@pageMinWidth       : 320px;
+
+/* Positive / Negative Dupes */
+$successColor           : $positiveColor;
+$errorColor             : $negativeColor;
+$successBackgroundColor : $positiveBackgroundColor;
+$errorBackgroundColor   : $negativeBackgroundColor;
+$successTextColor       : $positiveTextColor;
+$errorTextColor         : $negativeTextColor;
+$successBorderColor     : $positiveBorderColor;
+$errorBorderColor       : $negativeBorderColor;
+$successHeaderColor     : $positiveHeaderColor;
+$errorHeaderColor       : $negativeHeaderColor;
+
+/* Responsive */
+$largestMobileScreen : ($tabletBreakpoint - 1px);
+$largestTabletScreen : ($computerBreakpoint - 1px);
+$largestLargeMonitor : ($widescreenMonitorBreakpoint - 1px);
+
+/* Columns */
+$oneWide        : (1 / $columnCount * 100%);
+$twoWide        : (2 / $columnCount * 100%);
+$threeWide      : (3 / $columnCount * 100%);
+$fourWide       : (4 / $columnCount * 100%);
+$fiveWide       : (5 / $columnCount * 100%);
+$sixWide        : (6 / $columnCount * 100%);
+$sevenWide      : (7 / $columnCount * 100%);
+$eightWide      : (8 / $columnCount * 100%);
+$nineWide       : (9 / $columnCount * 100%);
+$tenWide        : (10 / $columnCount * 100%);
+$elevenWide     : (11 / $columnCount * 100%);
+$twelveWide     : (12 / $columnCount * 100%);
+$thirteenWide   : (13 / $columnCount * 100%);
+$fourteenWide   : (14 / $columnCount * 100%);
+$fifteenWide    : (15 / $columnCount * 100%);
+$sixteenWide    : (16 / $columnCount * 100%);
+
+$oneColumn      : (1 / 1 * 100%);
+$twoColumn      : (1 / 2 * 100%);
+$threeColumn    : (1 / 3 * 100%);
+$fourColumn     : (1 / 4 * 100%);
+$fiveColumn     : (1 / 5 * 100%);
+$sixColumn      : (1 / 6 * 100%);
+$sevenColumn    : (1 / 7 * 100%);
+$eightColumn    : (1 / 8 * 100%);
+$nineColumn     : (1 / 9 * 100%);
+$tenColumn      : (1 / 10 * 100%);
+$elevenColumn   : (1 / 11 * 100%);
+$twelveColumn   : (1 / 12 * 100%);
+$thirteenColumn : (1 / 13 * 100%);
+$fourteenColumn : (1 / 14 * 100%);
+$fifteenColumn  : (1 / 15 * 100%);
+$sixteenColumn  : (1 / 16 * 100%);
+
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+$disabledOpacity: 0.3;
+$disabledTextColor: rgba(40, 40, 40, 0.3);
+$invertedDisabledTextColor: rgba(225, 225, 225, 0.3);
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+$primaryColorHover    : lighten($primaryColor, 3);
+$secondaryColorHover  : lighten($secondaryColor, 3);
+
+$blueHover            : lighten($blue, 3);
+$greenHover           : lighten($green, 3);
+$orangeHover          : lighten($orange, 3);
+$pinkHover            : lighten($pink, 3);
+$purpleHover          : lighten($purple, 3);
+$redHover             : lighten($red, 3);
+$tealHover            : lighten($teal, 3);
+$yellowHover          : lighten($yellow, 3);
+
+$lightBlueHover       : lighten($lightBlue, 3);
+$lightGreenHover      : lighten($lightGreen, 3);
+$lightOrangeHover     : lighten($lightOrange, 3);
+$lightPinkHover       : lighten($lightPink, 3);
+$lightPurpleHover     : lighten($lightPurple, 3);
+$lightRedHover        : lighten($lightRed, 3);
+$lightTealHover       : lighten($lightTeal, 3);
+$lightYellowHover     : lighten($lightYellow, 3);
+
+/*---  Emotive  ---*/
+$positiveColorHover   : lighten($positiveColor, 3);
+$negativeColorHover   : lighten($negativeColor, 3);
+
+/*---  Neutrals  ---*/
+$fullBlackHover       : lighten($fullBlack, 3);
+$blackHover           : $black;
+
+$lightGreyHover       : lighten($lightGrey, 3);
+$greyHover            : lighten($grey, 3);
+$darkGreyHover        : lighten($darkGrey, 3);
+
+$whiteHover           : lighten($white, 3);
+$offWhiteHover        : lighten($offWhite, 3);
+$darkWhiteHover       : lighten($darkWhite, 3);
+
+$facebookHoverColor   : lighten($facebookColor, 3);
+$twitterHoverColor    : lighten($twitterColor, 3);
+$googlePlusHoverColor : lighten($googlePlusColor, 3);
+$linkedInHoverColor   : lighten($linkedInColor, 3);
+$youtubeHoverColor    : lighten($youtubeColor, 3);
+$instagramHoverColor  : lighten($instagramColor, 3);
+$pinterestHoverColor  : lighten($pinterestColor, 3);
+$vkHoverColor         : lighten($vkColor, 3);
+
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+
+/*---  Colors  ---*/
+$primaryColorDown    : darken($primaryColor, 7);
+$secondaryColorDown  : darken($secondaryColor, 7);
+
+$blueDown            : darken($blue, 7);
+$greenDown           : darken($green, 7);
+$orangeDown          : darken($orange, 7);
+$pinkDown            : darken($pink, 7);
+$purpleDown          : darken($purple, 7);
+$redDown             : darken($red, 7);
+$tealDown            : darken($teal, 7);
+$yellowDown          : darken($yellow, 7);
+
+$lightBlueDown       : darken($lightBlue, 7);
+$lightGreenDown      : darken($lightGreen, 7);
+$lightOrangeDown     : darken($lightOrange, 7);
+$lightPinkDown       : darken($lightPink, 7);
+$lightPurpleDown     : darken($lightPurple, 7);
+$lightRedDown        : darken($lightRed, 7);
+$lightTealDown       : darken($lightTeal, 7);
+$lightYellowDown     : darken($lightYellow, 7);
+
+/*---  Emotive  ---*/
+$positiveColorDown   : darken($positiveColor, 7);
+$negativeColorDown   : darken($negativeColor, 7);
+
+/*---  Neutrals  ---*/
+$fullBlackDown       : darken($fullBlack, 7);
+$blackDown           : darken($black, 7);
+$lightBlackDown      : darken($lightBlack, 7);
+
+$lightGreyDown       : darken($lightGrey, 7);
+$greyDown            : darken($grey, 7);
+$darkGreyDown        : darken($darkGrey, 7);
+
+$whiteDown           : darken($white, 7);
+$offWhiteDown        : darken($offWhite, 7);
+$darkWhiteDown       : darken($darkWhite, 7);
+
+$facebookDownColor   : darken($facebookColor, 7);
+$twitterDownColor    : darken($twitterColor, 7);
+$googlePlusDownColor : darken($googlePlusColor, 7);
+$linkedInDownColor   : darken($linkedInColor, 7);
+$youtubeDownColor    : darken($youtubeColor, 7);
+$instagramDownColor  : darken($instagramColor, 7);
+$pinterestDownColor  : darken($pinterestColor, 7);
+$vkDownColor         : darken($vkColor, 7);
+
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+$primaryColorActive    : darken($primaryColor, 5);
+$secondaryColorActive  : darken($secondaryColor, 5);
+
+$blueActive            : darken($blue, 5);
+$greenActive           : darken($green, 5);
+$orangeActive          : darken($orange, 5);
+$pinkActive            : darken($pink, 5);
+$purpleActive          : darken($purple, 5);
+$redActive             : darken($red, 5);
+$tealActive            : darken($teal, 5);
+$yellowActive          : darken($yellow, 5);
+
+$lightBlueActive       : darken($lightBlue, 5);
+$lightGreenActive      : darken($lightGreen, 5);
+$lightOrangeActive     : darken($lightOrange, 5);
+$lightPinkActive       : darken($lightPink, 5);
+$lightPurpleActive     : darken($lightPurple, 5);
+$lightRedActive        : darken($lightRed, 5);
+$lightTealActive       : darken($lightTeal, 5);
+$lightYellowActive     : darken($lightYellow, 5);
+
+/*---  Emotive  ---*/
+$positiveColorActive   : darken($positiveColor, 5);
+$negativeColorActive   : darken($negativeColor, 5);
+
+/*---  Neutrals  ---*/
+$fullBlackActive       : darken($fullBlack, 5);
+$blackActive           : darken($black, 5);
+$lightBlackActive      : darken($lightBlack, 5);
+
+$lightGreyActive       : darken($lightGrey, 5);
+$greyActive            : darken($grey, 5);
+$darkGreyActive        : darken($darkGrey, 5);
+
+$whiteActive           : darken($white, 5);
+$offWhiteActive        : darken($offWhite, 5);
+$darkWhiteActive       : darken($darkWhite, 5);
+
+$facebookActiveColor   : darken($facebookColor, 5);
+$twitterActiveColor    : darken($twitterColor, 5);
+$googlePlusActiveColor : darken($googlePlusColor, 5);
+$linkedInActiveColor   : darken($linkedInColor, 5);
+$youtubeActiveColor    : darken($youtubeColor, 5);
+$instagramActiveColor  : darken($instagramColor, 5);
+$pinterestActiveColor  : darken($pinterestColor, 5);
+$vkActiveColor         : darken($vkColor, 5);
+/*******************************
+           Accordion
+*******************************/
+
+$fontSize: 1em;
+$boxShadow: none;
+
+/* Title */
+$titleFont: $headerFont;
+$titlePadding: 0.5em 0em;
+$titleFontSize: 1em;
+$titleColor: $textColor;
+
+/* Icon */
+$iconOpacity: 1;
+$iconFontSize: 1em;
+$iconFloat: none;
+$iconWidth: 1.25em;
+$iconHeight: 1em;
+$iconDisplay: inline-block;
+$iconMargin: 0em 0.25rem 0em 0rem;
+$iconPadding: 0em;
+$iconTransition:
+  transform $transitionDuration $transitionEasing,
+  opacity $transitionDuration $transitionEasing
+;
+$iconVerticalAlign: baseline;
+$iconTransform: none;
+
+/* Child Accordion */
+$childAccordionMargin: 1em 0em 0em;
+$childAccordionPadding: 0em;
+
+/* Content */
+$contentMargin: 0em;
+$contentPadding: 0.5em 0em 1em;
+
+/*-------------------
+       Coupling
+--------------------*/
+
+$menuTitlePadding: 0em;
+$menuIconFloat: right;
+$menuIconMargin: $lineHeightOffset 0em 0em 1em;
+$menuIconTransform: rotate(180deg);
+
+
+/*-------------------
+       States
+--------------------*/
+
+$activeIconTransform: rotate(90deg);
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Styled */
+$styledWidth: 600px;
+$styledBackground: $white;
+$styledBorderRadius: $defaultBorderRadius;
+$styledBoxShadow:
+  $subtleShadow,
+  0px 0px 0px 1px $borderColor
+;
+
+/* Content */
+$styledContentMargin: 0em;
+$styledContentPadding: 0.5em 1em 1.5em;
+
+/* Child Content */
+$styledChildContentMargin: 0em;
+$styledChildContentPadding: $styledContentPadding;
+
+/* Styled Title */
+$styledTitleMargin: 0em;
+$styledTitlePadding: 0.75em 1em;
+$styledTitleFontWeight: bold;
+$styledTitleColor: $unselectedTextColor;
+$styledTitleTransition: background-color $transitionDuration $transitionEasing;
+$styledTitleBorder: 1px solid $borderColor;
+$styledTitleTransition:
+  background $transitionDuration $transitionEasing,
+  color $transitionDuration $transitionEasing
+;
+
+/* Styled Title States */
+$styledTitleHoverBackground: transparent;
+$styledTitleHoverColor: $textColor;
+$styledActiveTitleBackground: transparent;
+$styledActiveTitleColor: $selectedTextColor;
+
+/* Styled Child Title States */
+$styledHoverChildTitleBackground: $styledTitleHoverBackground;
+$styledHoverChildTitleColor: $styledTitleHoverColor;
+$styledActiveChildTitleBackground: $styledActiveTitleBackground;
+$styledActiveChildTitleColor: $styledActiveTitleColor;
+
+/* Inverted */
+$invertedTitleColor: $invertedTextColor;
+
+/*******************************
+            Chatroom
+*******************************//*******************************
+            Checkbox
+*******************************/
+
+$checkboxColor: $textColor;
+$fontSize: 1em;
+$checkboxLineHeight: 15px;
+
+/* Label */
+$labelPadding: 1.75em;
+
+$neutralCheckbox: $transparentBlack;
+$positiveCheckbox: $positiveColor;
+$negativeCheckbox: $negativeColor;
+
+/* Checkbox */
+$checkboxSize: 17px;
+$checkboxBackground: $white;
+$checkboxBorder: 1px solid $solidBorderColor;
+$checkboxBorderRadius: 0.25em;
+$checkboxTransition:
+  background-color 0.3s ease,
+  border 0.3s ease,
+  box-shadow 0.3s ease
+;
+
+/* Checkmark */
+$checkboxCheckTop: 0px;
+$checkboxCheckLeft: 0px;
+
+
+/*-------------------
+      Coupling
+--------------------*/
+
+$labelColor: $textColor;
+
+$labelOpacity: 0.6;
+$labelHoverOpacity: 0.8;
+$labelSelectedOpacity: 1;
+
+/*-------------------
+        States
+--------------------*/
+
+$checkboxHoverBackground: $checkboxBackground;
+$checkboxHoverBorder: 1px solid $selectedBorderColor;
+$labelHoverColor: $hoveredTextColor;
+
+$checkboxSelectedBackground: #F5F5F5;
+$checkboxSelectedBorder: 1px solid $selectedBorderColor;
+$labelSelectedColor: $selectedTextColor;
+
+/* Disabled */
+$disabledCheckboxOpacity: 0.5;
+$disabledCheckboxLabelColor: rgba(0, 0, 0, 1);
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Radio */
+$checkboxRadioSize: 14px;
+$checkboxRadioCircleSize: 9px;
+$checkboxRadioTop: 1px;
+$checkboxRadioLeft: 0px;
+
+$checkboxBulletScale: 0.428571428;
+$checkboxBulletColor: $textColor;
+$checkboxBulletRadius: $circularRadius;
+
+/* Slider & Toggle Handle */
+$handleBackground: $white $subtleGradient;
+$handleBoxShadow:
+  $subtleShadow,
+  0px 0px 0px 1px $borderColor inset
+;
+
+/* Slider */
+$sliderHandleSize: 1.5rem;
+$sliderHandleOffset: (1rem - $sliderHandleSize) / 2;
+$sliderLineWidth: 3.5rem;
+
+$sliderWidth: $sliderLineWidth;
+$sliderHeight: ($sliderHandleSize + $sliderHandleOffset);
+
+$sliderLineHeight: 0.25rem;
+$sliderLineVerticalOffset: 0.4rem;
+$sliderLineColor: $neutralCheckbox;
+$sliderLineRadius: $circularRadius;
+
+$sliderTravelDistance: $sliderLineWidth - $sliderHandleSize;
+
+$sliderLabelDistance: $sliderLineWidth + 1rem;
+$sliderOffLabelColor: $unselectedTextColor;
+
+$sliderOnLineColor: $strongTransparentBlack;
+$sliderOnLabelColor: $selectedTextColor;
+$sliderLabelLineHeight: 1rem;
+
+$sliderHoverLaneBackground: $strongTransparentBlack;
+$sliderHoverLabelColor: $hoveredTextColor;
+
+
+/* Toggle */
+$toggleLaneWidth: 3.5rem;
+$toggleHandleSize: 1.5rem;
+
+$toggleWidth: $toggleLaneWidth;
+$toggleHeight: $toggleHandleSize;
+
+$toggleHandleRadius: $circularRadius;
+$toggleHandleOffset: 0rem;
+$toggleHandleTransition:
+  background 0.3s ease 0s,
+  left 0.3s ease 0s
+;
+
+$toggleLaneHeight: $toggleHandleSize;
+$toggleLaneVerticalOffset: 0rem;
+$toggleOffOffset: -0.05rem;
+$toggleOnOffset: ($toggleLaneWidth - $toggleHandleSize) + 0.05rem;
+
+$toggleLabelDistance: $toggleLaneWidth + 1rem;
+$toggleLabelLineHeight: 1.5rem;
+$toggleLabelOffset: 0.15em;
+
+
+$toggleFocusColor: $strongTransparentBlack;
+$toggleHoverColor: $toggleFocusColor;
+
+$toggleOffLabelColor: $checkboxColor;
+$toggleOnLabelColor: $positiveCheckbox;
+$toggleOnLaneColor: $positiveCheckbox;
+
+
+
+/*-------------------
+      Variations
+--------------------*/
+/*******************************
+            Dimmer
+*******************************/
+
+$dimmablePosition: relative;
+$dimmerPosition: absolute;
+
+$background: rgba(0, 0, 0 , 0.85);
+$lineHeight: 1;
+$perspective: 2000px;
+
+$duration: 0.5s;
+$transition:
+  background-color $duration linear
+;
+$zIndex: 1000;
+$textAlign: center;
+$verticalAlign: middle;
+$textColor: $white;
+$overflow: hidden;
+
+$elementStartFilter: ~"blur(0px) grayscale(0)";
+$elementEndFilter: ~"blur(15px) grayscale(0.7)";
+$elementTransition: 1.5s all ease;
+
+/* Hidden (Default) */
+$hiddenOpacity: 0;
+
+/* Content */
+$contentDisplay: table;
+$contentChildDisplay: table-cell;
+
+/* Visible */
+$visibleOpacity: 1;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Page Dimmer*/
+$transformStyle: '';
+@pageDimmerPosition: fixed;
+
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Inverted */
+$invertedBackground: rgba(255, 255, 255, 0.85);
+$invertedTextColor: $textColor;
+
+/* Simple */
+$simpleZIndex: 1;
+$simpleStartBackground: rgba(0, 0, 0, 0);
+$simpleEndBackground: $background;
+$simpleInvertedStartBackground: rgba(255, 255, 255, 0);
+$simpleInvertedEndBackground: $invertedBackground;/*******************************
+            Dropdown
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$transition:
+  border-radius 0.1s ease,
+  width 0.2s ease
+;
+$borderRadius: $defaultBorderRadius;
+
+/*-------------------
+       Content
+--------------------*/
+
+/* Icon */
+$dropdownIconMargin: 0em 0em 0em 1em;
+
+/* Current Text */
+$textTransition: color 0.2s $defaultEasing;
+
+/* Menu */
+$menuBackground: #FFFFFF;
+$menuMargin: 0em;
+$menuPadding: 0em 0em;
+$menuTop: 100%;
+$menuWrap: nowrap;
+$menuTextAlign: left;
+$menuTransition: none;
+
+$menuBorderWidth: 1px;
+$menuBorder: $menuBorderWidth solid $borderColor;
+$menuBoxShadow: 0px 1px 4px 0px $borderColor;
+$menuBorderRadius: 0em 0em $borderRadius $borderRadius;
+$menuTransition: opacity 0.2s ease;
+$menuMinWidth: ~"calc(100% + "($menuBorderWidth * 2)~")";
+$menuZIndex: 11;
+
+/* Text */
+$textLineHeight: 1em;
+$textLineHeightOffset: ($textLineHeight - 1em);
+
+/* Menu Item */
+$itemFontSize: 1rem;
+$itemBorder: none;
+$itemHeight: auto;
+$itemDivider: none;
+$itemColor: $textColor;
+$itemVerticalPadding: $relativeMini;
+$itemHorizontalPadding: $relativeLarge;
+$itemFontWeight: normal;
+$itemLineHeight: 1em;
+$itemLineHeightOffset: ($itemLineHeight - 1em);
+$itemTextTransform: none;
+$itemBoxShadow: none;
+
+/* Sub Menu */
+$subMenuTop: 0%;
+$subMenuLeft: 100%;
+$subMenuRight: auto;
+$subMenuDistanceAway: -0.5em;
+$subMenuMargin: 0em 0em 0em $subMenuDistanceAway;
+$subMenuBorderRadius: 0em $borderRadius $borderRadius 0em;
+$subMenuZIndex: 21;
+
+/* Menu Header */
+$menuHeaderColor: $darkTextColor;
+$menuHeaderFontSize: 0.7857rem;
+$menuHeaderFontWeight: bold;
+$menuHeaderTextTransform: uppercase;
+$menuHeaderMargin: 1rem 0rem 0.75rem;
+$menuHeaderPadding: 0em $itemHorizontalPadding;
+
+/* Menu Divider */
+$menuDividerMargin: 0.5em 0em;
+$menuDividerColor: rgba(0, 0, 0, 0.05);
+$menuDividerSize: 1px;
+$menuDividerBorder: $menuDividerSize solid $menuDividerColor;
+
+/* Menu Input */
+$menuInputMargin: 0.75rem $itemHorizontalPadding;
+$menuInputMinWidth: 200px;
+$menuInputVerticalPadding: 0.5em;
+$menuInputHorizontalPadding: 1em;
+$menuInputPadding: $menuInputVerticalPadding $menuInputHorizontalPadding;
+
+/* Menu Image */
+$menuImageMaxHeight: 2.5em;
+
+/* Item Sub-Element */
+$itemElementFloat: none;
+$itemElementDistance: 0.75em;
+
+/* Sub-Menu Dropdown Icon */
+$itemDropdownIconDistance: 1em;
+$itemDropdownIconFloat: right;
+$itemDropdownIconMargin: $itemLineHeightOffset 0em 0em $itemDropdownIconDistance;
+
+/* Description */
+$itemDescriptionMargin: 0em 0em 0em 1em;
+$itemDescriptionColor: $lightTextColor;
+
+/* Floated Content */
+$floatedDistance: 1em;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Selection */
+$selectionMinWidth: 180px;
+$selectionBackground: $white;
+$selectionDisplay: inline-block;
+$selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
+$selectionVerticalPadding: 0.8em;
+$selectionHorizontalPadding: 1.1em;
+$selectionPadding: $selectionVerticalPadding $selectionHorizontalPadding;
+$selectionZIndex: 10;
+
+/* <select> */
+$selectBorder: 1px solid $borderColor;
+$selectPadding: 0.5em;
+$selectVisibility: visible;
+$selectHeight: 38px;
+
+$selectionTextIconDistance: 2em;
+$selectionTextColor: $textColor;
+
+$selectionBoxShadow: none;
+$selectionBorderColor: $borderColor;
+$selectionBorder: 1px solid $selectionBorderColor;
+$selectionBorderRadius: $borderRadius;
+
+$selectionIconOpacity: 0.8;
+$selectionIconHitbox: $selectionVerticalPadding;
+$selectionIconMargin: -$selectionIconHitbox;
+$selectionIconPadding: $selectionIconHitbox;
+$selectionIconTransition: opacity 0.2s ease;
+
+$selectionMenuBoxShadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+$selectionMenuItemBoxShadow: none;
+
+$selectionItemHorizontalPadding: $itemHorizontalPadding;
+$selectionItemVerticalPadding: $itemVerticalPadding;
+$selectionItemPadding: $selectionItemVerticalPadding $selectionItemHorizontalPadding;
+
+$selectionTransition:
+  $transition,
+  box-shadow 0.2s $defaultEasing,
+  border 0.2s $defaultEasing
+;
+$selectionMenuTransition:
+  box-shadow 0.2s $defaultEasing,
+  border 0.2s $defaultEasing
+;
+
+/* Responsive */
+$selectionMobileMaxItems: 3;
+$selectionTabletMaxItems: 4;
+$selectionComputerMaxItems: 6;
+$selectionWidescreenMaxItems: 8;
+
+/* Derived */
+$selectedBorderEMWidth: 0.0714em;
+$selectionItemActualHeight: ($itemVerticalPadding * 2) + $itemLineHeight + $selectedBorderEMWidth;
+$selectionMobileMaxMenuHeight: ($selectionItemActualHeight * $selectionMobileMaxItems);
+$selectionTabletMaxMenuHeight: ($selectionItemActualHeight * $selectionTabletMaxItems);
+$selectionComputerMaxMenuHeight: ($selectionItemActualHeight * $selectionComputerMaxItems);
+$selectionWidescreenMaxMenuHeight: ($selectionItemActualHeight * $selectionWidescreenMaxItems);
+
+/* Hover */
+$selectionHoverBorderColor: $selectedBorderColor;
+$selectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
+
+/* Visible */
+$selectionVisibleTextFontWeight: normal;
+$selectionVisibleTextColor: $hoveredTextColor;
+
+$selectionVisibleBorderColor: $selectedBorderColor;
+$selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+$selectionVisibleMenuBoxShadow: 0px 2px 6px 0px $borderColor;
+
+/* Visible Hover */
+$selectionVisibleHoverBorderColor: $selectedBorderColor;
+$selectionVisibleHoverBoxShadow: $selectionVisibleBoxShadow;
+$selectionVisibleHoverMenuBoxShadow: $selectionVisibleMenuBoxShadow;
+
+$selectionVisibleConnectingBorder: 0em;
+$selectionVisibleIconOpacity: 1;
+
+/* Search */
+$searchMinWidth: '';
+
+/* Search Selection */
+$searchSelectionLineHeight: 1.2142em; /* browser default for webkit <input> */
+$searchSelectionLineHeightOffset: (($searchSelectionLineHeight - 1em) / 2);
+$searchSelectionInputPadding: ($selectionVerticalPadding - $searchSelectionLineHeightOffset) $selectionHorizontalPadding;
+
+$searchMobileMaxMenuHeight: $selectionMobileMaxMenuHeight;
+$searchTabletMaxMenuHeight: $selectionTabletMaxMenuHeight;
+$searchComputerMaxMenuHeight: $selectionComputerMaxMenuHeight;
+$searchWidescreenMaxMenuHeight: $selectionWidescreenMaxMenuHeight;
+
+/* Inline */
+$inlineIconMargin: 0em 0.5em 0em 0.25em;
+$inlineTextColor: inherit;
+$inlineTextFontWeight: bold;
+$inlineMenuDistance: 0.25em;
+$inlineMenuBorderRadius: $borderRadius;
+
+/*-------------------
+       States
+--------------------*/
+
+/* Hovered */
+$hoveredItemBackground: $transparentBlack;
+$hoveredItemColor: $selectedTextColor;
+$hoveredZIndex: $menuZIndex + 2;
+
+/* Default Text */
+$defaultTextColor: rgba(179, 179, 179, 0.7);
+$defaultTextHoverColor: rgba(140, 140, 140, 0.7);
+
+/* Loading */
+$loadingZIndex: -1;
+
+/* Active Menu Item */
+$activeItemZIndex: $menuZIndex + 1;
+$activeItemBackground: transparent;
+$activeItemBoxShadow: none;
+$activeItemFontWeight: bold;
+$activeItemColor: $selectedTextColor;
+
+/* Selected */
+$selectedBackground: $subtleTransparentBlack;
+$selectedColor: $selectedTextColor;
+
+/* Error */
+$errorItemTextColor: #D95C5C;
+$errorItemHoverBackground: #FFF2F2;
+$errorItemActiveBackground: #FDCFCF;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Upward */
+$upwardMenuBoxShadow: 0px 0px 4px 0px $borderColor;
+$upwardMenuBorderRadius: $borderRadius $borderRadius 0em 0em;
+$upwardSelectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
+$upwardSelectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+$upwardSelectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.05);
+$upwardSelectionVisibleHoverMenuBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+$upwardSelectionVisibleBorderRadius:  $selectionVisibleConnectingBorder $selectionVisibleConnectingBorder $borderRadius $borderRadius;
+
+/* Flyout Direction */
+$leftMenuDropdownIconFloat: left;
+$leftMenuDropdownIconMargin: $itemLineHeightOffset $itemElementDistance 0em 0em;
+
+/* Simple */
+$simpleTransitionDuration: 0.2s;
+$simpleTransition: opacity $simpleTransitionDuration $defaultEasing;
+
+/* Floating */
+$floatingMenuDistance: 0.5em;
+$floatingMenuBoxShadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+$floatingMenuBorderRadius: $borderRadius;
+
+/* Pointing */
+$pointingArrowOffset: -0.25em;
+$pointingArrowDistanceFromEdge: 1em;
+
+$pointingArrowBackground: $white;
+$pointingArrowZIndex: 2;
+$pointingArrowBoxShadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1);
+$pointingArrowSize: 0.5em;
+
+$pointingMenuDistance: 0.75em;
+$pointingMenuBorderRadius: $borderRadius;/*******************************
+             Modal
+*******************************/
+
+$background: $white;
+$border: none;
+$width: 90%;
+$zIndex: 1001;
+$xOffset: -($width / 2);
+$borderRadius: $defaultBorderRadius;
+$boxShadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
+
+/* Close Icon */
+$closeOpacity: 0.8;
+$closeSize: 1.25em;
+$closeColor: $white;
+
+$closeHitbox: 2.25rem;
+$closeDistance: 0.25rem;
+$closeHitBoxOffset: ($closeHitbox - 1rem) / 2;
+$closePadding: $closeHitBoxOffset 0rem 0rem 0rem;
+$closeTop: -($closeDistance + $closeHitbox);
+$closeRight: -($closeDistance + $closeHitbox);
+
+/* Header */
+$headerMargin: 0em;
+$headerVerticalPadding: 1.2rem;
+$headerHorizontalPadding: 2rem;
+$headerPadding: $headerVerticalPadding $headerHorizontalPadding;
+$headerBackground: $subtleGradient $white;
+$headerColor: $darkTextColor;
+$headerFontSize: 1.6em;
+$headerLineHeight: 1.3em;
+$headerBoxShadow: $subtleShadow;
+$headerFontWeight: bold;
+$headerFontFamily: $headerFont;
+$headerBorder: 1px solid $borderColor;
+
+/* Content */
+$contentFontSize: 1em;
+$contentPadding: 2rem;
+$contentLineHeight: 1.4;
+$contentBackground: #FFFFFF;
+
+/* Image / Description */
+$imageWidth: '';
+$imageIconSize: 8rem;
+$imageVerticalAlign: top;
+
+$descriptionDistance: 2em;
+$descriptionMinWidth: '';
+$descriptionWidth: 80%;
+$descriptionVerticalAlign: top;
+
+/* Modal Actions */
+$actionBorder: 1px solid $borderColor;
+$actionBackground: #EFEFEF;
+$actionPadding: 1rem 2rem;
+$actionAlign: right;
+
+$buttonDistance: 0.75em;
+
+/* Inner Close Position (Tablet/Mobile) */
+$innerCloseTop: ($headerVerticalPadding - $closeHitBoxOffset + ($lineHeight - 1em));
+$innerCloseRight: 1rem;
+$innerCloseColor: $textColor;
+
+/* Mobile Positions */
+$mobileHeaderPadding: 0.75rem 1rem;
+$mobileContentPadding: 1rem;
+$mobileImagePadding: 0rem 0rem 1rem;
+$mobileDescriptionPadding: 1rem 0rem ;
+$mobileButtonDistance: 1rem;
+$mobileActionPadding: 1rem 1rem (1rem - $mobileButtonDistance);
+$mobileImageIconSize: 5rem;
+$mobileCloseTop: 0.5rem;
+$mobileCloseRight: 0.5rem;
+
+
+/* Responsive Widths */
+$mobileWidth: 95%;
+$tabletWidth: 88%;
+$computerWidth: 74%;
+$largeMonitorWidth: 56%;
+$widescreenMonitorWidth: 42%;
+
+$mobileMargin: 0em 0em 0em -($mobileWidth / 2);
+$tabletMargin: 0em 0em 0em -($tabletWidth / 2);
+$computerMargin: 0em 0em 0em -($computerWidth / 2);
+$largeMonitorMargin: 0em 0em 0em -($largeMonitorWidth / 2);
+$widescreenMonitorMargin: 0em 0em 0em -($widescreenMonitorWidth / 2);
+
+$fullScreenWidth: 95%;
+$fullScreenOffset: (100% - $fullScreenWidth) / 2;
+$fullScreenMargin: 1em auto;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Basic */
+$basicModalHeaderColor: $white;
+$basicModalColor: $white;
+$basicModalCloseTop: 1rem;
+$basicModalCloseRight: 1.5rem;
+$basicInnerCloseColor: $white;
+
+/* Scrolling Margin */
+$scrollingMargin: 3.5rem;
+$mobileScrollingMargin: 1rem;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Size Widths */
+$smallRatio: 0.6;
+$largeRatio: 1.2;
+
+/* Derived Responsive Sizes */
+$smallHeaderSize: 1.3em;
+$smallMobileWidth: $mobileWidth;
+$smallTabletWidth: ($tabletWidth * $smallRatio);
+$smallComputerWidth: ($computerWidth * $smallRatio);
+$smallLargeMonitorWidth: ($largeMonitorWidth * $smallRatio);
+$smallWidescreenMonitorWidth: ($widescreenMonitorWidth * $smallRatio);
+
+$smallMobileMargin: 0em 0em 0em -($smallMobileWidth / 2);
+$smallTabletMargin: 0em 0em 0em -($smallTabletWidth / 2);
+$smallComputerMargin: 0em 0em 0em -($smallComputerWidth / 2);
+$smallLargeMonitorMargin: 0em 0em 0em -($smallLargeMonitorWidth / 2);
+$smallWidescreenMonitorMargin: 0em 0em 0em -($smallWidescreenMonitorWidth / 2);
+
+$largeHeaderSize: 1.6em;
+$largeMobileWidth: $mobileWidth;
+$largeTabletWidth: $tabletWidth;
+$largeComputerWidth: ($computerWidth * $largeRatio);
+$largeLargeMonitorWidth: ($largeMonitorWidth * $largeRatio);
+$largeWidescreenMonitorWidth: ($widescreenMonitorWidth * $largeRatio);
+
+$largeMobileMargin: 0em 0em 0em -($largeMobileWidth / 2);
+$largeTabletMargin: 0em 0em 0em -($largeTabletWidth / 2);
+$largeComputerMargin: 0em 0em 0em -($largeComputerWidth / 2);
+$largeLargeMonitorMargin: 0em 0em 0em -($largeLargeMonitorWidth / 2);
+$largeWidescreenMonitorMargin: 0em 0em 0em -($largeWidescreenMonitorWidth / 2);/*******************************
+             Nag
+*******************************/
+
+/*--------------
+   Collection
+---------------*/
+
+$position: relative;
+$width: 100%;
+$zIndex: 999;
+$margin: 0em;
+
+$background: #555555;
+$opacity: 0.95;
+$minHeight: 0em;
+$padding: 0.75em 1em;
+$lineHeight: 1em;
+$boxShadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+
+$fontSize: 1rem;
+$textAlign: center;
+$color: $textColor;
+
+$transition: 0.2s background ease;
+
+
+/*--------------
+    Elements
+---------------*/
+
+/* Title */
+$titleColor: $white;
+$titleMargin: 0em 0.5em;
+
+$closeSize: 1em;
+$closeMargin: (-$closeSize / 2) 0em 0em;
+$closeTop: 50%;
+$closeRight: 1em;
+$closeColor: $white;
+$closeTransition: opacity 0.2s ease;
+$closeOpacity: 0.4;
+
+
+/*--------------
+      States
+---------------*/
+
+/* Hover */
+$nagHoverBackground: $background;
+$nagHoverOpacity: 1;
+
+$closeHoverOpacity: 1;
+
+/*--------------
+   Variations
+---------------*/
+
+/* Top / Bottom */
+$top: 0em;
+$bottom: 0em;
+$borderRadius: $defaultBorderRadius;
+$topBorderRadius: 0em 0em $borderRadius $borderRadius;
+$bottomBorderRadius: $borderRadius $borderRadius 0em 0em;
+
+/* Inverted */
+$invertedBackground: $darkWhite;
+
+/*--------------
+      Plural
+---------------*/
+
+$groupedBorderRadius: 0em;
+
+/*******************************
+             Popup
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$zIndex: 1900;
+$background: $white;
+
+$maxWidth: 250px;
+$borderColor: #CCCCCC;
+$borderWidth: 1px;
+$boxShadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+$color: $textColor;
+
+$verticalPadding: 0.833em;
+$horizontalPadding: 1em;
+$fontWeight: normal;
+$fontStyle: normal;
+$borderRadius: $defaultBorderRadius;
+
+/*-------------------
+       Parts
+--------------------*/
+
+/* Placement */
+$arrowSize: 0.75em;
+$arrowWidth: 1em;
+$arrowDistanceFromEdge: 1em;
+$boxArrowOffset: 0em;
+$popupDistanceAway: $arrowSize;
+
+
+/* Header */
+$headerFontFamily: $headerFont;
+$headerFontSize: 1.125em;
+$headerDistance: 0.5em;
+$headerLineHeight: 1.2;
+
+/* Content Border */
+$border: $borderWidth solid $borderColor;
+
+/* Arrow */
+$arrowBackground: $white;
+$arrowZIndex: 2;
+$arrowJitter: 0.05em;
+$arrowOffset: -($arrowSize / 2) + $arrowJitter;
+
+$arrowStroke: $borderWidth;
+$arrowColor: darken($borderColor, 10);
+
+$arrowBoxShadow: $arrowStroke $arrowStroke 0px 0px $arrowColor;
+$leftArrowBoxShadow: $arrowStroke -$arrowStroke 0px 0px $arrowColor;
+$rightArrowBoxShadow: -$arrowStroke $arrowStroke 0px 0px $arrowColor;
+$bottomArrowBoxShadow: -$arrowStroke -$arrowStroke 0px 0px $arrowColor;
+
+/*-------------------
+       Coupling
+--------------------*/
+
+/* Grid Inside Popup */
+$nestedGridMargin: -0.7rem -0.875rem; /* (padding * $medium) */
+$nestedGridWidth: ~"calc(100% + 1.75rem)";
+
+/*-------------------
+       States
+--------------------*/
+
+$loadingZIndex: -1;
+
+/*-------------------
+       Variations
+--------------------*/
+
+/* Wide */
+$wideWidth: 350px;
+$veryWideWidth: 550px;
+
+/* Inverted */
+$invertedBackground: $black;
+$invertedColor: $white;
+$invertedBorder: none;
+$invertedBoxShadow: none;
+
+$invertedHeaderBackground: none;
+$invertedHeaderColor: $white;
+$invertedArrowColor: $black;
+
+/* Sizes */
+$small: 0.785714rem;
+$medium: 0.85714rem;
+$large: 1rem;
+$huge: 1.14285rem;/*******************************
+            Progress
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+$verticalSpacing: 1em;
+$margin: $verticalSpacing 0em ($labelHeight + $verticalSpacing);
+$firstMargin: 0em 0em ($labelHeight + $verticalSpacing);
+$lastMargin: 0em 0em ($labelHeight);
+
+$background: $subtleTransparentBlack;
+$border: 1px solid $borderColor;
+$boxShadow: none;
+$padding: 0.2857em;
+$borderRadius: $defaultBorderRadius;
+
+/* Bar */
+$barPosition: relative;
+$barHeight: 1.75em;
+$barBackground: #888888;
+$barBorderRadius: $borderRadius;
+$barTransitionEasing: ease;
+$barTransitionDuration: 0.3s;
+$barTransition:
+  width $barTransitionDuration $barTransitionEasing,
+  background-color $barTransitionDuration $barTransitionEasing
+;
+$barInitialWidth: 0%;
+$barMinWidth: 2em;
+
+/* Progress Bar Label */
+$progressWidth: auto;
+$progressSize: 0.9em;
+$progressPosition: absolute;
+$progressTop: 50%;
+$progressRight: 0.5em;
+$progressLeft: auto;
+$progressBottom: auto;
+$progressOffset: -0.5em;
+$progressColor: $invertedLightTextColor;
+$progressTextShadow: none;
+$progressFontWeight: bold;
+$progressTextAlign: left;
+
+/* Label */
+$labelWidth: 100%;
+$labelHeight: 1.5em;
+$labelSize: 1em;
+$labelPosition: absolute;
+$labelTop: 100%;
+$labelLeft: 0%;
+$labelRight: auto;
+$labelBottom: auto;
+$labelOffset: ($labelHeight - 1.3em);
+$labelColor: $textColor;
+$labelTextShadow: none;
+$labelFontWeight: bold;
+$labelTextAlign: center;
+$labelTransition: color 0.4s $defaultEasing;
+
+/*-------------------
+        Types
+--------------------*/
+
+$indicatingFirstColor: #D95C5C;
+$indicatingSecondColor: #D9A65C;
+$indicatingThirdColor: #E6BB48;
+$indicatingFourthColor: #DDC928;
+$indicatingFifthColor: #B4D95C;
+$indicatingSixthColor: #66DA81;
+
+
+/*-------------------
+        States
+--------------------*/
+
+/* Active */
+$activePulseColor: $white;
+$activePulseMaxOpacity: 0.3;
+$activePulseDuration: 2s;
+$activeMinWidth: $barMinWidth;
+
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Attached */
+$attachedBackground: transparent;
+$attachedHeight: 0.2rem;
+$attachedBorderRadius: $borderRadius;
+
+/* Inverted */
+$invertedBackground: $transparentWhite;
+$invertedBorder: none;
+$invertedBarBackground: $barBackground;
+$invertedProgressColor: $offWhite;
+$invertedLabelColor: $white;
+
+/* Sizing */
+$tinyBarHeight: 0.5em;
+$smallBarHeight: 1em;
+$largeBarHeight: 2.5em;
+$bigBarHeight: 3.5em;
+/*******************************
+             Rating
+*******************************/
+
+$display: inline-block;
+$margin: 0em 0.75rem;
+
+$verticalAlign: middle;
+
+$iconWidth: 1.1em;
+
+$inactiveColor: rgba(0, 0, 0, 0.15);
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Star */
+$starIconWidth: $iconWidth;
+$starInactiveColor: $inactiveColor;
+$starSelectedColor: #FFB70A;
+$starActiveColor: #FFE623;
+$starActiveShadow:
+  0px -1px 0px #CFA300,
+  -1px 0px 0px #CFA300,
+  0px 1px 0px #CFA300,
+  1px 0px 0px #CFA300
+;
+
+/* Heart */
+$heartIconWidth: 1.25em;
+$heartInactiveColor: $inactiveColor;
+$heartSelectedColor: #FF2733;
+$heartActiveColor: #FF2733;
+$heartActiveShadow:
+  0px -1px 0px #9E0000,
+  -1px 0px 0px #9E0000,
+  0px 1px 0px #9E0000,
+  1px 0px 0px #9E0000
+;
+
+
+/*-------------------
+        States
+--------------------*/
+
+$inactiveColor: rgba(0, 0, 0, 0.15);
+$hoverColor: $textColor;
+$activeColor: $darkTextColor;
+
+$interactiveIconOpacity: 0.5;
+$interactiveSelectedIconOpacity: 1;
+
+/*-------------------
+      Variations
+--------------------*/
+
+$mini: 0.7rem;
+$tiny: 0.8rem;
+$small: 0.875rem;
+$medium: 1rem;
+$large: 1.1rem;
+$big: 1.25rem;
+$huge: 1.5rem;
+$massive: 2rem;
+/*******************************
+            Search
+*******************************/
+
+/* Search Prompt */
+$promptFontSize: 1em;
+$promptVerticalPadding: 0.78571em;
+$promptHorizontalPadding: 1em;
+$promptLineHeight: 1.2;
+$promptPadding: ($promptVerticalPadding + ((1em - $promptLineHeight) / 2)) $promptHorizontalPadding;
+$promptBackground: #FFFFFF;
+$promptBorder: 1px solid $borderColor;
+$promptBorderRadius: $circularRadius;
+$promptColor: $textColor;
+$promptTransition:
+  background-color 0.2s ease,
+  color 0.2s ease,
+  box-shadow 0.2s ease,
+  border-color 0.2s ease
+;
+$promptBoxShadow: 0em 0em 0em 0em transparent inset;
+
+/* Result Box */
+$resultsWidth: 16em;
+$resultsBackground: #FFFFFF;
+$resultsDistance: 0.5em;
+$resultsBorderRadius: 0.25em;
+$resultsBoxShadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+
+/* Result */
+$resultFontSize: 1em;
+$resultVerticalPadding: 0.5em;
+$resultHorizontalPadding: 1em;
+$resultTextColor: $textColor;
+$resultLineHeight: 1.33;
+$resultDivider: 1px solid $borderColor;
+$resultLastDivider: none;
+
+/* Result Image */
+$resultImageFloat: right;
+$resultImageBackground: none;
+$resultImageWidth: 5em;
+$resultImageHeight: 3em;
+$resultImageBorderRadius: 0.25em;
+$resultImageMargin: 0em 6em 0em 0em;
+
+/* Result Content */
+$resultTitleFont: $headerFont;
+$resultTitleFontWeight: bold;
+$resultTitleFontSize: 1em;
+$resultTitleColor: $darkTextColor;
+
+/* Description */
+$resultDescriptionFontSize: 0.9285em;
+$resultDescriptionDistance: 0em;
+$resultDescriptionColor: $lightTextColor;
+
+/* Price */
+$resultPriceFloat: right;
+$resultPriceColor: $green;
+
+/* Special Message */
+$messageVerticalPadding: 1em;
+$messageHorizontalPadding: 1em;
+$messageHeaderFontSize: 1.1428em;
+$messageHeaderFontWeight: bold;
+$messageHeaderColor: $textColor;
+$messageDescriptionDistance: 0.25rem;
+$messageDescriptionFontSize: 1em;
+$messageDescriptionColor: $textColor;
+
+/* All Results Link */
+$actionBorder: none;
+$actionBackground: $darkWhite;
+$actionPadding: 0.5em 1em;
+$actionColor: $textColor;
+$actionFontWeight: bold;
+$actionAlign: center;
+
+
+/*******************************
+            States
+*******************************/
+
+/* Hover */
+$resultHoverBackground: $offWhite;
+$actionHoverBackground: #E0E0E0;
+
+/* Loading */
+$loaderSize: 1.2857em;
+$loaderOffset: -($loaderSize / 2);
+$loaderMargin: $loaderOffset 0em 0em $loaderOffset;
+$invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
+
+/* Active Category */
+$categoryActiveBackground: $darkWhite;
+$categoryNameActiveColor: $textColor;
+
+/* Active Result */
+$resultActiveBorderLeft: transparent;
+$resultActiveBackground: $darkWhite;
+$resultActiveBoxShadow: 3px 0px 3px 0px $borderColor;
+$resultActiveTitleColor: $darkTextColor;
+$resultActiveDescriptionColor: $darkTextColor;
+$resultsZIndex: 998;
+
+
+/*******************************
+            Types
+*******************************/
+
+/* Category */
+$categoryBackground: $darkWhite;
+$categoryBoxShadow: none;
+$categoryDivider: 1px solid $borderColor;
+$categoryTransition:
+  background 0.2s ease,
+  border-color 0.2s ease
+;
+
+$categoryResultsWidth: 28em;
+
+$categoryResultBackground: $white;
+$categoryResultLeftBorder: 1px solid $borderColor;
+$categoryResultDivider: 1px solid $borderColor;
+$categoryResultLastDivider: none;
+$categoryResultTransition: $categoryTransition;
+
+$categoryNameWidth: 100px;
+$categoryNameBackground: $darkWhite;
+$categoryNameFont: @pageFont;
+$categoryNameFontSize: 1em;
+$categoryNameFloat: left;
+$categoryNamePadding: 0.4em 1em;
+$categoryNameFontWeight: bold;
+$categoryNameColor: $lightTextColor;
+
+/* Sizes */
+$medium: 1em;
+$large: 1.1em;
+/*******************************
+             Shape
+*******************************/
+
+$display: inline-block;
+
+/* Animating */
+$perspective: 2000px;
+
+$duration: 0.6s;
+$easing: ease-in-out;
+
+$hiddenSideOpacity: 0.4;
+$animatingZIndex: 100;
+
+$transition: all $duration $easing;
+$sideTransition: opacity $duration $easing;
+$backfaceVisibility: hidden;
+
+/* Side */
+$sideMargin: 0em;
+
+/*--------------
+      Types
+---------------*/
+
+/* Cube */
+$cubeSize: 15em;
+$cubeBackground: #E6E6E6;
+$cubePadding: 2em;
+$cubeTextColor: $textColor;
+$cubeBoxShadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+
+$cubeTextAlign: center;
+$cubeFontSize: 2em;
+/*******************************
+             Sidebar
+*******************************/
+
+/*-------------------
+       Content
+--------------------*/
+
+/* Animation */
+$perspective: 1500px;
+$duration: 500ms;
+$easing: ease;
+
+/* Dimmer */
+$dimmerColor: rgba(0, 0, 0, 0.4);
+$dimmerTransition:
+  transform $duration,
+  opacity $duration
+;
+
+/* Color below page */
+$canvasBackground: $lightBlack;
+
+/* Shadow */
+$boxShadow: 0px 0px 20px $borderColor;
+$horizontalBoxShadow: $boxShadow;
+$verticalBoxShadow: $boxShadow;
+
+/* Layering */
+$bottomLayer: 1;
+$middleLayer: 2;
+$fixedLayer: 101;
+$topLayer: 102;
+$dimmerLayer: 1000;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Width */
+$veryThinWidth: 60px;
+$thinWidth: 150px;
+$width: 260px;
+$wideWidth: 350px;
+$veryWideWidth: 475px;
+
+/* Height */
+$height: 36px;
+/*******************************
+            Sticky
+*******************************/
+
+$transitionDuration: 0.2s;
+$transition:
+  width $transitionDuration $defaultEasing,
+  height $transitionDuration $defaultEasing,
+  top $transitionDuration $defaultEasing,
+  bottom $transitionDuration $defaultEasing
+;
+$zIndex: 800;/*******************************
+              Tab
+*******************************/
+
+/* Loading */
+$loadingMinHeight: 250px;
+$loadingContentPosition: relative;
+$loadingContentOffset: -10000px;
+
+$loaderDistanceFromTop: 100px;
+$loaderSize: 2.5em;
+$loaderOffset: -($loaderSize / 2);
+$loaderMargin: $loaderOffset 0em 0em $loaderOffset;/*******************************
+          Transition
+*******************************/
+
+$transitionDefaultEasing: $defaultEasing;
+$transitionDefaultFill: both;
+$transitionDefaultDuration: 300ms;
+
+$use3DAcceleration: translateZ(0);
+$backfaceVisibility: hidden;/*******************************
+             Video
+*******************************/
+
+$background: #DDDDDD;
+$placeholderBackground: #333333;
+
+$playSize: 8rem;
+$playColor: #FFFFFF;
+$playOpacity: 0.8;
+$playHoverOpacity: 1;
+$playShadow: none;
+
+$playBorderSize: 0rem;
+$playBackground: rgba(0, 0, 0, 0.3);
+$playBorderRadius: $circularRadius;/*******************************
+          Advertisement
+*******************************/
+
+$margin: 1em 0em;
+$overflow: hidden;
+
+$testBackground: $lightBlack;
+$testColor: $white;
+$testFontWeight: bold;
+$testText: 'Ad';
+$testFontSize: 1em;
+$testMobileFontSize: 0.85714em;/*******************************
+             Card
+*******************************/
+
+/*-------------------
+         View
+--------------------*/
+
+/* Shadow */
+$shadowDistance: 3px;
+$shadowBoxShadow: 0px $shadowDistance 0px 0px $solidBorderColor;
+
+/* Card */
+$display: flex;
+$background: #FFFFFF;
+$borderRadius: $defaultBorderRadius;
+$margin: 1em 0em;
+$minHeight: 0px;
+$padding: 0em;
+$width: 290px;
+$borderWidth: 1px;
+$borderShadow: 0px 0px 0px $borderWidth $solidBorderColor;
+$boxShadow:
+  $shadowBoxShadow,
+  $borderShadow
+;
+$border: none;
+$zIndex: '';
+$transition: box-shadow $transitionDuration $transitionEasing;
+
+/* Card Group */
+$horizontalSpacing: 1em;
+$rowSpacing: 1.75em;
+
+$groupMargin: -($rowSpacing / 2) -($horizontalSpacing / 2);
+$groupDisplay: flex;
+
+$groupCardFloat: none;
+$groupCardDisplay: flex;
+$groupCardMargin: ($rowSpacing / 2) ($horizontalSpacing / 2);
+
+/* Consecutive Cards */
+$consecutiveGroupDistance: ($rowSpacing / 2);
+
+/*-------------------
+       Content
+--------------------*/
+
+/* Image */
+$imageBackground: $transparentBlack;
+$imagePadding: 0em;
+$imageBorder: none;
+$imageBorderRadius: $borderRadius $borderRadius 0em 0em;
+$imageBoxShadow: none;
+$imageBorder: none;
+
+/* Content */
+$contentMargin: 0em;
+$contentBackground: none;
+$contentPadding: 1em 1em;
+$contentFontSize: 1em;
+$contentBorder: none;
+$contentBorderRadius: 0em;
+$contentBoxShadow: none;
+
+/* Header */
+$headerMargin: 0em;
+$headerFontWeight: bold;
+$headerFontSize: 1.2em;
+$headerLineHeight: 1.33em;
+$headerLineHeightOffset: -($lineHeight - 1em) / 2;
+$headerColor: $darkTextColor;
+
+/* Metadata */
+$metaFontSize: 0.9em;
+$metaSpacing: 0.3em;
+$metaColor: $lightTextColor;
+
+/* Icons */
+$actionOpacity: 0.75;
+$actionHoverOpacity: 1;
+$actionTransition: color $transitionDuration $transitionEasing;
+
+$starColor: #FFB70A;
+$starActiveColor: #FFE623;
+
+$likeColor: #FF2733;
+$likeActiveColor: #FF2733;
+
+/* Links */
+$contentLinkColor: '';
+$contentLinkHoverColor: '';
+$contentLinkTransition: color $transitionDuration $transitionEasing;
+
+$headerLinkColor: $headerColor;
+$headerLinkHoverColor: $linkHoverColor;
+
+$metaLinkColor: $lightTextColor;
+$metaLinkHoverColor: $textColor;
+
+/* Description */
+$descriptionDistance: 0.5em;
+$descriptionColor: rgba(0, 0, 0, 0.5);
+
+/* Content Image */
+$contentImageWidth: auto;
+$contentImageVerticalAlign: middle;
+
+/* Avatar Image */
+$avatarSize: 2.5em;
+$avatarBorderRadius: $circularRadius;
+
+/* Paragraph */
+$paragraphDistance: 0.5em;
+
+/* Dimmer */
+$dimmerZIndex: 10;
+$dimmerColor: '';
+
+/* Additional Content */
+$extraDivider: 1px solid rgba(0, 0, 0, 0.05);
+$extraBackground: none;
+$extraPosition: static;
+$extraWidth: auto;
+$extraTop: 0em;
+$extraLeft: 0em;
+$extraMargin: 0em 0em;
+$extraPadding: 0.75em 1em;
+$extraBoxShadow: none;
+$extraColor: $lightTextColor;
+$extraTransition: color $transitionDuration $transitionEasing;
+
+/* Extra Links */
+$extraLinkColor: $unselectedTextColor;
+$extraLinkHoverColor: $linkHoverColor;
+
+/* Buttons */
+$buttonMargin: 0em 0em -1px;
+$buttonWidth: 100%;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Link */
+$linkHoverBackground: '';
+$linkHoverBorder: none;
+$linkHoverZIndex: 5;
+
+$shadowHoverBoxShadow: 0px $shadowDistance 0px 0px $solidSelectedBorderColor;
+$linkHoverBoxShadow:
+  $shadowHoverBoxShadow,
+  0px 0px 0px 1px $selectedBorderColor
+;
+
+/* Card Count */
+$wideCardSpacing: 1em;
+$cardSpacing: 0.75em;
+$smallCardSpacing: 0.5em;
+
+$oneCardSpacing: 0em;
+$twoCardSpacing: $wideCardSpacing;
+$threeCardSpacing: $wideCardSpacing;
+$fourCardSpacing: $cardSpacing;
+$fiveCardSpacing: $cardSpacing;
+$sixCardSpacing: $cardSpacing;
+$sevenCardSpacing: $smallCardSpacing;
+$eightCardSpacing: $smallCardSpacing;
+$nineCardSpacing: $smallCardSpacing;
+$tenCardSpacing: $smallCardSpacing;
+
+$oneCard: $oneColumn;
+$oneCardOffset: 0em;
+$twoCard: ~"calc("$twoColumn~" - "($twoCardSpacing * 2)~")";
+$twoCardOffset: -$twoCardSpacing;
+$threeCard: ~"calc("$threeColumn~" - "($threeCardSpacing * 2)~")";
+$threeCardOffset: -$threeCardSpacing;
+$fourCard: ~"calc("$fourColumn~" - "($fourCardSpacing * 2)~")";
+$fourCardOffset: -$fourCardSpacing;
+$fiveCard: ~"calc("$fiveColumn~" - "($fiveCardSpacing * 2)~")";
+$fiveCardOffset: -$fiveCardSpacing;
+$sixCard: ~"calc("$sixColumn~" - "($sixCardSpacing * 2)~")";
+$sixCardOffset: -$sixCardSpacing;
+$sevenCard: ~"calc("$sevenColumn~" - "($sevenCardSpacing * 2)~")";
+$sevenCardOffset: -$sevenCardSpacing;
+$eightCard: ~"calc("$eightColumn~" - "($sevenCardSpacing * 2)~")";
+$eightCardOffset: -$sevenCardSpacing;
+$nineCard: ~"calc("$nineColumn~" - "($nineCardSpacing * 2)~")";
+$nineCardOffset: -$nineCardSpacing;
+$tenCard: ~"calc("$tenColumn~" - "($tenCardSpacing * 2)~")";
+$tenCardOffset: -$tenCardSpacing;
+
+/* Stackable */
+$stackableRowSpacing: 1em;
+$stackableCardSpacing: 1em;
+$stackableMargin: ~"calc("$oneColumn~" - "($stackableCardSpacing * 2)~")";
+
+/* Sizes */
+$medium: 1em;/*******************************
+            Comments
+*******************************/
+
+
+/*-------------------
+       View
+--------------------*/
+
+$maxWidth: 650px;
+$margin: 1.5em 0em;
+
+/*-------------------
+      Elements
+--------------------*/
+
+/* Comment */
+$commentBackground: none;
+$commentMargin: 0.5em 0em 0em;
+$commentPadding: 0.5em 0em 0em;
+$commentDivider: none;
+$commentBorder: none;
+$commentLineHeight: 1.2;
+$firstCommentMargin: 0em;
+$firstCommentPadding: 0em;
+
+/* Nested Comment */
+$nestedCommentsMargin: 0em 0em 0.5em 0.5em;
+$nestedCommentsPadding: 1em 0em 1em 1em;
+
+$nestedCommentDivider: none;
+$nestedCommentBorder: none;
+$nestedCommentBackground: none;
+
+/* Avatar */
+$avatarDisplay: block;
+$avatarFloat: left;
+$avatarWidth: 2.5em;
+$avatarHeight: auto;
+$avatarSpacing: 1em;
+$avatarMargin: ($commentLineHeight - 1em) 0em 0em;
+$avatarBorderRadius: 0.25rem;
+
+/* Content */
+$contentMargin: $avatarWidth + $avatarSpacing;
+
+/* Author */
+$authorFontSize: 1em;
+$authorColor: $textColor;
+$authorHoverColor: $linkHoverColor;
+$authorFontWeight: bold;
+
+/* Metadata */
+$metadataDisplay: inline-block;
+$metadataFontSize: 0.875em;
+$metadataSpacing: 0.5em;
+$metadataContentSpacing: 0.5em;
+$metadataColor: $lightTextColor;
+
+/* Text */
+$textFontSize: 1em;
+$textMargin: 0.25em 0em 0.5em;
+$textWordWrap: break-word;
+$textLineHeight: 1.3;
+
+/* Actions */
+$actionFontSize: 0.875em;
+$actionContentDistance: 0.75em;
+$actionLinkColor: $unselectedTextColor;
+$actionLinkHoverColor: $hoveredTextColor;
+
+/* Reply */
+$replyDistance: 1em;
+$replyHeight: 12em;
+$replyFontSize: 1em;
+
+$commentReplyDistance: $replyDistance;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Threaded */
+$threadedCommentMargin: -1@mixin $avatarWidth / 2);
+$threadedCommentPadding: 3em 0em 2em 2.25em;
+$threadedCommentBoxShadow: -1px 0px 0px $borderColor;
+
+
+/* Minimal */
+$minimalActionPosition: absolute;
+$minimalActionTop: 0px;
+$minimalActionRight: 0px;
+$minimalActionLeft: auto;
+
+$minimalTransitionDelay: 0.1s;
+$minimalEasing: $defaultEasing;
+$minimalDuration: 0.2s;
+$minimalTransition: opacity $minimalDuration $minimalEasing;
+
+/* Sizes */
+$small: 0.9em;
+$medium: 1em;
+$large: 1.1em;
+$huge: 1.2em;/*******************************
+             Feed
+*******************************/
+
+/*-------------------
+        Feed
+--------------------*/
+
+$margin: 1em 0em;
+
+/*-------------------
+      Elements
+--------------------*/
+
+/* Event */
+$eventDisplay: table;
+$eventWidth: 100%;
+$eventPadding: 0.5rem 0em;
+$eventMargin: 0em;
+$eventBackground: none;
+$eventDivider: none;
+
+/* Event Label */
+$labelDisplay: table-cell;
+$labelWidth: 2.5em;
+$labelHeight: 2.5em;
+$labelVerticalAlign: top;
+$labelTextAlign: left;
+
+/* Icon Label */
+$iconLabelOpacity: 1;
+$iconLabelWidth: 100%;
+$iconLabelSize: 1.5em;
+$iconLabelPadding: 0.25em;
+$iconLabelBackground: none;
+$iconLabelBorderRadius: none;
+$iconLabelBorder: none;
+$iconLabelColor: rgba(0, 0, 0, 0.6);
+
+/* Image Label */
+$imageLabelWidth: 100%;
+$imageLabelHeight: auto;
+$imageLabelBorderRadius: $circularRadius;
+
+/* Content w/ Label */
+$labeledContentPadding: 0.5em 0em 0.5em 1.25em;
+$lastLabeledContentPadding: 0em;
+
+/* Content */
+$contentDisplay: table-cell;
+$contentVerticalAlign: top;
+$contentTextAlign: left;
+$contentWordWrap: break-word;
+
+/* Date */
+$dateMargin: -0.5rem 0em 0em;
+$datePadding: 0em;
+$dateColor: $lightTextColor;
+$dateFontSize: 1em;
+$dateFontWeight: normal;
+$dateFontStyle: normal;
+
+/* Summary */
+$summaryMargin: 0em;
+$summaryFontSize: 1em;
+$summaryFontWeight: bold;
+$summaryColor: $textColor;
+
+/* Summary Image */
+$summaryImageWidth: auto;
+$summaryImageHeight: 2em;
+$summaryImageMargin: -0.25em 0.25em 0em 0em;
+$summaryImageVerticalAlign: middle;
+$summaryImageBorderRadius: 0.25em;
+
+/* Summary Date */
+$summaryDateDisplay: inline-block;
+$summaryDateFloat: none;
+$summaryDateMargin: 0em 0em 0em 0.5em;
+$summaryDatePadding: 0em;
+$summaryDateFontSize: 0.875em;
+$summaryDateFontWeight: $dateFontWeight;
+$summaryDateFontStyle: $dateFontStyle;
+$summaryDateColor: $dateColor;
+
+/* User */
+$userFontWeight: bold;
+$userDistance: 0em;
+$userImageWidth: $summaryImageWidth;
+$userImageHeight: $summaryImageHeight;
+$userImageMargin: $summaryImageMargin;
+$userImageVerticalAlign: $summaryImageVerticalAlign;
+
+/* Extra Summary Data */
+$extraMargin: 0.5em 0em 0em;
+$extraBackground: none;
+$extraPadding: 0em;
+$extraColor: $textColor;
+
+/* Extra Images */
+$extraImageMargin: 0em 0.25em 0em 0em;
+$extraImageWidth: 6em;
+
+/* Extra Text */
+$extraTextPadding: 0.5em 1em;
+$extraTextPointer: 3px solid rgba(0, 0, 0, 0.2);
+$extraTextFontSize: 1em;
+$extraTextLineHeight: 1.33;
+$extraTextMaxWidth: 500px;
+
+/* Metadata Group */
+$metadataDisplay: inline-block;
+$metadataFontSize: 0.875em;
+$metadataMargin: 0.5em 0em 0em;
+$metadataBackground: none;
+$metadataBorder: none;
+$metadataBorderRadius: 0;
+$metadataBoxShadow: none;
+$metadataPadding: 0em;
+$metadataColor: rgba(0, 0, 0, 0.6);
+
+$metadataElementSpacing: 0.75em;
+
+/* Like */
+$likeColor: '';
+$likeHoverColor: #FF2733;
+$likeActiveColor: #EF404A;
+$likeTransition: 0.2s color ease;
+
+/* Metadata Divider */
+$metadataDivider: '';
+$metadataDividerColor: rgba(0, 0, 0, 0.2);
+$metadataDividerOffset: -1em;
+
+$metadataActionCursor: pointer;
+$metadataActionOpacity: 1;
+$metadataActionColor: rgba(0, 0, 0, 0.5);
+$metadataActionTransition: color $transitionDuration $transitionEasing;
+
+$metadataActionHoverColor: $selectedTextColor;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Size */
+$small: 0.9em;
+$medium: 1em;
+$large: 1.1em;/*******************************
+             Item
+*******************************/
+
+/*-------------------
+         View
+--------------------*/
+
+/* Group */
+$groupMargin: 1.5em 0em;
+
+/* Item */
+$display: table;
+$background: transparent;
+$borderRadius: 0rem;
+$minHeight: 0px;
+$padding: 0em;
+$width: 100%;
+$boxShadow: none;
+$border: none;
+$zIndex: '';
+$transition: box-shadow $transitionDuration $transitionEasing;
+
+/* Responsive */
+$itemSpacing: 1em;
+$imageWidth: 175px;
+$contentImageDistance: 1.5em;
+
+$tabletItemSpacing: 1em;
+$tabletImageWidth: 150px;
+$tabletContentImageDistance: 1em;
+
+$mobileItemSpacing: 2em;
+$mobileImageWidth: auto;
+$mobileImageMaxHeight: 250px;
+$mobileContentImageDistance: 1.5em;
+
+/*-------------------
+       Content
+--------------------*/
+
+/* Image */
+$imageDisplay: table-cell;
+$imageFloat: none;
+$imageMaxHeight: '';
+$imageVerticalAlign: top;
+$imageMargin: 0em;
+$imagePadding: 0em;
+$imageBorder: none;
+$imageBorderRadius: 0.125rem;
+$imageBoxShadow: none;
+$imageBorder: none;
+
+/* Content */
+$contentDisplay: table-cell;
+$contentVerticalAlign: top;
+
+$contentWidth: 100%;
+$contentOffset: 0em;
+$contentBackground: none;
+$contentMargin: 0em;
+$contentPadding: 0em;
+$contentFontSize: 1em;
+$contentBorder: none;
+$contentBorderRadius: 0em;
+$contentBoxShadow: none;
+
+/* Header */
+$headerMargin: -$lineHeightOffset 0em 0em;
+$headerFontWeight: bold;
+$headerFontSize: 1.2em;
+$headerColor: $darkTextColor;
+
+/* Metadata */
+$metaFontSize: 1em;
+$metaLineHeight: 1em;
+$metaSpacing: 0.3em;
+$metaColor: rgba(0, 0, 0, 0.6);
+
+/* Icons */
+$actionOpacity: 0.75;
+$actionHoverOpacity: 1;
+$actionTransition: color $transitionDuration $transitionEasing;
+
+/* Actions */
+$favoriteColor: #FFB70A;
+$favoriteActiveColor: #FFE623;
+$likeColor: #FF2733;
+$likeActiveColor: #FF2733;
+
+/* Links */
+$headerLinkColor: $headerColor;
+$headerLinkHoverColor: $linkHoverColor;
+$metaLinkColor: $lightTextColor;
+$metaLinkHoverColor: $textColor;
+$contentLinkColor: '';
+$contentLinkHoverColor: '';
+$contentLinkTransition: color $transitionDuration $transitionEasing;
+
+
+/* Description */
+$descriptionDistance: 0.6em;
+$descriptionMaxWidth: 550px;
+$descriptionFontSize: 1em;
+$descriptionLineHeight: 1.33;
+$descriptionColor: $textColor;
+
+/* Content Image */
+$contentImageWidth: '';
+$contentImageVerticalAlign: middle;
+
+/* Avatar Image */
+$avatarSize: $contentImageWidth;
+$avatarBorderRadius: $circularRadius;
+
+/* Paragraph */
+$paragraphDistance: 0.5em;
+
+/* Additional Content */
+$extraDivider: none;
+$extraHorizontalSpacing: 0.5rem;
+$extraRowSpacing: 0.5rem;
+
+$extraBackground: none;
+$extraDisplay: block;
+$extraPosition: relative;
+$extraMargin: (1rem - $extraRowSpacing) 0em 0em;
+$extraTop: 0em;
+$extraLeft: 0em;
+$extraWidth: 100%;
+$extraPadding: 0em 0em 0em;
+$extraBoxShadow: none;
+$extraColor: $lightTextColor;
+$extraTransition: color $transitionDuration $transitionEasing;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Relaxed */
+$relaxedItemSpacing: 1.5em;
+$veryRelaxedItemSpacing: 2em;
+
+/* Divided */
+$dividedBorder: 1px solid $borderColor;
+$dividedMargin: 0em;
+$dividedPadding: 1em 0em;
+
+$dividedFirstLastMargin: 0em;
+$dividedFirstLastPadding: 0em;
+
+/* Sizes */
+$medium: 1em;/*******************************
+           Statistic
+*******************************/
+
+/*-------------------
+         View
+--------------------*/
+
+$display: inline-block;
+$margin: 1em 0em;
+$textAlign: center;
+$maxWidth: 175px;
+
+/* Group */
+$groupDisplay: block;
+$groupMargin: 1em -$horizontalSpacing;
+$horizontalSpacing: 1em;
+$rowSpacing: 2em;
+
+/* Group Element */
+$elementFloat: left;
+$elementDisplay: block;
+$elementMargin: 0em $horizontalSpacing $rowSpacing;
+$elementMaxWidth: 175px;
+
+/*-------------------
+       Content
+--------------------*/
+
+/* Value */
+$valueFont: @pageFont;
+$valueFontWeight: normal;
+$valueLineHeight: 1em;
+$valueColor: $black;
+$valueTextTransform: uppercase;
+
+/* Label */
+$labelSize: 1rem;
+$topLabelDistance: 0rem;
+$bottomLabelDistance: 0.25rem;
+$labelFont: $headerFont;
+$labelFontWeight: normal;
+$labelColor: $unselectedTextColor;
+$labelLineHeight: 1.33em;
+$labelTextTransform: none;
+
+/* Text */
+$textLabelLineHeight: 1em;
+$textLabelMinHeight: 2em;
+
+/* Label Image */
+$imageHeight: 3rem;
+$imageVerticalAlign: baseline;
+
+/*-------------------
+      Types
+--------------------*/
+
+$horizontalGroupElementMargin: 1em 0em;
+$horizontalLabelDistance: 0.75em;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Floated */
+$leftFloatedMargin: 0em 2em 1em 0em;
+$rightFloatedMargin: 0em 0em 1em 2em;
+
+/* Inverted */
+$invertedValueColor: $invertedTextColor;
+$invertedLabelColor: $invertedLightTextColor;
+
+/* Size */
+$miniValueSize: 1.5rem;
+$miniTextLabelSize: 1rem;
+$miniHorizontalValueSize: 1.5rem;
+
+$tinyValueSize: 2rem;
+$tinyTextLabelSize: 1rem;
+$tinyHorizontalValueSize: 2rem;
+
+$smallValueSize: 3rem;
+$smallTextLabelSize: 1.5rem;
+$smallHorizontalValueSize: 2rem;
+
+$valueSize: 4rem;
+$textLabelSize: 2rem;
+$horizontalValueSize: 3rem;
+
+$largeValueSize: 5rem;
+$largeTextLabelSize: 2.5rem;
+$largeHorizontalValueSize: 4rem;
+
+$hugeValueSize: 6rem;
+$hugeTextLabelSize: 2.5rem;
+$hugeHorizontalValueSize: 5rem;

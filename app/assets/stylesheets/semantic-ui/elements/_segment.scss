@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.5 - Segment
+ * # Semantic UI - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9,6 +9,14 @@
  *
  */
 
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'segment';
+
+@import (multiple) '../../theme.config';
 
 /*******************************
             Segment
@@ -16,19 +24,21 @@
 
 .ui.segment {
   position: relative;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  margin: 1rem 0em;
-  padding: 1em 1em;
-  border-radius: 0.2857rem;
-  border: none;
+  background-color: @background;
+  box-shadow: @boxShadow;
+  margin: @margin 0em;
+  padding: @verticalPadding @horizontalPadding;
+  border-radius: @borderRadius;
+  border: @border;
 }
+
 .ui.segment:first-child {
   margin-top: 0em;
 }
 .ui.segment:last-child {
   margin-bottom: 0em;
 }
+
 .ui.segment:after {
   content: '';
   display: block;
@@ -42,10 +52,11 @@
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
+
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 0px -1px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px -1px 0px @borderColor inset;
 }
 .ui[class*="vertical segment"]:last-child {
   box-shadow: none;
@@ -56,20 +67,20 @@
   margin: 0em;
   padding-top: 0em;
   padding-bottom: 0em;
+
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 1px 0px 0px rgba(39, 41, 43, 0.15);
+  box-shadow: 1px 0px 0px @borderColor;
 }
 
 /*-------------------
     Loose Coupling
 --------------------*/
 
-
 /* Header */
 .ui.inverted.segment > .ui.header {
-  color: #ffffff;
+  color: @white;
 }
 
 /* Label */
@@ -93,22 +104,22 @@
 /* Grid */
 .ui.page.grid.segment,
 .ui.grid .ui.segment.column {
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding-top: @pageGridMargin;
+  padding-bottom: @pageGridMargin;
 }
 .ui.grid.segment {
-  margin: 1rem 0rem;
-  border-radius: 0.2857rem;
+  margin: @margin 0rem;
+  border-radius: @borderRadius;
 }
 
 /* Table */
 .ui.basic.table.segment {
-  background: #ffffff;
-  border: none;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background: @background;
+  border: @border;
+  box-shadow: @boxShadow;
 }
 .ui[class*="very basic"].table.segment {
-  padding: 1em 1em;
+  padding: @verticalPadding @horizontalPadding;
 }
 
 
@@ -116,15 +127,14 @@
              Types
 *******************************/
 
-
 /*-------------------
         Piled
 --------------------*/
 
 .ui.piled.segment {
-  margin: 3em 0em;
-  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.15);
-  z-index: auto;
+  margin: @piledMargin 0em;
+  box-shadow: @piledBoxShadow;
+  z-index: @piledZIndex;
 }
 .ui.piled.segment:first-child {
   margin-top: 0em;
@@ -134,7 +144,7 @@
 }
 .ui.piled.segment:after,
 .ui.piled.segment:before {
-  background-color: #ffffff;
+  background-color: @white;
   visibility: visible;
   content: '';
   display: block;
@@ -142,26 +152,22 @@
   left: 0px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.15);
+  box-shadow: @piledBoxShadow;
 }
 .ui.piled.segment:after {
-  -webkit-transform: rotate(1.2deg);
-      -ms-transform: rotate(1.2deg);
-          transform: rotate(1.2deg);
+  transform: rotate(@piledDegrees);
   top: 0;
   z-index: -1;
 }
 .ui.piled.segment:before {
-  -webkit-transform: rotate(-1.2deg);
-      -ms-transform: rotate(-1.2deg);
-          transform: rotate(-1.2deg);
+  transform: rotate(-@piledDegrees);
   top: 0;
   z-index: -2;
 }
 
 /* Piled Attached */
 .ui[class*="top attached"].piled.segment {
-  margin-top: 3em;
+  margin-top: @piledMargin;
   margin-bottom: 0em;
 }
 .ui.piled.segment[class*="top attached"]:first-child {
@@ -169,7 +175,7 @@
 }
 .ui.piled.segment[class*="bottom attached"] {
   margin-top: 0em;
-  margin-bottom: 3em;
+  margin-bottom: @piledMargin;
 }
 .ui.piled.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
@@ -180,18 +186,20 @@
 --------------------*/
 
 .ui.stacked.segment {
-  padding-bottom: 1.4em;
+  padding-bottom: @stackedPadding;
 }
 .ui.stacked.segment:after,
 .ui.stacked.segment:before {
   content: '';
   position: absolute;
-  bottom: -3px;
+  bottom: -(@stackedHeight / 2);
   left: 0%;
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
-  background-color: rgba(0, 0, 0, 0.03);
+
+  border-top: 1px solid @borderColor;
+  background-color: @stackedPageBackground;
+
   width: 100%;
-  height: 6px;
+  height: @stackedHeight;
   visibility: visible;
 }
 .ui.stacked.segment:before {
@@ -207,8 +215,8 @@
 /* Inverted */
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(39, 41, 43, 0.3);
+  background-color: @subtleTransparentBlack;
+  border-top: 1px solid @selectedBorderColor;
 }
 
 /*-------------------
@@ -225,7 +233,7 @@
 
 .ui.circular.segment {
   display: table-cell;
-  padding: 2em;
+  padding: @circularPadding;
   text-align: center;
   vertical-align: middle;
   border-radius: 500em;
@@ -236,7 +244,7 @@
 --------------------*/
 
 .ui.raised.segment {
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: @raisedBoxShadow;
 }
 
 
@@ -244,14 +252,13 @@
             States
 *******************************/
 
-
 /*--------------
     Disabled
 ---------------*/
 
 .ui.disabled.segment {
-  opacity: 0.3;
-  color: rgba(40, 40, 40, 0.3);
+  opacity: @disabledOpacity;
+  color: @disabledTextColor;
 }
 
 /*--------------
@@ -264,58 +271,49 @@
   point-events: none;
   text-shadow: none !important;
   color: transparent !important;
-  -webkit-transition: all 0s linear;
-          transition: all 0s linear;
+  transition: all 0s linear;
 }
 .ui.loading.segment:before {
   position: absolute;
   content: '';
   top: 0%;
   left: 0%;
-  background: rgba(255, 255, 255, 0.8);
+  background: @loaderDimmerColor;
   width: 100%;
   height: 100%;
-  border-radius: 0.2857rem;
-  z-index: 100;
+  border-radius: @borderRadius;
+  z-index: @loaderDimmerZIndex;
 }
 .ui.loading.segment:after {
   position: absolute;
   content: '';
   top: 50%;
   left: 50%;
-  margin: -1.5em 0em 0em -1.5em;
-  width: 3em;
-  height: 3em;
-  -webkit-animation: segment-spin 0.6s linear;
-          animation: segment-spin 0.6s linear;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  border-radius: 500rem;
-  border-color: #aaaaaa rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+
+  margin: @loaderMargin;
+  width: @loaderSize;
+  height: @loaderSize;
+
+  animation: segment-spin @loaderSpeed linear;
+  animation-iteration-count: infinite;
+
+  border-radius: @circularRadius;
+
+  border-color: @loaderLineColor @loaderFillColor @loaderFillColor @loaderFillColor;
   border-style: solid;
-  border-width: 0.2em;
+  border-width: @loaderLineWidth;
+
   box-shadow: 0px 0px 0px 1px transparent;
   visibility: visible;
-  z-index: 101;
+  z-index: @loaderLineZIndex;
 }
-@-webkit-keyframes segment-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
+
 @keyframes segment-spin {
   from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -333,6 +331,7 @@
   position: relative;
   background-color: transparent;
   box-shadow: none;
+
   border-radius: 0px;
 }
 
@@ -349,67 +348,68 @@
 --------------------*/
 
 .ui.black.segment:not(.inverted) {
-  border-top: 2px solid #1b1c1d;
+  border-top: @coloredBorderSize solid @black;
 }
 .ui.blue.segment:not(.inverted) {
-  border-top: 2px solid #3b83c0;
+  border-top: @coloredBorderSize solid @blue;
 }
 .ui.green.segment:not(.inverted) {
-  border-top: 2px solid #5bbd72;
+  border-top: @coloredBorderSize solid @green;
 }
 .ui.orange.segment:not(.inverted) {
-  border-top: 2px solid #e07b53;
+  border-top: @coloredBorderSize solid @orange;
 }
 .ui.pink.segment:not(.inverted) {
-  border-top: 2px solid #d9499a;
+  border-top: @coloredBorderSize solid @pink;
 }
 .ui.purple.segment:not(.inverted) {
-  border-top: 2px solid #564f8a;
+  border-top: @coloredBorderSize solid @purple;
 }
 .ui.red.segment:not(.inverted) {
-  border-top: 2px solid #d95c5c;
+  border-top: @coloredBorderSize solid @red;
 }
 .ui.teal.segment:not(.inverted) {
-  border-top: 2px solid #00b5ad;
+  border-top: @coloredBorderSize solid @teal;
 }
 .ui.yellow.segment:not(.inverted) {
-  border-top: 2px solid #f2c61f;
+  border-top: @coloredBorderSize solid @yellow;
 }
+
 .ui.black.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: 0.2857rem !important;
-  border-top-right-radius: 0.2857rem !important;
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 .ui.blue.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: 0.2857rem !important;
-  border-top-right-radius: 0.2857rem !important;
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 .ui.green.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: 0.2857rem !important;
-  border-top-right-radius: 0.2857rem !important;
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 .ui.orange.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: 0.2857rem !important;
-  border-top-right-radius: 0.2857rem !important;
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 .ui.pink.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: 0.2857rem !important;
-  border-top-right-radius: 0.2857rem !important;
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 .ui.purple.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: 0.2857rem !important;
-  border-top-right-radius: 0.2857rem !important;
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 .ui.red.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: 0.2857rem !important;
-  border-top-right-radius: 0.2857rem !important;
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 .ui.teal.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: 0.2857rem !important;
-  border-top-right-radius: 0.2857rem !important;
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 .ui.yellow.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: 0.2857rem !important;
-  border-top-right-radius: 0.2857rem !important;
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 
 /*-------------------
@@ -418,40 +418,40 @@
 
 .ui.inverted.segment,
 .ui.inverted.black.segment {
-  background-color: #1b1c1d !important;
-  color: #ffffff !important;
+  background-color: @black !important;
+  color: @white !important;
 }
 .ui.inverted.blue.segment {
-  background-color: #3b83c0 !important;
-  color: #ffffff !important;
+  background-color: @blue !important;
+  color: @white !important;
 }
 .ui.inverted.green.segment {
-  background-color: #5bbd72 !important;
-  color: #ffffff !important;
+  background-color: @green !important;
+  color: @white !important;
 }
 .ui.inverted.orange.segment {
-  background-color: #e07b53 !important;
-  color: #ffffff !important;
+  background-color: @orange !important;
+  color: @white !important;
 }
 .ui.inverted.pink.segment {
-  background-color: #d9499a !important;
-  color: #ffffff !important;
+  background-color: @pink !important;
+  color: @white !important;
 }
 .ui.inverted.purple.segment {
-  background-color: #564f8a !important;
-  color: #ffffff !important;
+  background-color: @purple !important;
+  color: @white !important;
 }
 .ui.inverted.red.segment {
-  background-color: #d95c5c !important;
-  color: #ffffff !important;
+  background-color: @red !important;
+  color: @white !important;
 }
 .ui.inverted.teal.segment {
-  background-color: #00b5ad !important;
-  color: #ffffff !important;
+  background-color: @teal !important;
+  color: @white !important;
 }
 .ui.inverted.yellow.segment {
-  background-color: #f2c61f !important;
-  color: #ffffff !important;
+  background-color: @yellow !important;
+  color: @white !important;
 }
 
 /*-------------------
@@ -475,12 +475,13 @@
 .ui.floated.segment,
 .ui[class*="left floated"].segment {
   float: left;
-  margin-right: 1rem;
+  margin-right: @margin;
 }
 .ui[class*="right floated"].segment {
   float: right;
-  margin-left: 1rem;
+  margin-left: @margin;
 }
+
 
 /*-------------------
       Inverted
@@ -488,22 +489,25 @@
 
 .ui.inverted.segment {
   border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.inverted.segment .segment {
-  color: rgba(0, 0, 0, 0.8);
+  color: @textColor;
 }
 .ui.inverted.segment .inverted.segment {
-  color: #ffffff;
+  color: @white;
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: #1b1c1d;
-  color: #ffffff;
+  background-color: @black;
+  color: @white;
 }
+
 .ui.inverted.block.segment,
 .ui.inverted.attached.segment {
-  border-color: #555555;
+  border-color: @solidWhiteBorderColor;
 }
 
 /*-------------------
@@ -511,23 +515,24 @@
 --------------------*/
 
 .ui.secondary.segment {
-  background: #faf9fa;
-  color: rgba(0, 0, 0, 0.8);
+  background: @secondaryBackground;
+  color: @secondaryColor;
 }
+
 .ui.tertiary.segment {
-  background: #ebebeb;
-  color: rgba(0, 0, 0, 0.8);
+  background: @tertiaryBackground;
+  color: @textColor;
 }
+
 .ui.secondary.inverted.segment {
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  color: #fafafa;
+  background: @secondaryInvertedBackground;
+  color: @secondaryInvertedColor;
 }
 .ui.tertiary.inverted.segment {
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
-  background: linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
-  color: #f0f0f0;
+  background: @tertiaryInvertedBackground;
+  color: @tertiaryInvertedColor;
 }
+
 
 /*-------------------
       Attached
@@ -536,14 +541,12 @@
 .ui.segment.attached {
   top: 0px;
   bottom: 0px;
-  margin: 0em -1px;
-  width: -webkit-calc(100% +  2px );
-  width: calc(100% +  2px );
-  max-width: -webkit-calc(100% +  2px );
-  max-width: calc(100% +  2px );
+  margin: 0em @attachedHorizontalOffset;
+  width: @attachedWidth;
+  max-width: @attachedWidth;
   border-radius: 0px;
-  box-shadow: none;
-  border: 1px solid #d4d4d5;
+  box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
 }
 .ui.segment.attached + .ui.segment.attached:not(.top) {
   border-top: none;
@@ -551,11 +554,11 @@
 
 /* Top */
 .ui[class*="top attached"].segment {
-  top: 0px;
+  top: @attachedTopOffset;
   bottom: 0px;
-  margin-top: 1rem;
+  margin-top: @margin;
   margin-bottom: 0em;
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.segment[class*="top attached"]:first-child {
   margin-top: 0em;
@@ -563,23 +566,24 @@
 
 /* Bottom */
 .ui.segment[class*="bottom attached"] {
-  top: 0px;
+  top: @attachedBottomOffset;
   bottom: 0px;
   margin-top: 0em;
-  margin-bottom: 1rem;
-  box-shadow: none, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
+  margin-bottom: @margin;
+  box-shadow: @attachedBottomBoxShadow;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
 }
+
 
 /*-------------------
        Groups
 --------------------*/
 
 .ui.segments {
-  margin: 1rem 0em;
+  margin: @margin 0em;
 }
 .ui.segments:first-child {
   margin-top: 0em;
@@ -587,18 +591,18 @@
 .ui.segments:last-child {
   margin-bottom: 0em;
 }
+
 .ui.segments > .segment {
   top: 0px;
   bottom: 0px;
-  margin: 0em -1px;
-  width: -webkit-calc(100% +  2px );
-  width: calc(100% +  2px );
-  max-width: -webkit-calc(100% +  2px );
-  max-width: calc(100% +  2px );
+  margin: 0em @attachedHorizontalOffset;
+  width: @attachedWidth;
+  max-width: @attachedWidth;
   border-radius: 0px;
-  box-shadow: none;
-  border: 1px solid #d4d4d5;
+  box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
 }
+
 .ui.segments > .segment:not(:first-child) {
   border-top: none;
 }
@@ -608,8 +612,8 @@
   margin-top: 0em;
   bottom: 0px;
   margin-bottom: 0em;
-  top: 0px;
-  border-radius: 0.2857rem 0.2857rem 0em 0em;
+  top: @attachedTopOffset;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
 
 /* Bottom */
@@ -617,19 +621,9 @@
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 0em;
-  top: 0px;
-  box-shadow: none, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 0em 0em 0.2857rem 0.2857rem;
+  top: @attachedBottomOffset;
+  box-shadow: @attachedBottomBoxShadow;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
-
-/*******************************
-         Theme Overrides
-*******************************/
-
-
-
-/*******************************
-         Site Overrides
-*******************************/
-
+.loadUIOverrides();

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.5 - Divider
+ * # Semantic UI - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9,23 +9,32 @@
  *
  */
 
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'divider';
+
+@import (multiple) '../../theme.config';
+
 
 /*******************************
             Divider
 *******************************/
 
 .ui.divider {
-  margin: 1rem 0rem;
+  margin: @margin;
+
   line-height: 1;
   height: 0em;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: rgba(0, 0, 0, 0.85);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+
+  font-weight: @fontWeight;
+  text-transform: @textTransform;
+  letter-spacing: @letterSpacing;
+  color: @color;
+
+  user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -34,8 +43,8 @@
 ---------------*/
 
 .ui.divider:not(.vertical):not(.horizontal) {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: @shadowWidth solid @shadowColor;
+  border-bottom: @highlightWidth solid @highlightColor;
 }
 
 /*--------------
@@ -46,35 +55,41 @@
   font-size: 1rem;
 }
 
+
 /*--------------
    Horizontal
 ---------------*/
 
 .ui.horizontal.divider {
   position: relative;
+
   height: auto;
-  margin: '';
+  margin: @horizontalMargin;
   overflow: hidden;
   line-height: 1;
   text-align: center;
 }
+
 .ui.horizontal.divider:before,
 .ui.horizontal.divider:after {
   position: absolute;
+  top: 50%;
   content: '';
   z-index: 3;
+
   width: 50%;
   top: 50%;
   height: 0px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-top: @shadowWidth solid @shadowColor;
+  border-bottom: @highlightWidth solid @highlightColor;
 }
+
 .ui.horizontal.divider:before {
-  margin-left: -webkit-calc(-50% -  1em );
-  margin-left: calc(-50% -  1em );
+  margin-left: @horizontalRulerOffset;
 }
 .ui.horizontal.divider:after {
-  margin-left: 1em;
+  margin-left: @horizontalDividerMargin;
 }
 
 /*--------------
@@ -86,28 +101,31 @@
   z-index: 2;
   top: 50%;
   left: 50%;
+
   margin: 0rem;
   padding: 0em;
   width: auto;
   height: 50%;
+
   line-height: 0em;
   text-align: center;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
+
 .ui.vertical.divider:before,
 .ui.vertical.divider:after {
   position: absolute;
   left: 50%;
   content: '';
   z-index: 3;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-left: @shadowWidth solid @shadowColor;
+  border-right: @highlightWidth solid @highlightColor;
+
   width: 0%;
-  height: -webkit-calc(100% -  1rem );
-  height: calc(100% -  1rem );
+  height: @verticalDividerHeight;
 }
+
 .ui.vertical.divider:before {
   top: -100%;
 }
@@ -117,38 +135,43 @@
 }
 
 /* Inside grid */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
   .ui.stackable.grid .ui.vertical.divider,
   .ui.grid .stackable.row .ui.vertical.divider {
     position: relative;
-    margin: 1rem 0rem;
+    margin: @margin;
     left: 50%;
     height: auto;
     overflow: hidden;
     line-height: 1;
     text-align: center;
   }
+
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before,
   .ui.stackable.grid .ui.vertical.divider:after,
   .ui.grid .stackable.row .ui.vertical.divider:after {
     position: absolute;
+    top: 50%;
     left: auto;
     content: '';
     z-index: 3;
+
     width: 50%;
     top: 50%;
     height: 0px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-top: @shadowWidth solid @shadowColor;
+    border-bottom: @highlightWidth solid @highlightColor;
   }
+
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before {
-    margin-left: -51%;
+    margin-left: -(50% + @horizontalDividerMargin);
   }
   .ui.stackable.grid .ui.vertical.divider:after,
   .ui.grid .stackable.row .ui.vertical.divider:after {
-    margin-left: 1em;
+    margin-left: @horizontalDividerMargin;
   }
 }
 
@@ -157,17 +180,15 @@
 ---------------*/
 
 .ui.divider > .icon {
-  margin: 0rem;
-  font-size: 1rem;
+  margin: @dividerIconMargin;
+  font-size: @dividerIconSize;
   height: 1em;
   vertical-align: middle;
 }
 
-
 /*******************************
           Variations
 *******************************/
-
 
 /*--------------
     Hidden
@@ -184,15 +205,16 @@
 .ui.divider.inverted,
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
-  color: #ffffff;
+  color: @invertedTextColor;
 }
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: rgba(0, 0, 0, 0.15) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
-  border-left-color: rgba(0, 0, 0, 0.15) !important;
-  border-right-color: rgba(255, 255, 255, 0.15) !important;
+  border-top-color: @invertedShadowColor !important;
+  border-bottom-color: @invertedHighlightColor !important;
+
+  border-left-color: @invertedShadowColor !important;
+  border-right-color: @invertedHighlightColor !important;
 }
 
 /*--------------
@@ -216,8 +238,8 @@
 ---------------*/
 
 .ui.section.divider {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: @sectionMargin;
+  margin-bottom: @sectionMargin;
 }
 
 /*--------------
@@ -225,17 +247,8 @@
 ---------------*/
 
 .ui.divider {
-  font-size: 1rem;
+  font-size: @medium;
 }
 
 
-/*******************************
-         Theme Overrides
-*******************************/
-
-
-
-/*******************************
-         Site Overrides
-*******************************/
-
+.loadUIOverrides();

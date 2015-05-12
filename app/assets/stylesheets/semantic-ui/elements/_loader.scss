@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.5 - Loader
+ * # Semantic UI - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8,7 +8,14 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
 
+@type    : 'element';
+@element : 'loader';
+
+@import (multiple) '../../theme.config';
 
 /*******************************
             Loader
@@ -19,14 +26,12 @@
 .ui.loader {
   display: none;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: @loaderTopOffset;
+  left: @loaderLeftOffset;
   margin: 0px;
   text-align: center;
   z-index: 1000;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 
 /* Static Shape */
@@ -37,8 +42,9 @@
   left: 50%;
   width: 100%;
   height: 100%;
-  border-radius: 500rem;
-  border: 0.2em solid rgba(0, 0, 0, 0.1);
+
+  border-radius: @circularRadius;
+  border: @loaderLineWidth solid @loaderFillColor;
 }
 
 /* Active Shape */
@@ -49,69 +55,58 @@
   left: 50%;
   width: 100%;
   height: 100%;
-  -webkit-animation: loader 0.6s linear;
-          animation: loader 0.6s linear;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  border-radius: 500rem;
-  border-color: #aaaaaa transparent transparent;
+
+  animation: loader @loaderSpeed linear;
+  animation-iteration-count: infinite;
+
+  border-radius: @circularRadius;
+
+  border-color: @shapeBorderColor;
   border-style: solid;
-  border-width: 0.2em;
+  border-width: @loaderLineWidth;
+
   box-shadow: 0px 0px 0px 1px transparent;
 }
 
 /* Active Animation */
-@-webkit-keyframes loader {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
 @keyframes loader {
   from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 /* Sizes */
 .ui.loader:before,
 .ui.loader:after {
-  width: 2.2585em;
-  height: 2.2585em;
-  margin: 0em 0em 0em -1.12925em;
+  width: @medium;
+  height: @medium;
+  margin: @mediumOffset;
 }
 .ui.mini.loader:before,
 .ui.mini.loader:after {
-  width: 1.2857em;
-  height: 1.2857em;
-  margin: 0em 0em 0em -0.64285em;
+  width: @mini;
+  height: @mini;
+  margin: @miniOffset;
 }
 .ui.small.loader:before,
 .ui.small.loader:after {
-  width: 1.7142em;
-  height: 1.7142em;
-  margin: 0em 0em 0em -0.8571em;
+  width: @small;
+  height: @small;
+  margin: @smallOffset;
 }
 .ui.large.loader:before,
 .ui.large.loader:after {
-  width: 4.5714em;
-  height: 4.5714em;
-  margin: 0em 0em 0em -2.2857em;
+  width: @large;
+  height: @large;
+  margin: @largeOffset;
 }
 
 /*-------------------
       Coupling
 --------------------*/
-
 
 /* Show inside active dimmer */
 .ui.dimmer .loader {
@@ -120,26 +115,25 @@
 
 /* Black Dimmer */
 .ui.dimmer .ui.loader {
-  color: #ffffff;
+  color: @invertedLoaderTextColor;
 }
 .ui.dimmer .ui.loader:before {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: @invertedLoaderFillColor;
 }
 .ui.dimmer .ui.loader:after {
-  border-color: #ffffff transparent transparent;
+  border-color: @invertedShapeBorderColor;
 }
 
 /* White Dimmer (Inverted) */
 .ui.inverted.dimmer .ui.loader {
-  color: rgba(0, 0, 0, 0.8);
+  color: @loaderTextColor;
 }
 .ui.inverted.dimmer .ui.loader:before {
-  border-color: rgba(0, 0, 0, 0.1);
+  border-color: @loaderFillColor;
 }
 .ui.inverted.dimmer .ui.loader:after {
-  border-color: #aaaaaa transparent transparent;
+  border-color: @shapeBorderColor;
 }
-
 
 /*******************************
              Types
@@ -163,11 +157,10 @@
 *******************************/
 
 .ui.indeterminate.loader:after {
-  -webkit-animation-direction: reverse;
-          animation-direction: reverse;
-  -webkit-animation-duration: 1.2s;
-          animation-duration: 1.2s;
+  animation-direction: @indeterminateDirection;
+  animation-duration: @indeterminateSpeed;
 }
+
 .ui.loader.active,
 .ui.loader.visible {
   display: block;
@@ -176,7 +169,6 @@
 .ui.loader.hidden {
   display: none;
 }
-
 
 /*******************************
             Variations
@@ -191,59 +183,60 @@
 /* Loader */
 .ui.inverted.dimmer .ui.mini.loader,
 .ui.mini.loader {
-  width: 1.2857em;
-  height: 1.2857em;
-  font-size: 0.7857em;
+  width: @mini;
+  height: @mini;
+  font-size: @miniFontSize;
 }
 .ui.inverted.dimmer .ui.small.loader,
 .ui.small.loader {
-  width: 1.7142em;
-  height: 1.7142em;
-  font-size: 0.9285em;
+  width: @small;
+  height: @small;
+  font-size: @smallFontSize;
 }
 .ui.inverted.dimmer .ui.loader,
 .ui.loader {
-  width: 2.2585em;
-  height: 2.2585em;
-  font-size: 1em;
+  width: @medium;
+  height: @medium;
+  font-size: @mediumFontSize;
 }
 .ui.inverted.dimmer .ui.loader.large,
 .ui.loader.large {
-  width: 4.5714em;
-  height: 4.5714em;
-  font-size: 1.1428em;
+  width: @large;
+  height: @large;
+  font-size: @largeFontSize;
 }
 
 /* Text Loader */
 .ui.mini.text.loader {
-  min-width: 1.2857em;
-  padding-top: 1.9857em;
+  min-width: @mini;
+  padding-top: (@mini + @textDistance);
 }
 .ui.small.text.loader {
-  min-width: 1.7142em;
-  padding-top: 2.4142em;
+  min-width: @small;
+  padding-top: (@small + @textDistance);
 }
 .ui.text.loader {
-  min-width: 2.2585em;
-  padding-top: 2.9585em;
+  min-width: @medium;
+  padding-top: (@medium + @textDistance);
 }
 .ui.large.text.loader {
-  min-width: 4.5714em;
-  padding-top: 5.2714em;
+  min-width: @large;
+  padding-top: (@large + @textDistance);
 }
+
 
 /*-------------------
        Inverted
 --------------------*/
 
 .ui.inverted.loader {
-  color: #ffffff;
+  color: @invertedLoaderTextColor
 }
 .ui.inverted.loader:before {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: @invertedLoaderFillColor;
 }
 .ui.inverted.loader:after {
-  border-top-color: #ffffff;
+  border-top-color: @invertedLoaderLineColor;
 }
 
 /*-------------------
@@ -252,14 +245,13 @@
 
 .ui.inline.loader {
   position: relative;
-  vertical-align: middle;
-  margin: 0em;
+  vertical-align: @inlineVerticalAlign;
+  margin: @inlineMargin;
   left: 0em;
   top: 0em;
-  -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
+  transform: none;
 }
+
 .ui.inline.loader.active,
 .ui.inline.loader.visible {
   display: inline-block;
@@ -272,13 +264,4 @@
 }
 
 
-/*******************************
-         Theme Overrides
-*******************************/
-
-
-
-/*******************************
-         Site Overrides
-*******************************/
-
+.loadUIOverrides();

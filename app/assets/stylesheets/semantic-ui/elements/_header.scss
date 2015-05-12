@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.5 - Header
+ * # Semantic UI - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11,27 +11,36 @@
 
 
 /*******************************
-            Header
+            Theme
 *******************************/
 
+@type    : 'element';
+@element : 'header';
+
+@import (multiple) '../../theme.config';
+
+
+/*******************************
+            Header
+*******************************/
 
 /* Standard */
 .ui.header {
   border: none;
-  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
-  margin: calc(2rem -  0.165em ) 0em 1rem;
-  padding: 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  line-height: 1.33em;
-  text-transform: none;
-  color: rgba(0, 0, 0, 0.8);
+  margin: @margin;
+  padding: @verticalPadding @horizontalPadding;
+  font-family: @fontFamily;
+  font-weight: @fontWeight;
+  line-height: @lineHeight;
+  text-transform: @textTransform;
+  color: @textColor;
 }
+
 .ui.header:first-child {
-  margin-top: -0.165em;
+  margin-top: @firstMargin;
 }
 .ui.header:last-child {
-  margin-bottom: 0em;
+  margin-bottom: @lastMargin;
 }
 
 /*--------------
@@ -42,9 +51,9 @@
   font-weight: normal;
   margin: 0em;
   padding: 0em;
-  font-size: 1.1428rem;
-  line-height: 1.2em;
-  color: rgba(0, 0, 0, 0.5);
+  font-size: @subHeaderFontSize;
+  line-height: @subHeaderLineHeight;
+  color: @subHeaderColor;
 }
 
 /*--------------
@@ -53,17 +62,17 @@
 
 .ui.header > .icon {
   display: table-cell;
-  opacity: 1;
-  font-size: 1.5em;
-  padding-top: 0.165em;
-  vertical-align: middle;
+  opacity: @iconOpacity;
+  font-size: @iconSize;
+  padding-top: @iconOffset;
+  vertical-align: @iconAlignment;
 }
 
 /* With Text Node */
 .ui.header .icon:only-child {
   display: inline-block;
   padding: 0em;
-  margin-right: 0.75rem;
+  margin-right: @iconMargin;
 }
 
 /*-------------------
@@ -73,14 +82,14 @@
 .ui.header > .image,
 .ui.header > img {
   display: inline-block;
-  margin-top: 0.165em;
-  width: 2.5em;
-  height: auto;
-  vertical-align: middle;
+  margin-top: @imageOffset;
+  width: @imageWidth;
+  height: @imageHeight;
+  vertical-align: @imageAlignment;
 }
 .ui.header > .image:only-child,
 .ui.header > img:only-child {
-  margin-right: 0.75rem;
+  margin-right: @imageMargin;
 }
 
 /*--------------
@@ -89,37 +98,39 @@
 
 .ui.header .content {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: @contentAlignment;
 }
 
 /* After Image */
 .ui.header > img + .content,
 .ui.header > .image + .content {
-  padding-left: 0.75rem;
-  vertical-align: middle;
+  padding-left: @imageMargin;
+  vertical-align: @contentImageAlignment;
 }
 
 /* After Icon */
 .ui.header > .icon + .content {
-  padding-left: 0.75rem;
+  padding-left: @iconMargin;
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: @contentIconAlignment;
 }
+
 
 /*--------------
  Loose Coupling
 ---------------*/
 
 .ui.header .ui.label {
-  font-size: '';
-  margin: 0em 0em 0em 0.5rem;
-  vertical-align: middle;
+  font-size: @labelSize;
+  margin: 0em 0em 0em @labelDistance;
+  vertical-align: @labelVerticalAlign;
 }
 
 /* Positioning */
 .ui.header + p {
-  margin-top: 0em;
+  margin-top: @nextParagraphDistance;
 }
+
 
 
 /*******************************
@@ -132,37 +143,39 @@
 ---------------*/
 
 h1.ui.header {
-  font-size: 2rem;
+  font-size: @h1;
 }
 h2.ui.header {
-  font-size: 1.714rem;
+  font-size: @h2;
 }
 h3.ui.header {
-  font-size: 1.28rem;
+  font-size: @h3;
 }
 h4.ui.header {
-  font-size: 1.071rem;
+  font-size: @h4;
 }
 h5.ui.header {
-  font-size: 1rem;
+  font-size: @h5;
 }
+
 
 /* Sub Header */
 h1.ui.header .sub.header {
-  font-size: 1.4285rem;
+  font-size: @h1SubHeaderFontSize;
 }
 h2.ui.header .sub.header {
-  font-size: 1.1428rem;
+  font-size: @h2SubHeaderFontSize;
 }
 h3.ui.header .sub.header {
-  font-size: 1.1428rem;
+  font-size: @h3SubHeaderFontSize;
 }
 h4.ui.header .sub.header {
-  font-size: 1rem;
+  font-size: @h4SubHeaderFontSize;
 }
 h5.ui.header .sub.header {
-  font-size: 0.9285rem;
+  font-size: @h5SubHeaderFontSize;
 }
+
 
 /*--------------
  Content Heading
@@ -170,36 +183,36 @@ h5.ui.header .sub.header {
 
 .ui.huge.header {
   min-height: 1em;
-  font-size: 2em;
+  font-size: @huge;
 }
 .ui.large.header {
-  font-size: 1.714em;
+  font-size: @large;
 }
 .ui.medium.header {
-  font-size: 1.28em;
+  font-size: @medium;
 }
 .ui.small.header {
-  font-size: 1.071em;
+  font-size: @small;
 }
 .ui.tiny.header {
-  font-size: 1em;
+  font-size: @tiny;
 }
 
 /* Sub Header */
 .ui.huge.header .sub.header {
-  font-size: 1.4285rem;
+  font-size: @hugeSubHeaderFontSize;
 }
 .ui.large.header .sub.header {
-  font-size: 1.4285rem;
+  font-size: @hugeSubHeaderFontSize;
 }
 .ui.header .sub.header {
-  font-size: 1.1428rem;
+  font-size: @subHeaderFontSize;
 }
 .ui.small.header .sub.header {
-  font-size: 1rem;
+  font-size: @smallSubHeaderFontSize;
 }
 .ui.tiny.header .sub.header {
-  font-size: 0.9285rem;
+  font-size: @tinySubHeaderFontSize;
 }
 
 /*-------------------
@@ -209,7 +222,7 @@ h5.ui.header .sub.header {
 .ui.icon.header {
   display: inline-block;
   text-align: center;
-  margin: 2rem 0em 1rem;
+  margin: @iconHeaderTopMargin 0em @iconHeaderBottomMargin;
 }
 .ui.icon.header:after {
   content: '';
@@ -218,8 +231,9 @@ h5.ui.header .sub.header {
   clear: both;
   visibility: hidden;
 }
+
 .ui.icon.header:first-child {
-  margin-top: 0em;
+  margin-top: @iconHeaderFirstMargin;
 }
 .ui.icon.header .icon {
   float: none;
@@ -227,18 +241,18 @@ h5.ui.header .sub.header {
   width: auto;
   height: auto;
   padding: 0em;
-  font-size: 3em;
-  margin: 0em auto 0.25rem;
-  opacity: 1;
+  font-size: @iconHeaderSize;
+  margin: 0em auto @iconHeaderMargin;
+  opacity: @iconHeaderOpacity;
 }
 .ui.icon.header .content {
   display: block;
 }
 .ui.icon.header .circular.icon {
-  font-size: 2em;
+  font-size: @circularHeaderIconSize;
 }
 .ui.icon.header .square.icon {
-  font-size: 2em;
+  font-size: @squareHeaderIconSize;
 }
 .ui.block.icon.header .icon {
   margin-bottom: 0em;
@@ -249,13 +263,12 @@ h5.ui.header .sub.header {
   display: block;
 }
 
-
 /*******************************
             States
 *******************************/
 
 .ui.disabled.header {
-  opacity: 0.3;
+  opacity: @disabledOpacity;
 }
 
 
@@ -269,85 +282,94 @@ h5.ui.header .sub.header {
 --------------------*/
 
 .ui.black.header {
-  color: #1b1c1d !important;
+  color: @black !important;
 }
 a.ui.black.header:hover {
-  color: #1b1c1d !important;
+  color: @blackHover !important;
 }
+
 .ui.blue.header {
-  color: #3b83c0 !important;
+  color: @blue !important;
 }
 a.ui.blue.header:hover {
-  color: #458ac6 !important;
+  color: @blueHover !important;
 }
+
 .ui.green.header {
-  color: #5bbd72 !important;
+  color: @green !important;
 }
 a.ui.green.header:hover {
-  color: #66c17b !important;
+  color: @greenHover !important;
 }
+
 .ui.orange.header {
-  color: #e07b53 !important;
+  color: @orange !important;
 }
 a.ui.orange.header:hover {
-  color: #e28560 !important;
+  color: @orangeHover !important;
 }
+
 .ui.pink.header {
-  color: #d9499a !important;
+  color: @pink !important;
 }
 a.ui.pink.header:hover {
-  color: #dc56a1 !important;
+  color: @pinkHover !important;
 }
+
 .ui.purple.header {
-  color: #564f8a !important;
+  color: @purple !important;
 }
 a.ui.purple.header:hover {
-  color: #5c5594 !important;
+  color: @purpleHover !important;
 }
+
 .ui.red.header {
-  color: #d95c5c !important;
+  color: @red !important;
 }
 a.ui.red.header:hover {
-  color: #dc6868 !important;
+  color: @redHover !important;
 }
+
 .ui.teal.header {
-  color: #00b5ad !important;
+  color: @teal !important;
 }
 a.ui.teal.header:hover {
-  color: #00c4bc !important;
+  color: @tealHover !important;
 }
+
 .ui.yellow.header {
-  color: #f2c61f !important;
+  color: @yellow !important;
 }
 a.ui.yellow.header:hover {
-  color: #f3ca2d !important;
+  color: @yellowHover !important;
 }
+
 .ui.black.dividing.header {
-  border-bottom: 2px solid #1b1c1d;
+  border-bottom: @dividedColoredBorderWidth solid @blackDividedBorderColor;
 }
 .ui.blue.dividing.header {
-  border-bottom: 2px solid #3b83c0;
+  border-bottom: @dividedColoredBorderWidth solid @blueDividedBorderColor;
 }
 .ui.green.dividing.header {
-  border-bottom: 2px solid #5bbd72;
+  border-bottom: @dividedColoredBorderWidth solid @greenDividedBorderColor;
 }
 .ui.orange.dividing.header {
-  border-bottom: 2px solid #e07b53;
+  border-bottom: @dividedColoredBorderWidth solid @orangeDividedBorderColor;
 }
 .ui.pink.dividing.header {
-  border-bottom: 2px solid #d9499a;
+  border-bottom: @dividedColoredBorderWidth solid @pinkDividedBorderColor;
 }
 .ui.purple.dividing.header {
-  border-bottom: 2px solid #564f8a;
+  border-bottom: @dividedColoredBorderWidth solid @purpleDividedBorderColor;
 }
 .ui.red.dividing.header {
-  border-bottom: 2px solid #d95c5c;
+  border-bottom: @dividedColoredBorderWidth solid @redDividedBorderColor;
 }
 .ui.teal.dividing.header {
-  border-bottom: 2px solid #00b5ad;
+  border-bottom: @dividedColoredBorderWidth solid @tealDividedBorderColor;
 }
 .ui.yellow.dividing.header {
-  border-bottom: 2px solid #f2c61f;
+  border-bottom: @dividedColoredBorderWidth solid @yellowDividedBorderColor;
 }
 
 /*-------------------
@@ -355,80 +377,88 @@ a.ui.yellow.header:hover {
 --------------------*/
 
 .ui.inverted.header {
-  color: #ffffff;
+  color: @invertedColor;
 }
 .ui.inverted.header .sub.header {
-  color: rgba(255, 255, 255, 0.85);
+  color: @invertedSubHeaderColor;
 }
 .ui.inverted.attached.header {
-  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: @invertedAttachedBackground;
   box-shadow: none;
 }
 .ui.inverted.block.header {
-  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: @invertedBlockBackground;
   box-shadow: none;
 }
+
 
 /*-------------------
    Inverted Colors
 --------------------*/
 
 .ui.inverted.black.header {
-  color: #aaaaaa !important;
+  color: @darkGrey !important;
 }
 a.ui.inverted.black.header:hover {
-  color: #b2b2b2 !important;
+  color: @darkGreyHover !important;
 }
+
 .ui.inverted.blue.header {
-  color: #54c8ff !important;
+  color: @lightBlue !important;
 }
 a.ui.inverted.blue.header:hover {
-  color: #63cdff !important;
+  color: @lightBlueHover !important;
 }
+
 .ui.inverted.green.header {
-  color: #2ecc40 !important;
+  color: @lightGreen !important;
 }
 a.ui.inverted.green.header:hover {
-  color: #37d249 !important;
+  color: @lightGreenHover !important;
 }
+
 .ui.inverted.orange.header {
-  color: #ff851b !important;
+  color: @lightOrange !important;
 }
 a.ui.inverted.orange.header:hover {
-  color: #ff8d2a !important;
+  color: @lightOrangeHover !important;
 }
+
 .ui.inverted.pink.header {
-  color: #ff8edf !important;
+  color: @lightPink !important;
 }
 a.ui.inverted.pink.header:hover {
-  color: #ff9de3 !important;
+  color: @lightPinkHover !important;
 }
+
 .ui.inverted.purple.header {
-  color: #cdc6ff !important;
+  color: @lightPurple !important;
 }
 a.ui.inverted.purple.header:hover {
-  color: #dad5ff !important;
+  color: @lightPurpleHover !important;
 }
+
 .ui.inverted.red.header {
-  color: #ff695e !important;
+  color: @lightRed !important;
 }
 a.ui.inverted.red.header:hover {
-  color: #ff776d !important;
+  color: @lightRedHover !important;
 }
+
 .ui.inverted.teal.header {
-  color: #6dffff !important;
+  color: @lightTeal !important;
 }
 a.ui.inverted.teal.header:hover {
-  color: #7cffff !important;
+  color: @lightTealHover !important;
 }
+
 .ui.inverted.yellow.header {
-  color: #ffe21f !important;
+  color: @lightYellow !important;
 }
 a.ui.inverted.yellow.header:hover {
-  color: #ffe42e !important;
+  color: @lightYellowHover !important;
 }
+
 .ui.inverted.block.header {
   border-bottom: none;
 }
@@ -464,12 +494,12 @@ a.ui.inverted.yellow.header:hover {
 .ui[class*="left floated"].header {
   float: left;
   margin-top: 0em;
-  margin-right: 0.5em;
+  margin-right: @floatedMargin;
 }
 .ui[class*="right floated"].header {
   float: right;
   margin-top: 0em;
-  margin-left: 0.5em;
+  margin-left: @floatedMargin;
 }
 
 /*-------------------
@@ -480,49 +510,53 @@ a.ui.inverted.yellow.header:hover {
   padding: 0em;
 }
 
+
 /*-------------------
       Dividing
 --------------------*/
 
 .ui.dividing.header {
-  padding-bottom: 0.25rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: @dividedBorderPadding;
+  border-bottom: @dividedBorder;
 }
 .ui.dividing.header .sub.header {
-  padding-bottom: 0.25rem;
+  padding-bottom: @dividedSubHeaderPadding;
 }
 .ui.dividing.header .icon {
-  margin-bottom: 0em;
+  margin-bottom: @dividedIconPadding;
 }
+
 .ui.inverted.dividing.header {
-  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: @invertedDividedBorderColor;
 }
+
 
 /*-------------------
         Block
 --------------------*/
 
 .ui.block.header {
-  background: #f0f0f0;
-  padding: 0.75rem 1rem;
-  box-shadow: none;
-  border: 1px solid #d4d4d5;
-  border-radius: 0.3125rem;
+  background: @blockBackground;
+  padding: @blockVerticalPadding @blockHorizontalPadding;
+  box-shadow: @blockBoxShadow;
+  border: @blockBorder;
+  border-radius: @blockBorderRadius;
 }
+
 .ui.tiny.block.header {
-  font-size: 1em;
+  font-size: @tinyBlock;
 }
 .ui.small.block.header {
-  font-size: 1.071em;
+  font-size: @smallBlock;
 }
 .ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.28em;
+  font-size: @mediumBlock;
 }
 .ui.large.block.header {
-  font-size: 1.714em;
+  font-size: @largeBlock;
 }
 .ui.huge.block.header {
-  font-size: 2em;
+  font-size: @hugeBlock;
 }
 
 /*-------------------
@@ -530,16 +564,17 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.attached.header {
-  background: #ffffff;
-  padding: 0.75rem 1rem;
-  margin-left: -1px;
-  margin-right: -1px;
-  box-shadow: none;
-  border: 1px solid #d4d4d5;
+  background: @attachedBackground;
+  padding: @attachedVerticalPadding @attachedHorizontalPadding;
+  margin-left: @attachedOffset;
+  margin-right: @attachedOffset;
+  box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
 }
 .ui.attached.block.header {
-  background: #f0f0f0;
+  background: @blockBackground;
 }
+
 .ui.attached:not(.top):not(.bottom).header {
   margin-top: 0em;
   margin-bottom: 0em;
@@ -550,29 +585,29 @@ a.ui.inverted.yellow.header:hover {
 .ui.top.attached.header {
   margin-bottom: 0em;
   border-bottom: none;
-  border-radius: 0.3125rem 0.3125rem 0em 0em;
+  border-radius: @attachedBorderRadius @attachedBorderRadius 0em 0em;
 }
 .ui.bottom.attached.header {
   margin-top: 0em;
   border-top: none;
-  border-radius: 0em 0em 0.3125rem 0.3125rem;
+  border-radius: 0em 0em @attachedBorderRadius @attachedBorderRadius;
 }
 
 /* Attached Sizes */
 .ui.tiny.attached.header {
-  font-size: 0.8571em;
+  font-size: @tinyAttached;
 }
 .ui.small.attached.header {
-  font-size: 0.9285em;
+  font-size: @smallAttached;
 }
 .ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1em;
+  font-size: @mediumAttached;
 }
 .ui.large.attached.header {
-  font-size: 1.0714em;
+  font-size: @largeAttached;
 }
 .ui.huge.attached.header {
-  font-size: 1.1428em;
+  font-size: @hugeAttached;
 }
 
 /*-------------------
@@ -580,17 +615,7 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.28em;
+  font-size: @medium;
 }
 
-
-/*******************************
-         Theme Overrides
-*******************************/
-
-
-
-/*******************************
-         Site Overrides
-*******************************/
-
+.loadUIOverrides();
